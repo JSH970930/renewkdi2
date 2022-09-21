@@ -1,0 +1,590 @@
+/* Fonts */
+:root {
+    --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-primary: "Montserrat", sans-serif;
+    --font-secondary: "Poppins", sans-serif;
+}
+
+/* Colors */
+:root {
+    --color-default: #222222;
+    --color-primary: #008374;
+    --color-secondary: #f85a40;
+}
+
+/* Smooth scroll behavior */
+:root {
+    scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    font-family: var(--font-default);
+    color: var(--color-default);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00b6a1;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-primary);
+}
+
+/*--------------------------------------------------------------
+# Sections & Section Header
+--------------------------------------------------------------*/
+section {
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.sections-bg {
+    background-color: #f6f6f6;
+}
+
+.section-header {
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.section-header h2:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--color-primary);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.section-header p {
+    margin-bottom: 0;
+    color: #6f6f6f;
+}
+
+/*--------------------------------------------------------------
+# Scroll top button
+--------------------------------------------------------------*/
+.scroll-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: -15px;
+    z-index: 99999;
+    background: var(--color-secondary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.scroll-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+}
+
+.scroll-top:hover {
+    background: rgba(248, 90, 64, 0.8);
+    color: #fff;
+}
+
+.scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+# search bar
+--------------------------------------------------------------*/
+.serch-box {
+    margin: 0 auto;
+    margin-top: 80px;
+    padding: 10PX;
+    width: 1000px
+}
+
+.search-txt {
+    width: 70%;
+    height: 50px;
+    margin: 10px -30px 30px 120px;
+    border-radius: 40px;
+    text-indent: 20px;
+}
+
+.search-btn {
+    position: relative;
+    width: 30px;
+    height: 20px;
+
+}
+
+
+.detail-bar {
+    position: relative;
+    width: 100px;
+    height: 30px;
+    margin: 30px;
+    margin-top: 40px;
+    border: 0 none;
+    border-radius: 20px;
+    background: #0c3254;
+    color: #fff;
+    font-weight: 600;
+}
+
+.offcanvas-top{
+    height: 600px;
+}
+.offcanvas-top.show {
+    height: 600px;
+    transition-timing-function: 1s;
+
+
+}
+
+.offcanvas-header {
+    margin: 10px;
+    margin-right: 340px;
+}
+
+.btn-close {
+    margin: auto;
+}
+
+.offcanvas-body {
+    margin-left: 530px;
+    position: absolute;
+    height: 550px;
+    padding: 0;
+}
+#searchBar{
+        background:#f0f0ef;
+}
+.frm {
+    margin-left: 145px;
+    position: absolute;
+
+}
+
+.frm select {
+    height: 35px;
+    width: 65px;
+    margin-top: 35px;
+}
+
+.detail-search-txt {
+    position: relative;
+    width: 460px;
+    left: 230px;
+    height: 35px;
+    margin-bottom: 35px;
+     margin-top: 35px;
+    box-sizing: border-box;
+}
+
+
+
+#fill {
+    border-bottom: 1px solid #d9d8d8;
+    border-top: 1px solid #d9d8d8;
+    margin-left: 10px;
+    width: 900px;
+}
+
+
+.nav-tabs {
+    width: 900px;
+}
+
+.tab-content {
+    width: 900px;
+    height: 190px;
+}
+
+.tab-pane label {
+    float: left;
+    min-width: 120px;
+}
+
+#date {
+    clear: both;
+    border-bottom: 1px solid #d9d8d8;
+   margin: 20px 0px 0;
+    height: 70px
+
+}
+
+#date strong {
+    font-size: 15px;
+    margin: 20px
+}
+#all {
+    font-size: 15px;
+    margin: 10px;
+}
+
+#date .ckdate {
+    width: 150px;
+    margin: 15px;
+}
+
+#sbtns {
+    margin: 10px 0px 0px 240px;
+
+}
+
+.sbtn {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 30px;
+        border: 1px solid;
+}
+
+.dropdown1 {
+    position: relative;
+    margin: 10px;
+}
+
+.dropdown2 {
+    position: relative;
+    left: 700px;
+    bottom: 37px;
+}
+
+.dropdown3 {
+    position: relative;
+    left: bottom;
+}
+
+
+@media (min-width: 1280px) and (max-width: 1366px) {
+    .detail-bar {
+        position: relative;
+
+
+    }
+
+
+    .search-txt {
+        width: 80%;
+        height: 55px;
+        margin: 10px -25px 10px 0px;
+
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+    .search-txt {
+        width: 80%;
+        height: 55px;
+        margin: 10px -25px 10px 45px;
+
+    }
+
+    .detail-bar {
+        position: relative;
+
+
+    }
+
+}
+
+
+
+@media (min-width: 1000px) and (max-width: 1023px) {
+
+    .search-txt {
+        width: 87%;
+        height: 55px;
+        margin: 10px -25px 10px 0px;
+
+    }
+
+    .detail-bar {
+        position: relative;
+        margin-left: 5px;
+        bottom: 0px;
+    }
+
+}
+
+@media (min-width: 900px) and (max-width: 999px) {
+
+    .search-txt {
+        width: 85%;
+        height: 55px;
+        margin: 10px -25px 10px 0px;
+
+    }
+
+    .detail-bar {
+        position: relative;
+        margin: 1px;
+        margin-left: 570px;
+        bottom: 53px;
+    }
+
+}
+
+@media (min-width: 800px) and (max-width: 899px) {
+
+    .search-txt {
+        width: 87%;
+        height: 55px;
+        margin: 10px -25px 10px 0px;
+
+    }
+
+    .detail-bar {
+        position: relative;
+        margin-left: 570px;
+        bottom: 90px;
+    }
+
+}
+
+
+
+@media (min-width: 769px) and (max-width: 800px) {
+    .search-txt {
+        width: 90%;
+        height: 55px;
+        margin: 10px -25px 10px 7px;
+
+    }
+
+    .detail-bar {
+        position: relative;
+        margin-left: 480px;
+
+    }
+}
+
+
+@media (max-width: 768px) {
+    .detail-bar {
+        position: relative;
+        margin-left: 354px;
+        bottom: 20px;
+    }
+
+    .search-btn {
+        position: relative;
+        margin-left: 440px;
+        bottom: 45px;
+    }
+
+    .search-txt {
+        width: 100%;
+        height: 55px;
+        margin: 10px 0px 10px 20px;
+
+    }
+}
+
+
+
+
+/*--------------------------------------------------------------
+# carousel 슬라이드
+--------------------------------------------------------------*/
+ul {
+    list-style: none;
+}
+
+.indicators {
+    position: absolute;
+    bottom: 37px;
+    z-index: 1;
+    display: flex;
+    right: 25px;
+}
+
+.indicators li {
+    margin-bottom: 30px;
+
+}
+
+.indicators button {
+    width: 350px;
+    padding: 20px;
+    height: 60px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 0 none;
+    color: #fff;   
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #fff;
+ 
+}
+
+
+.carousel-inner {
+
+    margin: auto;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.d-block {
+
+    max-width: 100%;
+    width: 1500px;
+    height: 500px;
+
+}
+
+.carousel-control-prev {
+    margin: auto;
+}
+
+.carousel-control-next {
+    margin: auto;
+}
+
+.container > input {
+    margin: 50px;
+    width: 60%;
+    margin-left: 200px;
+}
+
+.indicators > div.active{
+  
+    color: #fff;
+  
+    background-color:#003471;
+    }
+
+.on{
+    color: #fff;
+  
+    background-color:#003471;
+}
+.act{
+    color: #fff;
+}
+
+
+
+/*--------------------------------------------------------------
+# Hero Section 메인
+--------------------------------------------------------------*/
+.hero {
+    width: 100%;
+    position: relative;
+    background: white;
+    margin: 0 auto;
+}
+
+@media (min-width: 1365px) {
+    .hero {
+        background-attachment: fixed;
+    }
+}
+
+
+
+.hero .icon-boxes {
+    padding-bottom: 140px;
+    position: relative;
+
+
+}
+
+.hero .icon-box {
+
+    padding: 100px 0px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    background: #787976;
+    box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+    border-radius: 60px;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.hero .icon-box .title {
+
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 30px;
+      
+}
+
+.hero .icon-box .title a {
+  color: #fff;
+    transition: 0.3s;
+}
+
+#epu {
+    background-image: url("https://www.thedailypost.kr/news/photo/201907/70286_61128_1623.jpg");
+}
+
+#policy {
+    background-image: url("https://eiec.kdi.re.kr/userdata/nara/202207/aaa3kilizDpHqeOtLMfgy20220629105046dhqcs.jpg");
+}
+
+#notice {
+    background-image: url("https://img.freepik.com/free-psd/business-document-mock-up_1318-62.jpg?size=626&ext=jpg&ga=GA1.2.1571627229.1663216144");
+}
+
+.icon-box p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 580;
+}
+.hero #notice .title a{
+    color: black;
+}
+.icon-box i{
+    font-size: 50px;
+}
+
+
+.hero .icon-box:hover {
+    opacity: 0.7;
+}
+
+.hero .icon-box:hover .title a,
+.hero .icon-box:hover .icon {
+    color: #fff;
+}
+
+

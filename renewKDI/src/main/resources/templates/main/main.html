@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+layout:decorate="~{layouts/main}">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Impact Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/assets/img/favicon.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+    <!--    Jquery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <!-- =======================================================
+  * Template Name: Impact - v1.0.0
+  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .tab-content label {
+            margin: 30px;
+
+        }
+
+        .tab-content input {
+            margin: 10px;
+        }
+
+    </style>
+
+
+
+</head>
+
+
+
+<body>
+<div layout:fragment="content">
+    <!-- ======= 검색창 ======= -->
+    <!-- 검색창 부분 -->
+    <div class="serch-box">
+
+        <input type="text" class="search-txt" name="" placeholder="Type to search">
+        <a class="search-btn" href="#">
+            <i class="fas fa-search"></i>
+        </a>
+        <button class="detail-bar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">상세검색</button>
+
+        <!-- offcanvas-->
+        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div id="searchBar">
+                    <form class="frm">
+                        <select name="sub">
+                            <option value="#">전체</option>
+                            <option value="#">제목</option>
+                            <option value="#">요약</option>
+                            <option value="#">저자</option>
+                            <option value="#">원문</option>
+
+                        </select>
+
+                    </form>
+                    <div class="detail-search-bar">
+                        <input type="text" class="detail-search-txt" name="" placeholder="Type to search">
+                    </div>
+                </div>
+
+                <!-- Tab을 구성할 영역 설정-->
+                <div id="fill">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#economic" data-toggle="tab">경제정책자료</a></li>
+                        <li><a href="#pub" data-toggle="tab">&nbsp;발행물</a></li>
+                        <li><a href="#edu" data-toggle="tab">&nbsp;교육자료</a></li>
+                        <li><a href="#bigdata" data-toggle="tab">&nbsp;이슈&분석</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="economic">
+                            <label><input type="checkbox"><span>전체</span></label>
+                            <label><input type="checkbox"><span>경제정책자료</span></label>
+                            <label> <input type="checkbox"><span>국내외연구자료</span></label>
+                            <label> <input type="checkbox"><span>정책세미나영상</span></label>
+                            <label> <input type="checkbox"><span>맞춤형정책서비스</span></label>
+                        </div>
+                        <div class="tab-pane fade" id="pub">
+                            <label><input type="checkbox"><span>전체</span></label>
+                            <label> <input type="checkbox"><span>나라경제</span></label>
+                            <label> <input type="checkbox"><span>e경제정보리뷰</span></label>
+                            <label> <input type="checkbox"><span>Economic Bulletin</span></label>
+                            <label> <input type="checkbox"><span>단행본</span></label>
+                            <label> <input type="checkbox"><span>정책미디어</span></label>
+                        </div>
+                        <div class="tab-pane fade" id="edu">
+                            <label><input type="checkbox"><span>전체</span></label>
+                            <label> <input type="checkbox"><span>교사용 수업자료</span></label>
+                            <label> <input type="checkbox"><span>멀티미디어자료</span></label>
+                            <label> <input type="checkbox"><span>학습자료</span></label>
+                            <label> <input type="checkbox"><span>Click 경제교육</span></label>
+                            <label> <input type="checkbox"><span>시사용어사전</span></label>
+                            &nbsp; &nbsp;&nbsp; <label> <input type="checkbox"><span>경제교과서검정</span></label>
+                        </div>
+                        <div class="tab-pane fade" id="bigdata">
+                            <label><input type="checkbox"><span>전체</span></label>
+                            <label><input type="checkbox"> <span>핫이슈</span></label>
+                            <label><input type="checkbox"> <span>EPU지수</span></label>
+                            <label> <input type="checkbox"><span> 인포그래픽</span></label>
+                            <label><input type="checkbox"> <span>소셜 데이터 분석</span></label>
+                            <label> <input type="checkbox"><span> 여론분석</span></label>
+                            <label> <input type="checkbox"> <span>국부론</span></label>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="date">
+                    <form action="#" name="frm2">
+                        <strong>검색기간</strong> &nbsp; &nbsp;
+                        <input type="checkbox" name="chk" checked="checked"><span id="all">전체</span>&nbsp;&nbsp;
+                        <input type="date" "checkbox" name="chk" class="ckdate" />
+                        <span>~</span>
+                        <input type="date" name="chk" class="ckdate" />
+                    </form>
+                </div>
+                <div id="sbtns">
+                    <button type="button" class="sbtn" onclick="konanSearch.search('DetailSearchForm');">검색</button>
+                 <button type="button" class="sbtn" data-bs-dismiss="offcanvas" aria-label="Close">창닫기</button>
+                 
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- 검색창 끝-->
+
+
+
+
+ <!-- ======= Slide banner ======= -->
+    <!--  슬라이드 부분      -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $('.carousel').carousel({
+            interval: 2000 //기본 5초
+        });
+
+    </script>
+
+    <div class="container-xl">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            
+
+            <div class="carousel-inner">
+               <!--버튼-->
+            <div class="indicators">
+                <ul>
+                    <li  id='bt0' >
+                        <div class="active" data-bs-target="#demo"  data-bs-slide-to="0"  aria-current="true" aria-label="Slide 1"><button type="button">나라경제 2022년 9월호</button></div>
+                    </li>
+                    <li  id='bt1'><div  data-bs-target="#demo" data-bs-slide-to="1" aria-label="Slide 2"><button type="button">Economic Bulletin, Sep 2022</button></div></li>
+                    <li id='bt2'><div  data-bs-target="#demo" data-bs-slide-to="2" aria-label="Slide 3"><button type="button">e경제정보리뷰 2022 Issue02</button></div></li>
+                    <li id='bt3'> <div  data-bs-target="#demo" data-bs-slide-to="3" aria-label="Slide 4"><button type="button">[핫이슈] 2022년 경제전망 및 정책방향</button></div></li>
+                </ul>
+            </div>
+                <!-- 슬라이드 쇼 -->
+                <div class="carousel-item active" id="i0">
+                    <!--가로-->
+                    <a href="https://eiec.kdi.re.kr/publish/naraMain.do"> <img class="d-block w-100" src="https://eiec.kdi.re.kr/userdata/main_banner/130/aaamGsIvXIhDChh7r3fgy20220831145838zxuzs.jpg" alt="First slide">
+                    </a>
+                </div>
+                <div class="carousel-item" id="i1">
+                    <a href="https://eiec.kdi.re.kr/publish/ebMain.do">
+                        <img class="d-block w-100" src="https://eiec.kdi.re.kr/userdata/main_banner/131/aaa_msqdqH1ohdziagZly20220901114532zwnxz.jpg" alt="Second slide"> </a>
+                </div>
+                <div class="carousel-item" id="i2">
+                    <a href="https://eiec.kdi.re.kr/publish/reviewMain.do">
+                        <img class="d-block w-100" src="https://eiec.kdi.re.kr/userdata/main_banner/127/aaaIang7iff-zgrBXWfgy20220804091504zbbdp.jpg" alt="Third slide"> </a>
+                </div>
+                <div class="carousel-item" id="i3">
+                    <a href="https://eiec.kdi.re.kr/issue/hotView.do?num=67">
+                        <img class="d-block w-100" src="https://eiec.kdi.re.kr/userdata/main_banner/94/aaak1xJZIp0Aney-EEb3x20211222151303fsjtc.jpg" alt="Fourth slide"> </a>
+                </div>
+            </div>
+
+            <!-- / 슬라이드 쇼 끝 -->
+        </div>
+    </div>
+    <!--    슬라이드 끝-->
+    
+    
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero">
+        <div class="icon-boxes ">
+            <div class="container">
+                <div class="row gy-1 mt-4">
+
+
+
+                    <div class="col-xl-4 col-md-4">
+                        <div class="icon-box" id="policy">
+                            <h1 class="title"><a href="" class="stretched-link">경제정책정보</a></h1>
+                            <P>정부부처 및 유관기관의 <br>최신 경제정책 발표자료</P>
+                        </div>
+                    </div>
+                    <!--End Icon Box -->
+
+
+
+                    <div class="col-xl-4 col-md-4 ">
+                        <div class="icon-box" id="epu">
+                            <h1 class="title"><a href="" class="stretched-link">EPU지수</a></h1><br>
+                            <P>빅데이터로 보는 경제 이슈</P>
+                        </div>
+                    </div>
+
+                    <!--End Icon Box -->
+
+
+
+                    <div class="col-xl-4 col-md-4 ">
+                        <div class="icon-box" id="notice">
+                            <i class="bi bi-bell"></i><br>
+                            <h1 class="title"><a href="" class="stretched-link">공지사항</a></h1>
+                        </div>
+                    </div>
+                    <!--End Icon Box -->
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- End Hero Section -->
+
+    <!-- Vendor JS Files -->
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/aos/aos.js"></script>
+    <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/assets/js/main.js"></script>
+
+</div>
+</body>
+
+</html>

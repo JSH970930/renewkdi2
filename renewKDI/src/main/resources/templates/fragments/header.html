@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -37,7 +38,7 @@
     <header id="header" class="header d-flex align-items-center" th:fragment="header" >
 
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-            <a href="main" class="logo d-flex align-items-center">
+            <a href="/main" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                  <img src="https://eiec.kdi.re.kr/res/img/h1_logo.png" alt=""> 
                
@@ -90,6 +91,18 @@
                             <li><a href="#">주요업무담당자</a></li>
                             <li><a href="#">오시는길</a></li>
                         </ul>
+                    </li>
+                    <li>
+                    <div sec:authorize="isAuthenticated()">
+                    <form action="/member/logout">
+                    <button type="submit" class="btn btn-primary">로그아웃</button>
+                    </form>
+                    </div>
+                    <div sec:authorize="isAnonymous()">
+                    <form action="/member/login">
+                    <button type="submit" class="btn btn-primary">로그인</button>
+                    </form>
+                    </div>
                     </li>
                     
                 </ul>

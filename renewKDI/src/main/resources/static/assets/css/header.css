@@ -421,6 +421,7 @@ section {
     left: 100%;
     visibility: visible;
   }
+  
 }
 
 @media (min-width: 1280px) and (max-width: 1366px) {
@@ -439,6 +440,9 @@ section {
   .mobile-nav-hide {
     display: none;
   }
+  
+  .btn {
+  margin: 1rem;
 }
 
 /*--------------------------------------------------------------

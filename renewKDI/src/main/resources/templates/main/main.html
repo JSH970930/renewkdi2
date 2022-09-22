@@ -64,11 +64,10 @@ layout:decorate="~{layouts/main}">
 
     </style>
     <script>
-	    var offcanvasTop = document.getElementById('offcanvasTop')
-	   		offcanvasTop.addEventListener('show.bs.offcanvas', function () {
-	    	console.log(offcanvasTop);
-		});
-	    var bsOffcanvas = new bootstrap.Offcanvas(offcanvasTop)
+    var offcanvasTop = $('#offcanvasTop');
+   	 	$(offcanvasTop).on('show.bs.offcanvas', function() {
+        console.log(1)
+    	});
 	    
     </script>
 

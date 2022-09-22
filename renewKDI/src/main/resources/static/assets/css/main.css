@@ -162,10 +162,11 @@ section {
 
 .offcanvas-top{
     height: 600px;
+    transition-timing-function: 10s;
 }
 .offcanvas-top.show {
     height: 600px;
-    transition-timing-function: 1s;
+    
 
 
 }

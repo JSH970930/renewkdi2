@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -37,7 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.logoutSuccessUrl("/main") // 로그아웃 성공 시 이동할 url을 설정
 		;
 
-		
 		http.authorizeRequests()
 		.mvcMatchers("/", "/member/**","/main").permitAll() // 모든 사용자 인증없이 해당경로에 접근하도록 설정
 		.mvcMatchers("/admin/**").hasRole("ADMIN") // /admin 경로 접근자는 ADMIN Role일 경우만 접근가능하도록 설정
@@ -47,6 +47,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.exceptionHandling() // 인증되지 않은 사용자가 리소스에 접근하였을 때 수행되는 핸들러 등록
 		.authenticationEntryPoint(new CustomAuthenticationEntryPoint())
 		;
+		
+//		http.cors().and();
+//		http.csrf().disable();
 
 	}
 	
@@ -61,6 +64,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		auth.userDetailsService(memberService)//서비스에서 가입된 사용자인지 확인함
 		.passwordEncoder(passwordEncoder());
 	}
+	
+	
 	
 	
 	

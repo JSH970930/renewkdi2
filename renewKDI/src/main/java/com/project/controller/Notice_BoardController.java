@@ -24,12 +24,6 @@ public class Notice_BoardController {
 	
 	private final Notice_BoardService boardService;
 	
-	 @GetMapping("/main")
-	    public String main(){
-
-	        return "main/main";
-	    }
-	
 	@GetMapping("/board/notice/list")
 	public String getBoardListPage(Model model, String searchKeyword, Pageable pageable 
 			, @RequestParam(required = false, defaultValue = "0") Integer page
@@ -53,6 +47,7 @@ public class Notice_BoardController {
 	@GetMapping("/board/notice/write")
 	public String getBoardWritePage(Model model, Notice_BoardRequestDto boardRequestDto) {
 		return "/board/notice/write";
+		
 	}
 	
 	@GetMapping("/board/notice/view")

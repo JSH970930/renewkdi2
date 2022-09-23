@@ -49,7 +49,7 @@ public class Policy_BoardController {
 	
 
 	
-	@GetMapping("/board/list")
+	@GetMapping("/board/policy/list")
 	public String getBoardListPage(Model model,@RequestParam(value="searchKeyword", required = false) String searchKeyword
 			, @RequestParam(required = false, defaultValue = "0") Integer page
 			, @RequestParam(required = false, defaultValue = "5") Integer size) throws Exception {
@@ -69,19 +69,19 @@ public class Policy_BoardController {
 			model.addAttribute("resultMap", boardService.findByTitleContaining(page, size, searchKeyword ));
 		
 		}
-		return "/board/list";
+		return "/board/policy/list";
 	}
 
 
 	
-	@GetMapping("/board/write")
+	@GetMapping("/board/policy/write")
 	public String getBoardWritePage(Model model, Policy_BoardRequestDto boardRequestDto) {
-		return "/board/write";
+		return "/board/policy/write";
 	}
 	
 
 
-	@GetMapping("/board/view")
+	@GetMapping("/board/policy/view")
 	public String getBoardViewPage(Model model, Policy_BoardRequestDto boardRequestDto) throws Exception {
 		
 		try {
@@ -93,7 +93,7 @@ public class Policy_BoardController {
 		}
 		System.out.println(model);
 		
-		return "board/view";
+		return "board/policy/view";
 	}
 	
 //	@GetMapping("/board/view/{id}")
@@ -105,7 +105,7 @@ public class Policy_BoardController {
 //		return "board/view";
 //	}
 	
-	@PostMapping("/board/write/action")
+	@PostMapping("/board/policy/write/action")
 	public String boardWriteAction(@RequestParam("file") MultipartFile files,Model model, Policy_BoardRequestDto boardRequestDto) 
 	{
 		
@@ -138,10 +138,10 @@ public class Policy_BoardController {
 	        } catch(Exception e) {
 	            e.printStackTrace();
 	        }
-		return "redirect:/board/list";
+		return "redirect:/board/policy/list";
 	}
 	
-	@PostMapping("/board/view/action")
+	@PostMapping("/board/policy/view/action")
 	public String boardViewAction(Model model, Policy_BoardRequestDto boardRequestDto) throws Exception {
 		
 		try {
@@ -154,10 +154,10 @@ public class Policy_BoardController {
 			throw new Exception(e.getMessage()); 
 		}
 		
-		return "redirect:/board/list";
+		return "redirect:/board/policy/list";
 	}
 	
-	@PostMapping("/board/view/delete")
+	@PostMapping("/board/policy/view/delete")
 	public String boardViewDeleteAction(Model model, @RequestParam() Long id) throws Exception {
 		
 		try {
@@ -166,10 +166,10 @@ public class Policy_BoardController {
 			throw new Exception(e.getMessage()); 
 		}
 		
-		return "redirect:/board/list";
+		return "redirect:/board/policy/list";
 	}
 	
-	@PostMapping("/board/delete")
+	@PostMapping("/board/policy/delete")
 	public String boardDeleteAction(Model model, @RequestParam() Long[] deleteId) throws Exception {
 		
 		try {
@@ -178,7 +178,7 @@ public class Policy_BoardController {
 			throw new Exception(e.getMessage()); 
 		}
 		
-		return "redirect:/board/list";
+		return "redirect:/board/policy/list";
 	}
 	
 	@GetMapping("/download/{fileId}")

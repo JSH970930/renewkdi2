@@ -10,7 +10,7 @@
 <body>
 	<div class="container">
 		<h1>정책정보게시판</h1>
-		<form id="frm" action="/board/view/action" method="post">
+		<form id="frm" action="/board/policy/view/action" method="post">
 			<input type="hidden" name="id" th:value="${info.id}">
 			<div class="mb-3">
 			   <!--  <label class="form-label">제목</label> -->
@@ -25,7 +25,7 @@
 			    <input type="text" class="form-control" name="registerId" th:value="${info.registerId}">
 			</div>
 			<div class="float-left">
-				<button type="button" class="btn btn-success" onclick="javascript:location.href='/board/list'">이전</button>
+				<button type="button" class="btn btn-success" onclick="javascript:location.href='/board/policy/list'">이전</button>
 				<button type="submit" class="btn btn-primary">수정</button>
 			</div>
 		
@@ -48,7 +48,7 @@
 		function fnViewDelete() {
 			if (confirm("Do you want to delete it?")) {
 				let frm = $("#frm");
-				frm.attr("action","/board/view/delete");
+				frm.attr("action","/board/policy/view/delete");
 				frm.submit();
 			}
 		}

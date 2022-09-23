@@ -48,8 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.authenticationEntryPoint(new CustomAuthenticationEntryPoint())
 		;
 		
-//		http.cors().and();
-//		http.csrf().disable();
+//	http.cors().and();
+//	http.csrf().disable();
 
 	}
 	

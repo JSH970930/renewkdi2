@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-type" content="text/html;" charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+<title>게시판</title>
+</head>
+
+
+<body>
+	<div class="container">
+		<h1>게시판 등록</h1>
+		<form action="/board/write/action" method="post" enctype="multipart/form-data">
+			<div class="mb-3">
+				<label class="form-label">제목</label>
+				<input type="text" class="form-control" name="title">
+			</div>
+			<div class="mb-3">
+				<label class="form-label">내용</label>
+				<textarea class="form-control" rows="5" name="content">
+				</textarea>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">작성자</label>
+				<input type="text" class="form-control" name="registerId">
+			</div>
+			<button type="button" class="btn btn-success" onclick="javascript:location.href='/board/list'">이전</button>
+			<button type="submit" class="btn btn-primary">제출</button>
+			        <div class="form-group row">
+          <label for="inputFile" class="col-sm-2 col-form-label"><strong>첨부 파일</strong></label>
+          <div class="col-sm-10">
+            <div class="custom-file" id="inputFile">
+              <input name="file" type="file" class="custom-file-input" id="customFile" />
+              <label class="custom-file-label" for="customFile">파일을 선택해 주세요.</label>
+            </div>
+          </div>
+        </div>
+		</form>
+	</div>
+	<script src="/js/lib/jquery.min.js"></script>
+	<script src="/js/lib/bootstrap.min.js"></script>
+
+</body>
+</html>

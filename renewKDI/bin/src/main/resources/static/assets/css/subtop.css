@@ -1,0 +1,36 @@
+
+/*--------------------------------------------------------------
+# subtop
+--------------------------------------------------------------*/
+.top_img{
+    background-color: #176ea0;
+    position: relative;
+    width: 100%;
+    height: 160px;
+    background-position: center 0;
+    background-repeat: no-repeat;
+}
+
+  
+.top_img.sub01{
+    background-image: url("https://eiec.kdi.re.kr/res/img/sub_top01.jpg");
+}
+
+
+.top_img.sub02{
+    background-image: url("https://eiec.kdi.re.kr/res/img/sub_top02_1.jpg");
+}
+.top_img.sub03{
+    background-image: url("https://eiec.kdi.re.kr/res/img/sub_top03.jpg");
+}
+.top_img.sub04{
+    background-image: url("https://eiec.kdi.re.kr/res/img/sub_top04.jpg");
+}
+.top_img.sub05{
+    background-image: url("https://eiec.kdi.re.kr/res/img/sub_top06.jpg");
+}
+.top_img.sub06{
+    background-image: url("/assets/img/notice.png");
+        background-color: #1a7eb8;
+}
+

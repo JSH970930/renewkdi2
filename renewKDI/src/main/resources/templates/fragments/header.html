@@ -98,10 +98,24 @@ xmlns:sec="http://thymeleaf.org/extras/spring-security">
                     <button type="submit" class="btn btn-primary">로그아웃</button>
                     </form>
                     </div>
+                    </li>
+                    <li>
+                    <div sec:authorize="isAuthenticated()">
+                    <form action="/member/updateMember">
+                    <button type="submit" class="btn btn-primary">회원정보 수정</button>
+                    </form>
+                    </div>
+                    </li>
+                    <li>
                     <div sec:authorize="isAnonymous()">
-                    <form action="/member/login">
+                    <form action="/member/login" method="get">
                     <button type="submit" class="btn btn-primary">로그인</button>
                     </form>
+                    </div>
+                    </li>
+                    <li>
+                    <div sec:authorize="isAuthenticated()">
+                    <p th:text="${#authentication.name}"></p>
                     </div>
                     </li>
                     

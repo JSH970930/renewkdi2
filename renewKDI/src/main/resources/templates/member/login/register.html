@@ -1,10 +1,71 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
 xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
-layout:decorate="~{layouts/board}">
+layout:decorate="~{layouts/board2}">
 <meta charset="UTF-8">
-<head>	
-	<style>
+<head>
+<meta name="_csrf" th:content="${_csrf?.token}">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Impact Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/assets/img/favicon.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+    <!--    Jquery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <!-- =======================================================
+  * Template Name: Impact - v1.0.0
+  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--사용자 지정 CSS 파일  -->
+    <link href="/assets/css/register.css" rel="stylesheet">
+    <style>
+        .tab-content label {
+            margin: 30px;
+
+        }
+
+        .tab-content input {
+            margin: 10px;
+        }
+    
+	.error {
+	color: #bd2130;
+	}
 		#star
 		{ color : red;
 		}
@@ -12,7 +73,10 @@ layout:decorate="~{layouts/board}">
 </head>
 
 <body>	
-<div layout:fragment="content">
+<div layout:fragment="subtop">
+  <div class="top_img sub02"></div>
+</div>
+<div layout:fragment="content" class="register">
     <h1>회원가입</h1>
     <form role="form" th:action="@{/member/register}" th:object="${memberDto}" method="post">
     	<p><span id="star">*&nbsp</span>표시는 필수 입력 값입니다.</p>
@@ -36,37 +100,48 @@ layout:decorate="~{layouts/board}">
             <label th:for="name"><span id="star">*&nbsp</span>성명</label>
             <input type="text" class="form-control" th:field="*{name}" placeholder="이름을 입력해주세요.">
         </div>
-        <div class="form-group">
-			<div class="form-control" id="info__birth">
+        <div class="form-group birth">
 			  <label th:for="name"><span id="star">*&nbsp</span>생년월일</label>
-			  <select class="box" th:field="*{birthYear}">
+			  <div class = "selectbox">
+			  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" th:field="*{birthYear}">
 			    <option th:each="i : ${#numbers.sequence(1900, 2022)}" th:value="${i}" th:text="${i} + '년'"></option>
 			  </select>
-			  <select class="box" th:field="*{birthMonth}">
+			  </div>
+			  <div class = "selectbox">
+			  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" th:field="*{birthMonth}">
 			    <option th:each="i : ${#numbers.sequence(1, 12)}" th:value="${i}" th:text="${i} + '월'"></option>
 			  </select>
-			  <select class="box" th:field="*{birthDay}">
+			  </div>
+			  <div class = "selectbox">
+			  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" th:field="*{birthDay}">
 			    <option th:each="i : ${#numbers.sequence(1, 31)}" th:value="${i}" th:text="${i} + '일'"></option>
 			  </select>
-			</div>
+			  </div>
         </div>
         <div class="form-group">
-        	<div id="info_phone">
-        	 <label th:for="phone"><span id="star">*&nbsp</span>휴대폰 번호</label>
-        	 <select class="box" th:field="*{phoneHead}">
-        	  <option th:value="'010'" th:text="'010'"></option>
-        	  <option th:value="'011'" th:text="'011'"></option>
-        	  <option th:value="'016'" th:text="'016'"></option>
-        	  <option th:value="'017'" th:text="'017'"></option>
-        	  <option th:value="'018'" th:text="'018'"></option>
-        	  <option th:value="'019'" th:text="'019'"></option>
-        	  <option th:value="'0502'" th:text="'0502'"></option>
-        	  <option th:value="'0505'" th:text="'0505'"></option>
-        	 </select>
-        	 <input type="text" class="form-control" th:field="*{phoneMid}" placeholder="">
-        	 <input type="text" class="form-control" th:field="*{phoneTail}" placeholder="">
-        	 <span th:text = "${valid_phone}"></span>
+        	<div class="phone">
+	        	 <label th:for="phone" ><span id="star">*&nbsp</span>휴대폰 번호</label>
+	        	 <div class="ui-block-a" >
+		        	 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" th:field="*{phoneHead}">
+		        	  <option th:value="'010'" th:text="'010'"></option>
+		        	  <option th:value="'011'" th:text="'011'"></option>
+		        	  <option th:value="'016'" th:text="'016'"></option>
+		        	  <option th:value="'017'" th:text="'017'"></option>
+		        	  <option th:value="'018'" th:text="'018'"></option>
+		        	  <option th:value="'019'" th:text="'019'"></option>
+		        	  <option th:value="'0502'" th:text="'0502'"></option>
+		        	  <option th:value="'0505'" th:text="'0505'"></option>
+		        	 </select>
+	        	 </div>
+	        	 <div class="ui-block-b phoneform">
+	        		 <input type="text" class="form-control input-sm" th:field="*{phoneMid}">
+	        	 </div>
+	        	 <div class="ui-block-c phoneform">
+	        	 	<input type="text" class="form-control input-sm" th:field="*{phoneTail}">
+	        	 </div>
         	 </div>
+        	 
+        	 <span th:text = "${valid_phone}"></span>
         </div>
         	
         	 
@@ -75,10 +150,10 @@ layout:decorate="~{layouts/board}">
             <input type="email" th:field="*{email}" class="form-control" placeholder="이메일을 입력해주세요.">
             <span th:text = "${valid_email}"></span>
         </div>
-        <div class="form-group">
-        	<div class="form-control" id="info_job">
+        <div class="form-group job">
         	 <label th:for="name">직업분류</label>
-        	  <select class="box" th:field="*{job}">
+        	 <div>
+        	  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" th:field="*{job}">
         	   <option th:value="공무원" th:text="공무원"></option>
         	   <option th:value="일반기업" th:text="일반기업"></option>
         	   <option th:value="학계" th:text="학계"></option>
@@ -89,33 +164,47 @@ layout:decorate="~{layouts/board}">
         	   <option th:value="학생" th:text="학생"></option>
         	   <option th:value="기타" th:text="기타"></option>
         	  </select>
+        	  </div>
+        	  <div>
         	  <span>내부 통계 목적으로만 사용됩니다.</span>
-        	</div>
+        	  </div>
         </div>
         <div class="form-group">
             <label th:for="fax">FAX</label>
             <input type="text" class="form-control" th:field="*{fax}" placeholder="예) 02-598-4114">
         </div>
-        <div class="form-group">
+        <div class="form-group address">
+        	<div id="address1">
             <label th:for="address"><span id="star">*&nbsp</span>주소</label>
-            <input class="form-control" type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
+            </div>
+            <div id="address2">
             <input class="form-control" type="text" placeholder="우편번호" th:field="*{postcode}" readonly/>
+            </div>
+            <div id="address3">
+     		<input class="form-control" type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
+     		</div>
+     		<div id="address4">
             <input class="form-control" placeholder="주소" th:field="*{address}" type="text" readonly/><br>
+            </div>
+            <div id="address5">
             <input class="form-control" placeholder="상세주소" th:field="*{detailAddress}" type="text">
+            </div>
+            <div id="address6">
             <input class="form-control" placeholder="" th:field="*{extraAddress}" type="text" readonly>
-            <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-				<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
-			</div>
+            </div>
         </div>
+        <div id="wrap" class="addressform" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+			<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+		</div>
         <div class="form-group">
             <label th:for="department">직장/학교</label>
             <input type="text" class="form-control" th:field="*{department}" placeholder="">
         </div>  
         <button type="submit" class="btn btn-primary">가입</button>
+        <button type="button"onclick = "location.href='/member/login'" class="btn btn-primary">뒤로가기</button>
     </form>
 
     <br/>
-    <a href="/main">뒤로가기</a>
     <script type="text/javascript" th:src="@{/assets/js/postcode.js}"></script>	
 	<script type="text/javascript" th:src="@{//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js}"></script>
 </div>

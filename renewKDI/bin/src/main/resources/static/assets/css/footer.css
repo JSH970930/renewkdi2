@@ -1,0 +1,91 @@
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+a{text-decoration: none}
+
+.footer {
+  font-size: 14px;
+  background-color: #dedddd;
+  padding: 50px 0;
+ 
+}
+.footer .footer-info{
+    border: 1px #323232;
+}
+.footer .footer-info .logo {
+  line-height: 0;
+  margin-bottom: 15px;
+padding: 0;
+}
+
+.footer .footer-info .logo img {
+  height: 40px;
+  margin-bottom: 20px;
+    width: 200px;
+}
+
+.footer .footer-info p {
+  font-size: 14px;
+  font-family: var(--font-primary);
+  color: #505050;
+    height: 70px;
+  
+}
+
+.footer h4 {
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 12px;
+    color: #282828;
+
+}
+
+.footer .footer-links {
+  margin-bottom: 30px;
+    
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.footer .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+.footer .footer-links ul a {
+  color: #5a5a5a;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+     padding: 5px 0;
+  align-items: center;
+    
+}
+
+.footer .footer-links ul a:hover {
+  color: black;
+}
+
+.footer .footer-contact p {
+  line-height: 26px;
+}
+
+.footer .copyright {
+  text-align: center;
+}
+
+.footer .credits {
+  padding-top: 4px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.footer .credits a {
+  color: black;
+}

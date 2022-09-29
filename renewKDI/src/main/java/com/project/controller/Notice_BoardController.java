@@ -1,18 +1,15 @@
 package com.project.controller;
 
 import org.springframework.data.domain.Pageable;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.project.dto.Notice_BoardRequestDto;
-import com.project.dto.Notice_BoardResponseDto;
 import com.project.service.Notice_BoardService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,27 +21,37 @@ public class Notice_BoardController {
 	
 	private final Notice_BoardService boardService;
 	
-	@GetMapping("/board/notice/list")
-	public String getBoardListPage(Model model, String searchKeyword, Pageable pageable 
-			, @RequestParam(required = false, defaultValue = "0") Integer page
-			, @RequestParam(required = false, defaultValue = "5") Integer size) throws Exception {
-		
-		 if(searchKeyword == null) {
-		
-		try {
-			model.addAttribute("resultMap", boardService.findAll(page, size));
-		} catch (Exception e) {
-			throw new Exception(e.getMessage()); 
-		}
-		
-		} else {
-			model.addAttribute("resultMap", boardService.findByTitleContaining(page, size, searchKeyword));
-		}
+    @GetMapping("/board/notice/list")
+    public String getBoardListPage(Model model,@RequestParam(value="searchKeyword", required = false) String searchKeyword
+        , Pageable pageable  
+          , @RequestParam(value="type", required=false) String type
+          , @RequestParam(required = false, defaultValue = "0") Integer page
+          , @RequestParam(required = false, defaultValue = "10") Integer size) throws Exception {
 
-		return "/board/notice/list";
-	}
+       if(searchKeyword == null){
+    
+       try {
+          model.addAttribute("resultMap", boardService.findAll(page, size));
+       
+       } catch (Exception e) {
+       throw new Exception(e.getMessage()); 
+       }
+
+       }else if(type == "title") {
+          model.addAttribute("resultMap", boardService.findByTitleContaining(page, size, searchKeyword ));
+       
+       }else {
+          model.addAttribute("resultMap" , boardService.findByContentContaining(page, size, searchKeyword));
+       } 
+       
+       
+   
+       
+
+       return "/board/notice/list";
+    }
 	
-	@GetMapping("/board/notice/write")
+	@GetMapping("board/notice/write")
 	public String getBoardWritePage(Model model, Notice_BoardRequestDto boardRequestDto) {
 		return "/board/notice/write";
 		
@@ -64,7 +71,7 @@ public class Notice_BoardController {
 		return "/board/notice/view";
 	}
 	
-	@PostMapping("/board/notice/write/action")
+	@PostMapping("board/notice/write/action")
 	public String boardWriteAction(Model model, Notice_BoardRequestDto boardRequestDto) throws Exception {
 		
 		try {

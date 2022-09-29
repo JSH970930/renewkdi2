@@ -52,8 +52,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.authenticationEntryPoint(new CustomAuthenticationEntryPoint())
 		;
 		
+
+		http.cors().and();
+		http.csrf().disable();
+
+
 		http.csrf().ignoringAntMatchers("/board/economy/**");
        // 이 부분에 권한이 없어도 기능을 가능하게 하는 예외처리 코드
+
 	}
 	
 	@Bean

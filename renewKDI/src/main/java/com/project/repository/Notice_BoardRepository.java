@@ -15,7 +15,8 @@ import com.project.entity.Notice_Board;
 @Repository
 public interface Notice_BoardRepository extends JpaRepository<Notice_Board, Long> {
 	
-	Page<Notice_Board> findByTitleContaining(Pageable pageable, String searchKeyword);
+	public Page<Notice_Board> findByTitleContaining(Pageable pageable, String searchKeyword);
+	public Page<Notice_Board> findByContentContaining(Pageable pageable, String searchKeyword);  
 	
 	static final String UPDATE_BOARD = "UPDATE notice_board "
 			+ "SET TITLE = :#{#boardRequestDto.title}, "

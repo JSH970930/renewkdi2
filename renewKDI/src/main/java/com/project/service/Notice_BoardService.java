@@ -56,6 +56,20 @@ private final Notice_BoardRepository boardRepository;
 	      
 	      return resultMap;
 	   }
+	@Transactional
+	   public HashMap<String, Object> findByContentContaining(Integer page, Integer size, String searchKeyword) {
+
+	      HashMap<String, Object> resultMap = new HashMap<String, Object>();
+	      Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+	      Page<Notice_Board> list = boardRepository.findByContentContaining(pageable, searchKeyword);
+	   
+	      resultMap.put("list", list.stream().map(Notice_BoardResponseDto::new).collect(Collectors.toList()));
+	      resultMap.put("paging", list.getPageable());
+	      resultMap.put("totalCnt", list.getTotalElements());
+	      resultMap.put("totalPage", list.getTotalPages());
+	      
+	      return resultMap;
+	   }
 	
 	public Notice_BoardResponseDto findById(Long id) {
 		return new Notice_BoardResponseDto(boardRepository.findById(id).get());

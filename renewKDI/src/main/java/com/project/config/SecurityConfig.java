@@ -53,6 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		;
 		
 		http.csrf().ignoringAntMatchers("/board/economy/**");
+		http.csrf().ignoringAntMatchers("/economy_download/**");
        // 이 부분에 권한이 없어도 기능을 가능하게 하는 예외처리 코드
 	}
 	

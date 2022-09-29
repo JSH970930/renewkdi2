@@ -115,7 +115,7 @@ xmlns:sec="http://thymeleaf.org/extras/spring-security">
                     </li>
                     <li>
                     <div sec:authorize="isAuthenticated()">
-                    <p th:text="${#authentication.name}"></p>
+                    <p th:text="${#authentication.name}+'님 방문을 환영합니다.'"></p>
                     </div>
                     </li>
                     

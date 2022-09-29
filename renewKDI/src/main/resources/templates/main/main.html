@@ -63,14 +63,6 @@ layout:decorate="~{layouts/main}">
         }
 
     </style>
-    <script>
-	    var offcanvasTop = document.getElementById('offcanvasTop')
-	   		offcanvasTop.addEventListener('show.bs.offcanvas', function () {
-	    	console.log(offcanvasTop);
-		});
-	    var bsOffcanvas = new bootstrap.Offcanvas(offcanvasTop)
-	    
-    </script>
 
 
 
@@ -84,8 +76,8 @@ layout:decorate="~{layouts/main}">
     <!-- 검색창 부분 -->
     <div class="serch-box">
 
-        <input type="text" class="search-txt" name="" placeholder="Type to search">
-        <a class="search-btn" href="#">
+        <input type="text" class="search-txt" name="SearchValue" placeholder="Type to search" >
+        <a class="search-btn" onclick="konanSearch.search('topSearchValue');">
             <i class="fas fa-search"></i>
         </a>
         <button class="detail-bar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">상세검색</button>
@@ -110,7 +102,7 @@ layout:decorate="~{layouts/main}">
 
                     </form>
                     <div class="detail-search-bar">
-                        <input type="text" class="detail-search-txt" name="" placeholder="Type to search">
+                        <input type="text" class="detail-search-txt" name="SearchValue" placeholder="Type to search">
                     </div>
                 </div>
 
@@ -124,37 +116,37 @@ layout:decorate="~{layouts/main}">
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="economic">
-                            <label><input type="checkbox"><span>전체</span></label>
-                            <label><input type="checkbox"><span>경제정책자료</span></label>
-                            <label> <input type="checkbox"><span>국내외연구자료</span></label>
-                            <label> <input type="checkbox"><span>정책세미나영상</span></label>
-                            <label> <input type="checkbox"><span>맞춤형정책서비스</span></label>
+                            <label><input  type="checkbox" id="chkAll" name="chkAll"><span>전체</span></label>
+                            <label><input type="checkbox" name="chk" id="policydc"><span>경제정책자료</span></label>
+                            <label> <input type="checkbox" name="chk" id="study"><span>국내외연구자료</span></label>
+                            <label> <input type="checkbox" name="chk" id=seminar><span>정책세미나영상</span></label>
+                            <label> <input type="checkbox" name="chk" id="service"><span>맞춤형정책서비스</span></label>
                         </div>
                         <div class="tab-pane fade" id="pub">
-                            <label><input type="checkbox"><span>전체</span></label>
-                            <label> <input type="checkbox"><span>나라경제</span></label>
-                            <label> <input type="checkbox"><span>e경제정보리뷰</span></label>
-                            <label> <input type="checkbox"><span>Economic Bulletin</span></label>
-                            <label> <input type="checkbox"><span>단행본</span></label>
-                            <label> <input type="checkbox"><span>정책미디어</span></label>
+                            <label><input type="checkbox" id="chkAll2" name="chkAll2"><span>전체</span></label>
+                            <label> <input type="checkbox" name="chk2" id=ceconomy><span>나라경제</span></label>
+                            <label> <input type="checkbox" name="chk2" id="review"><span>e경제정보리뷰</span></label>
+                            <label> <input type="checkbox" name="chk2" id="bulletin"><span>Economic Bulletin</span></label>
+                         <label> <input type="checkbox" name="chk2" id="book"><span>단행본</span></label>
+                            <label> <input type="checkbox" name="chk2" id="media"><span>정책미디어</span></label>
                         </div>
                         <div class="tab-pane fade" id="edu">
-                            <label><input type="checkbox"><span>전체</span></label>
-                            <label> <input type="checkbox"><span>교사용 수업자료</span></label>
-                            <label> <input type="checkbox"><span>멀티미디어자료</span></label>
-                            <label> <input type="checkbox"><span>학습자료</span></label>
-                            <label> <input type="checkbox"><span>Click 경제교육</span></label>
-                            <label> <input type="checkbox"><span>시사용어사전</span></label>
-                            &nbsp; &nbsp;&nbsp; <label> <input type="checkbox"><span>경제교과서검정</span></label>
+                            <label><input type="checkbox" id="chkAll3" name="chkAll3"><span>전체</span></label>
+                            <label> <input type="checkbox" name="chk3" id ="teach"><span>교사용 수업자료</span></label>
+                            <label> <input type="checkbox" name="chk3"  id = "multi"><span>멀티미디어자료</span></label>
+                            <label> <input type="checkbox" name="chk3"  id = "education"><span>학습자료</span></label>
+                            <label> <input type="checkbox" name="chk3" id = "click"><span>Click 경제교육</span></label>
+                            <label> <input type="checkbox" name="chk3" id = "pedea"><span>시사용어사전</span></label>
+                            &nbsp; &nbsp;&nbsp; <label> <input type="checkbox" name="chk3" id = "book"><span>경제교과서검정</span></label>
                         </div>
                         <div class="tab-pane fade" id="bigdata">
-                            <label><input type="checkbox"><span>전체</span></label>
-                            <label><input type="checkbox"> <span>핫이슈</span></label>
-                            <label><input type="checkbox"> <span>EPU지수</span></label>
-                            <label> <input type="checkbox"><span> 인포그래픽</span></label>
-                            <label><input type="checkbox"> <span>소셜 데이터 분석</span></label>
-                            <label> <input type="checkbox"><span> 여론분석</span></label>
-                            <label> <input type="checkbox"> <span>국부론</span></label>
+                            <label><input type="checkbox" id="chkAll4" name="chkAll4"><span>전체</span></label>
+                            <label><input type="checkbox" name="chk4" id = "issue"> <span>핫이슈</span></label>
+                            <label><input type="checkbox" name="chk4" id = "epu"> <span>EPU지수</span></label>
+                            <label> <input type="checkbox" name="chk4" id = "info"><span> 인포그래픽</span></label>
+                            <label><input type="checkbox" name="chk4" id = "sicial"> <span>소셜 데이터 분석</span></label>
+                            <label> <input type="checkbox" name="chk4" id = "public"><span> 여론분석</span></label>
+                            <label> <input type="checkbox" name="chk4" id = "nations"> <span>국부론</span></label>
 
                         </div>
                     </div>
@@ -162,10 +154,11 @@ layout:decorate="~{layouts/main}">
                 <div id="date">
                     <form action="#" name="frm2">
                         <strong>검색기간</strong> &nbsp; &nbsp;
-                        <input type="checkbox" name="chk" checked="checked"><span id="all">전체</span>&nbsp;&nbsp;
-                        <input type="date" "checkbox" name="chk" class="ckdate" />
+                        <input type="checkbox" name="datechk" checked
+                        id="datechk" class="datechks"><span>전체</span>&nbsp;&nbsp;
+                        <input type="date"  name="startDate" class="ckdate" disabled />
                         <span>~</span>
-                        <input type="date" name="chk" class="ckdate" />
+                        <input type="date" name="endDate" class="ckdate" disabled />
                     </form>
                 </div>
                 <div id="sbtns">
@@ -297,7 +290,7 @@ layout:decorate="~{layouts/main}">
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
-
+    <script src="/assets/js/search.js"></script>
 </div>
 </body>
 

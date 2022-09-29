@@ -87,7 +87,7 @@ layout:decorate="~{layouts/board}">
 	    <form action="/board/notice/list" id="frm" method="get">
 			<div class="col-md-12 mt-4">
 			 	<div class="main-notice">
-			 		<h1 class="notice">공지사항</h1>
+			 		<h4 class="notice">공지사항</h4>
 			 			<button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
 			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/notice/write'">등록</button>
 					</div>
@@ -139,10 +139,10 @@ layout:decorate="~{layouts/board}">
         							</a>
        					 		</li>
 								<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-									<a class="page-link" th:classappend="${paging.pageNumber == (index-1)} ? bg-primary : bg-secondary" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
+									<a class="page-link" th:classappend="${paging.pageNumber == (index-1)}" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
 									 th:href="@{./list(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
 									
-										<span class="text-white" th:text="${index}"></span>
+										<span class="t-white" th:text="${index}"></span>
 									</a>
 								</li>
     							<li class="page-item" th:with="paging=${resultMap.paging}">

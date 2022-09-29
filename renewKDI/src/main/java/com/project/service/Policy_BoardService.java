@@ -63,6 +63,23 @@ private final Policy_BoardRepository boardRepository;
 		
 		return resultMap;
 	}
+
+	@Transactional
+	public HashMap<String, Object> findByTitleIsContaining(Integer page, Integer size, String searchKeyword) {
+		// TODO Auto-generated method stub
+
+		HashMap<String, Object> resultMap1 = new HashMap<String, Object>();
+		Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+		Page<Policy_Board> list = boardRepository.findByTitleContaining(pageable, searchKeyword);
+			
+		resultMap1.put("list", list.stream().map(Policy_BoardResponseDto::new).collect(Collectors.toList()));
+		resultMap1.put("paging", list.getPageable());
+		resultMap1.put("totalCnt", list.getTotalElements());
+		resultMap1.put("totalPage", list.getTotalPages());
+		resultMap1.put("title", "정책 정보");
+		
+		return resultMap1;
+	}
 	
 	@Transactional
 	public Policy_BoardRequestDto getPost(Long id) {

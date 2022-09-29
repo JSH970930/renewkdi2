@@ -56,6 +56,7 @@ private final Notice_BoardRepository boardRepository;
 	      
 	      return resultMap;
 	   }
+	   
 	@Transactional
 	   public HashMap<String, Object> findByContentContaining(Integer page, Integer size, String searchKeyword) {
 
@@ -70,6 +71,23 @@ private final Notice_BoardRepository boardRepository;
 	      
 	      return resultMap;
 	   }
+
+	@Transactional
+	public HashMap<String, Object> findByTitleIsContaining(Integer page, Integer size, String searchKeyword) {
+		// TODO Auto-generated method stub
+
+		HashMap<String, Object> resultMap2 = new HashMap<String, Object>();
+		Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+		Page<Notice_Board> list = boardRepository.findByTitleContaining(pageable, searchKeyword);
+	
+		resultMap2.put("list", list.stream().map(Notice_BoardResponseDto::new).collect(Collectors.toList()));
+		resultMap2.put("paging", list.getPageable());
+		resultMap2.put("totalCnt", list.getTotalElements());
+		resultMap2.put("totalPage", list.getTotalPages());
+		resultMap2.put("title", "공지 사항");
+		
+		return resultMap2;
+	}
 	
 	public Notice_BoardResponseDto findById(Long id) {
 		return new Notice_BoardResponseDto(boardRepository.findById(id).get());

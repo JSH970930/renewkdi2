@@ -34,26 +34,31 @@ private final Policy_BoardRepository boardRepository;
 	}
 	
 	@Transactional(readOnly = true)
-	public HashMap<String, Object> findAll(Integer page, Integer size) {
+	public HashMap<String, Object> findAll(Pageable pageable) {
 		
 		
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
-		PageRequest pageRequest = PageRequest.of(page, size, Sort.by("id").descending());
-		Page<Policy_Board> list = boardRepository.findAll(pageRequest);
+		
+		Page<Policy_Board> list = boardRepository.findAll(pageable);
+		
 		
 		resultMap.put("list", list.stream().map(Policy_BoardResponseDto::new).collect(Collectors.toList()));
 		resultMap.put("paging", list.getPageable());
+		resultMap.put("First", list.isFirst());
+		resultMap.put("Last", list.isLast());
 		resultMap.put("totalCnt", list.getTotalElements());
 		resultMap.put("totalPage", list.getTotalPages());
+	
+		
 		
 		return resultMap;
 	}
 	@Transactional
-	public HashMap<String, Object> findByTitleContaining(Integer page, Integer size, String searchKeyword) {
+	public HashMap<String, Object> findByTitleContaining(Pageable pageable, String searchKeyword) {
 		// TODO Auto-generated method stub
 
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
-		Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+		
 		Page<Policy_Board> list = boardRepository.findByTitleContaining(pageable, searchKeyword);
 	
 		resultMap.put("list", list.stream().map(Policy_BoardResponseDto::new).collect(Collectors.toList()));
@@ -63,6 +68,23 @@ private final Policy_BoardRepository boardRepository;
 		
 		return resultMap;
 	}
+	
+	@Transactional
+	   public HashMap<String, Object> findByContentContaining(Pageable pageable, String searchKeyword) {
+	      // TODO Auto-generated method stub
+
+	      HashMap<String, Object> resultMap = new HashMap<String, Object>();
+	     
+	      Page<Policy_Board> list = boardRepository.findByContentContaining(pageable, searchKeyword);
+	   
+	      resultMap.put("list", list.stream().map(Policy_BoardResponseDto::new).collect(Collectors.toList()));
+	      resultMap.put("paging", list.getPageable());
+	      resultMap.put("totalCnt", list.getTotalElements());
+	      resultMap.put("totalPage", list.getTotalPages());
+	      
+	      return resultMap;
+	   }
+	   
 	
 	@Transactional
 	public Policy_BoardRequestDto getPost(Long id) {

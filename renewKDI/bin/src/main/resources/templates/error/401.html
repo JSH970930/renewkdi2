@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+layout:decorate="~{layouts/main}">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Test Error Page!</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"></link>
+    <style>
+    .errorPage{
+    margin-top : 103px;
+    text-align : center;
+    }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+	    <div class="errorPage">
+	        <img src="https://cdn.dribbble.com/users/761395/screenshots/6287961/error_401.jpg" class="401error">
+	    </div>
+</div>
+</body>
+</html>

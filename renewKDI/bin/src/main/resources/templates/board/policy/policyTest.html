@@ -35,7 +35,6 @@ layout:decorate="~{layouts/board}">
     <!-- Template Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/side.css" />
-    <link rel="stylesheet" href="/assets/css/list.css" />
 
     <!--    Jquery-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -66,13 +65,53 @@ layout:decorate="~{layouts/board}">
         .tab-content input {
             margin: 10px;
         }
+
     </style>
 </head>
+
 <body>
 <div layout:fragment="subtop">
   <div class="top_img sub01"></div>
 </div>
-	<div layout:fragment="side">
+
+<div layout:fragment="side">
+<div class="inner">
+
+							
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>∞Ê¡¶¡§√•¡§∫∏</h2>
+									</header>
+									<ul>
+									
+										<li>
+											<span class="opener">¡÷¡¶∫∞∫∏±‚</span>
+											<ul>
+												<li><a href="#">∞Ê¡¶¡§√•¿⁄∑· ¡÷¡¶</a></li>
+												<li><a href="#">±π≥ªø‹ø¨±∏¿⁄∑· ¡÷¡¶</a></li>
+											</ul>
+										</li>
+										<li>
+											<span><a href="#">πﬂ∞£√≥∫∞∫∏±‚</a></span>
+										
+										</li>
+										<li>
+											<span ><a href="#">¡§√•ººπÃ≥™øµªÛ</a></span>
+											
+										</li>
+										<li>
+											<span><a href="#">∏¬√„«¸¡§√•º≠∫ÒΩ∫</a></span>
+											
+										</li>
+										
+										
+									</ul>
+								</nav>
+                        </div>
+                        
+                        <!-- Scripts -->
 			<script src="/assets/js/jquery.min.js"></script>
 			<script src="/assets/js/browser.min.js"></script>
 			<script src="/assets/js/breakpoints.min.js"></script>
@@ -81,137 +120,8 @@ layout:decorate="~{layouts/board}">
                         </div>
 
 <div layout:fragment="content">
+<p>hello</p>
 
-  <!--content »≠ÔøΩÔøΩ ÔøΩÔøΩ√ºÔøΩÔøΩ ÔøΩÔøΩ ÔøΩÔøΩÏø°ÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩ÷¥ÔøΩ classÔøΩÔøΩ containerÔøΩÔøΩ, cssÔøΩÔøΩ boardÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ quick, sideÔøΩÔøΩ ÔøΩ÷¥ÔøΩ ÔøΩÔøΩÏø°ÔøΩÔøΩ classÔøΩÔøΩÔøΩÔøΩ ÔøΩŸ∏ÔøΩÔøΩÔøΩ ÔøΩ÷±ÔøΩ  -->
-	<div class="containers">
-	    <form action="/board/notice/list" id="frm" method="get">
-			<div class="col-md-12 mt-4">
-			 	<div class="main-notice">
-			 		<h1 class="notice">Í≥µÏßÄÏÇ¨Ìï≠</h1>
-			 			<button type="button" class="btn btn-danger" onclick="fnDelete()">ÏÇ≠Ï†ú</button>
-			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/notice/write'">Îì±Î°ù</button>
-					</div>
-			        <table class="table">
-			            <thead class="thead-strong">
-			                <tr class="thead1">
-			                    <th width="2%"><input type="checkbox" id="chkAll"></th>
-			                    <th width="90%" class="totalCnt1">Ï¥ù <span th:text="${resultMap.totalCnt}"></span> Í±¥</th>
-			                    <th width="8%">ÏûëÏÑ±Ïûê</th>
-			                </tr>
-			            </thead>
-			            <tbody class="tbody">
-			            	<tr th:each="list,index : ${resultMap.list}" th:with="paging=${resultMap.paging}">
-								<td>
-									<input type="checkbox" name="deleteId" th:value="${list.id}">
-								</td>
-								<!-- <td>
-									<span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
-								</td> -->
-								<td>
-									<a th:href="@{./view(id=${list.id})}">
-									<strong th:text="${list.title}" id="title1"></strong></a>
-									<div th:text="${list.registerTime}"></div>
-								</td>
-								<td>
-									<span th:text="${list.registerId}"></span>
-								</td>
-								<!-- <td>
-									<span th:text="${list.readCnt}"></span>
-								</td> -->
-								<!-- <td>
-									
-								</td> -->
-								</tr>
-							<tr>
-			            </tbody>
-			        </table>
-			        <div class="row">
-						<div class="col">
-							<ul class="pagination">
-								<li class="page-item" th:with="paging=${resultMap.paging}">
-     								<a class="page-link" th:href="@{./list(page=0)}" aria-label="first">
-        								<span aria-hidden="true">&laquo;</span>
-        							</a>
-       					 		</li>
-								<li class="page-item" th:with="paging=${resultMap.paging}">
-     								<a class="page-link" th:href="@{./list(page=${paging.pageNumber - 10})} ? 'disabled'" aria-label="Previous">
-        								<span aria-hidden="true">&lsaquo;</span>
-        							</a>
-       					 		</li>
-								<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-									<a class="page-link" th:classappend="${paging.pageNumber == (index-1)} ? bg-primary : bg-secondary" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
-									 th:href="@{./list(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
-									
-										<span class="text-white" th:text="${index}"></span>
-									</a>
-								</li>
-    							<li class="page-item" th:with="paging=${resultMap.paging}">
-      								<a class="page-link" th:href="@{./list(page=${paging.pageNumber + 10})}" aria-label="Next">
-       									<span aria-hidden="true">&rsaquo;</span>
-       								</a>
-       							</li>
-       							<li class="page-item" th:with="paging=${resultMap.paging}">
-      								<a class="page-link" th:href="@{./list(page=${resultMap.totalPage - 1})}" aria-label="end">
-       								 	<span aria-hidden="true">&raquo;</span>
-       								</a>
-       							</li>
-							</ul>
-						</div>
-					</div>
-    	<div class="search">
-		<select name ="type" class="type1">
-             <option selected value="">Ï†ÑÏ≤¥</option>
-             <option value = "title" >Ï†úÎ™©</option>
-             <option value = "content">ÎÇ¥Ïö©</option>
-        </select>
-        <input type="text" name="searchKeyword" class="text1">
-        <button type="submit" class="submit1">Í≤ÄÏÉâ</button>
-    </div>
-    </div>
-    </form>
-    </div>
-    
-    
-     <!--ÔøΩÔøΩ∆ÆÔøΩÔøΩ∆ÆÔøΩÔøΩ js, jquery ÔøΩﬂ∞ÔøΩ-->
-    <script src="/js/lib/jquery.min.js"></script>
-    <script src="/js/lib/bootstrap.min.js"></script>
-    <script th:inline="javascript">
-    	// header checkbox event
-    	$("#chkAll").click(function() {
-    		if (this.checked) {
-    			$("input[name='deleteId']").prop("checked", true);
-    		} else {
-    			$("input[name='deleteId']").prop("checked", false);
-    		}
-    	});
-    	
-    	// body checkbox event
-    	$("input[name='deleteId']").click(function() {
-    		let delInpLen = $("input[name='deleteId']").length;
-    		let delInpChkLen = $("input[name='deleteId']:checked").length;
-    		
-    		if (delInpLen == delInpChkLen) {
-    			$("#chkAll").prop("checked", true);
-    		} else {
-    			$("#chkAll").prop("checked", false);
-    		}
-    	});
-    
-		function fnDelete() {
-			let delInpChkLen = $("input[name='deleteId']:checked").length;
-			
-			if (delInpChkLen > 0) {
-				if (confirm("ÏÇ≠Ï†úÌïòÏãúÍ≤†ÏäµÎãàÍπå?")) {
-					let frm = $("#frm");
-					frm.attr("action","/board/notice/delete");
-					frm.attr("method","post");
-					frm.submit();
-				}
-			} else {
-				alert("Not selected.");
-			}
-		}
-	</script>
 </div>
 </body>
 </html>

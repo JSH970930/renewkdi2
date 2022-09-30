@@ -70,7 +70,7 @@ layout:decorate="~{layouts/board}">
         .col {
             text-align: center;
         }
-
+        
     </style>
 </head>
 
@@ -162,7 +162,8 @@ layout:decorate="~{layouts/board}">
                      <thead class="thead-strong">
                          <tr>
                              <th width="2%"><input type="checkbox" id="chkAll"></th>
-                             <th width="90%" class="totalCnt">총<span th:text="${resultMap.totalCnt}"></span>건</th>
+                             <th width="20%">이미지</th>
+                             <th width="70%" class="totalCnt">총<span th:text="${resultMap.totalCnt}"></span>건</th>
                              <th width="8%">작성자</th>
                          </tr>
                      </thead>
@@ -174,6 +175,9 @@ layout:decorate="~{layouts/board}">
                         <!-- <td>
                            <span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
                         </td> -->
+                        <td class="thumbnail">
+                        <img th:src="${list.imageId}" class="thumbnail" th:alt="${list.imageName}" height="40">
+                        </td>
                         <td>
                            <a th:href="@{./economy_view(id=${list.id})}">
                            <span th:text="${list.title}"></span></a>
@@ -239,6 +243,9 @@ layout:decorate="~{layouts/board}">
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>
     <script th:inline="javascript">
+    
+    
+    
        // header checkbox event
        $("#chkAll").click(function() {
           if (this.checked) {

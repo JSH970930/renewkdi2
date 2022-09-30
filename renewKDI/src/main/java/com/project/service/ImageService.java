@@ -19,15 +19,15 @@ public class ImageService {
 
     @Transactional
     public Long saveFile(ImageDto imageDto) {
-        return imageRepository.save(imageDto.toEntity()).getId();
+        return imageRepository.save(imageDto.toEntity()).getImageId();
     }
 
     @Transactional
-    public ImageDto getFile(Long id) {
-        Image image = imageRepository.findById(id).get();
+    public ImageDto getFile(Long imageId) {
+        Image image = imageRepository.findById(imageId).get();
 
         ImageDto imageDto = ImageDto.builder()
-                .id(id)
+                .imageId(imageId)
                 .origImageName(image.getOrigImageName())
                 .imageName(image.getImageName())
                 .imagePath(image.getImagePath())

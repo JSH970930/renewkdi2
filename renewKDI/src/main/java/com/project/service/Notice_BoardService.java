@@ -84,8 +84,6 @@ private final Notice_BoardRepository boardRepository;
 		resultMap2.put("paging", list.getPageable());
 		resultMap2.put("totalCnt", list.getTotalElements());
 		resultMap2.put("totalPage", list.getTotalPages());
-		resultMap2.put("title", "공지 사항");
-		
 		return resultMap2;
 	}
 	

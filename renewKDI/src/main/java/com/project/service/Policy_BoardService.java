@@ -81,8 +81,6 @@ private final Policy_BoardRepository boardRepository;
 		resultMap1.put("paging", list.getPageable());
 		resultMap1.put("totalCnt", list.getTotalElements());
 		resultMap1.put("totalPage", list.getTotalPages());
-		resultMap1.put("title", "정책 정보");
-		
 		return resultMap1;
 	}
 	

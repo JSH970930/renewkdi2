@@ -141,7 +141,6 @@ layout:decorate="~{layouts/board}">
 								<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
 									<a class="page-link" th:classappend="${paging.pageNumber == (index-1)}" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
 									 th:href="@{./list(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
-									
 										<span class="t-white" th:text="${index}"></span>
 									</a>
 								</li>
@@ -159,19 +158,17 @@ layout:decorate="~{layouts/board}">
 						</div>
 					</div>
     	<div class="search">
-		<select name ="type" class="type1">
-             <option selected value="">전체</option>
-             <option value = "title" >제목</option>
-             <option value = "content">내용</option>
-        </select>
+			<select name ="type" class="type1">
+            	<option selected value="">전체</option>
+            	<option value = "title" >제목</option>
+            	<option value = "content">내용</option>
+        	</select>
         <input type="text" name="searchKeyword" class="text1">
         <button type="submit" class="submit1">검색</button>
-    </div>
+    	</div>
     </div>
     </form>
     </div>
-    
-    
      <!--��Ʈ��Ʈ�� js, jquery �߰�-->
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>

@@ -1,6 +1,7 @@
 package com.project.entity;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +23,7 @@ public class PubBook_Board extends BaseTimeEntity {
    
    @Id
    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+   @Column(nullable = false)
    private Long id;
    private String title;
    private String content;
@@ -31,7 +33,7 @@ public class PubBook_Board extends BaseTimeEntity {
    private String filename;
    private Long imageid;
    private String imageName;
-   
+    
    @Builder
    public PubBook_Board(Long id, String title, String content, Long readcnt, Long fileid, String registerId, String filename, Long imageid, String imageName) {
       this.id = id;

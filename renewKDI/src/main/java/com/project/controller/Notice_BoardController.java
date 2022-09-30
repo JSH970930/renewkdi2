@@ -28,21 +28,24 @@ public class Notice_BoardController {
           , @RequestParam(required = false, defaultValue = "0") Integer page
           , @RequestParam(required = false, defaultValue = "10") Integer size) throws Exception {
 
-       if(searchKeyword == null){
-    
-       try {
-          model.addAttribute("resultMap", boardService.findAll(page, size));
-       
-       } catch (Exception e) {
-       throw new Exception(e.getMessage()); 
-       }
+    	 if(searchKeyword == null){
+    		    
+    	 try {
+    	    model.addAttribute("resultMap", boardService.findAll(page, size));
+    	       
+    	 } catch (Exception e) {
+    	    throw new Exception(e.getMessage()); 
+    	 }
 
-       }else if(type == "title") {
-          model.addAttribute("resultMap", boardService.findByTitleContaining(page, size, searchKeyword ));
-       
-       }else {
-          model.addAttribute("resultMap" , boardService.findByContentContaining(page, size, searchKeyword));
-       } 
+    	 }else if(type.equals("title")) {
+    	    model.addAttribute("resultMap", boardService.findByTitleContaining(page, size, searchKeyword ));
+    	       
+    	 }else if(type.equals("content")) {
+    	    model.addAttribute("resultMap" , boardService.findByContentContaining(page, size, searchKeyword));
+    	    
+    	 } else {
+    	    model.addAttribute("resultMap", boardService.findAll(page, size));
+    	 }
        
        
    

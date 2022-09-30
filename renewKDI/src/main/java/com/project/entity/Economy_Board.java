@@ -25,6 +25,7 @@ public class Economy_Board extends BaseTimeEntity {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="economy_id")
 	private Long id;
+	
 	private String title;
 	private String content;
 	private int readCnt;

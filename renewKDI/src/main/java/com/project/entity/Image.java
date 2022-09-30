@@ -32,7 +32,7 @@ public class Image {
 	@Column(nullable = false)
 	private String imagePath;
 	
-	@OneToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="economy_id")
 	private Economy_Board economy_board;
 	

@@ -54,7 +54,7 @@ public class Economy_BoardRequestDto {
 
 	@Override
 	public String toString() {
-		return "Policy_BoardRequestDto [id=" + id + ", title=" + title + ", content=" + content + ", registerId=" + registerId
+		return "economy_BoardRequestDto [id=" + id + ", title=" + title + ", content=" + content + ", registerId=" + registerId
 				+ ", imageId" + imageId + ", imageName" + imageName +"]";
 	}
 

@@ -13,7 +13,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 public class ImageDto {
-    private Long id;
+    private Long imageId;
     private String origImageName;
     private String imageName;
     private String imagePath;
@@ -21,7 +21,7 @@ public class ImageDto {
 
     public Image toEntity() {
         Image build = Image.builder()
-                .id(id)
+                .imageId(imageId)
                 .origImageName(origImageName)
                 .imageName(imageName)
                 .imagePath(imagePath)
@@ -30,8 +30,8 @@ public class ImageDto {
     }
 
     @Builder
-    public ImageDto(Long id, String origImageName, String imageName, String imagePath) {
-        this.id = id;
+    public ImageDto(Long imageId, String origImageName, String imageName, String imagePath) {
+        this.imageId = imageId;
         this.origImageName = origImageName;
         this.imageName = imageName;
         this.imagePath = imagePath;

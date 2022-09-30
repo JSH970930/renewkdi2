@@ -130,6 +130,8 @@ public class Economy_BoardController {
 	            Long fileId = fileService.saveFile(fileDto);
 	            boardRequestDto.setFileId(fileId);
 	            
+	            boardService.save(boardRequestDto);
+	            
 	        } catch(Exception e) {
 	            e.printStackTrace();
 	        }
@@ -157,14 +159,14 @@ public class Economy_BoardController {
 	            imageDto.setImagePath(imagePath);
 
 	            Long imageId = imageService.saveFile(imageDto);
-	            boardRequestDto.setFileId(imageId);
+	          
 	            
 	            
       } catch(Exception e){
       	e.printStackTrace();
       }
 		  
-		  boardService.save(boardRequestDto);
+		  
 		  
 		return "redirect:/board/economy/economy_list";
 	}

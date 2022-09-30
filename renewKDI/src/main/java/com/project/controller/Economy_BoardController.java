@@ -63,6 +63,7 @@ public class Economy_BoardController {
 			model.addAttribute("resultMap", boardService.findByTitleContaining(page, size, searchKeyword ));
 		
 		}
+		System.out.println(boardService.findAll(page, size));
 		return "/board/economy/economy_list";
 	}
 

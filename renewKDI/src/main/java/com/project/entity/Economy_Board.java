@@ -1,6 +1,7 @@
 package com.project.entity;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +23,7 @@ public class Economy_Board extends BaseTimeEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column(name="economy_id")
 	private Long id;
 	private String title;
 	private String content;

@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -49,39 +50,49 @@ public class Policy_BoardController {
 	
 
 	
-	@GetMapping("/board/list")
-	public String getBoardListPage(Model model,@RequestParam(value="searchKeyword", required = false) String searchKeyword
-			, @RequestParam(required = false, defaultValue = "0") Integer page
-			, @RequestParam(required = false, defaultValue = "5") Integer size) throws Exception {
-		
-		System.out.println(searchKeyword);
-		
-		if(searchKeyword == null){
+	   @GetMapping("/board/policy/list")
+	   public String getBoardListPage(Model model,@RequestParam(value="searchKeyword", required = false) String searchKeyword
+			 , Pageable pageable  
+	         , @RequestParam(value="type", required=false) String type
+	         , @RequestParam(required = false, defaultValue = "0") Integer page
+	         , @RequestParam(required = false, defaultValue = "10") Integer size) throws Exception {
+	      
+	      
+	     pageable = PageRequest.of(page, size, Sort.by("id").descending());
+	      
+	      if(searchKeyword == null){
+	   
+	      try {
+	         model.addAttribute("resultMap", boardService.findAll(pageable));
+	      
+	      } catch (Exception e) {
+	      throw new Exception(e.getMessage()); 
+	      }
+
+	      }else if(type == "title") {
+	         model.addAttribute("resultMap", boardService.findByTitleContaining(pageable, searchKeyword ));
+	      
+	      }else {
+	         model.addAttribute("resultMap" , boardService.findByContentContaining(pageable, searchKeyword));
+	      } 
+	      
+	      
+	      System.out.println(boardService.findAll(pageable));
+	      
+
+	      return "/board/policy/list";
+	   }
+
+
 	
-		try {
-			model.addAttribute("resultMap", boardService.findAll(page, size));
-		
-		} catch (Exception e) {
-		throw new Exception(e.getMessage()); 
-		}
-
-		}else {
-			model.addAttribute("resultMap", boardService.findByTitleContaining(page, size, searchKeyword ));
-		
-		}
-		return "/board/list";
-	}
-
-
-	
-	@GetMapping("/board/write")
+	@GetMapping("/board/policy/write")
 	public String getBoardWritePage(Model model, Policy_BoardRequestDto boardRequestDto) {
-		return "/board/write";
+		return "/board/policy/write";
 	}
 	
 
 
-	@GetMapping("/board/view")
+	@GetMapping("/board/policy/view")
 	public String getBoardViewPage(Model model, Policy_BoardRequestDto boardRequestDto) throws Exception {
 		
 		try {
@@ -93,7 +104,7 @@ public class Policy_BoardController {
 		}
 		System.out.println(model);
 		
-		return "board/view";
+		return "board/policy/view";
 	}
 	
 //	@GetMapping("/board/view/{id}")
@@ -105,7 +116,7 @@ public class Policy_BoardController {
 //		return "board/view";
 //	}
 	
-	@PostMapping("/board/write/action")
+	@PostMapping("/board/policy/write/action")
 	public String boardWriteAction(@RequestParam("file") MultipartFile files,Model model, Policy_BoardRequestDto boardRequestDto) 
 	{
 		
@@ -138,10 +149,10 @@ public class Policy_BoardController {
 	        } catch(Exception e) {
 	            e.printStackTrace();
 	        }
-		return "redirect:/board/list";
+		return "redirect:/board/policy/list";
 	}
 	
-	@PostMapping("/board/view/action")
+	@PostMapping("/board/policy/view/action")
 	public String boardViewAction(Model model, Policy_BoardRequestDto boardRequestDto) throws Exception {
 		
 		try {
@@ -154,10 +165,10 @@ public class Policy_BoardController {
 			throw new Exception(e.getMessage()); 
 		}
 		
-		return "redirect:/board/list";
+		return "redirect:/board/policy/list";
 	}
 	
-	@PostMapping("/board/view/delete")
+	@PostMapping("/board/policy/view/delete")
 	public String boardViewDeleteAction(Model model, @RequestParam() Long id) throws Exception {
 		
 		try {
@@ -166,10 +177,10 @@ public class Policy_BoardController {
 			throw new Exception(e.getMessage()); 
 		}
 		
-		return "redirect:/board/list";
+		return "redirect:/board/policy/list";
 	}
 	
-	@PostMapping("/board/delete")
+	@PostMapping("/board/policy/delete")
 	public String boardDeleteAction(Model model, @RequestParam() Long[] deleteId) throws Exception {
 		
 		try {
@@ -178,7 +189,7 @@ public class Policy_BoardController {
 			throw new Exception(e.getMessage()); 
 		}
 		
-		return "redirect:/board/list";
+		return "redirect:/board/policy/list";
 	}
 	
 	@GetMapping("/download/{fileId}")

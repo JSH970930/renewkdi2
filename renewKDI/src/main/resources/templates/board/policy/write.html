@@ -35,7 +35,6 @@ layout:decorate="~{layouts/board}">
     <!-- Template Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/side.css" />
-    <link rel="stylesheet" href="/assets/css/list.css" />
 
     <!--    Jquery-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -66,13 +65,53 @@ layout:decorate="~{layouts/board}">
         .tab-content input {
             margin: 10px;
         }
+
     </style>
 </head>
+
 <body>
 <div layout:fragment="subtop">
   <div class="top_img sub01"></div>
 </div>
-	<div layout:fragment="side">
+
+<div layout:fragment="side">
+<div class="inner">
+
+							
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>경제정책정보</h2>
+									</header>
+									<ul>
+									
+										<li>
+											<span class="opener">주제별보기</span>
+											<ul>
+												<li><a href="#">경제정책자료주제</a></li>
+												<li><a href="#">국내외연구자료주제</a></li>
+											</ul>
+										</li>
+										<li>
+											<span><a href="#">발간처별보기</a></span>
+										
+										</li>
+										<li>
+											<span ><a href="#">정책세미나영상</a></span>
+											
+										</li>
+										<li>
+											<span><a href="#">맞춤형정책서비스</a></span>
+											
+										</li>
+										
+										
+									</ul>
+								</nav>
+                        </div>
+                        
+                        <!-- Scripts -->
 			<script src="/assets/js/jquery.min.js"></script>
 			<script src="/assets/js/browser.min.js"></script>
 			<script src="/assets/js/breakpoints.min.js"></script>
@@ -82,136 +121,39 @@ layout:decorate="~{layouts/board}">
 
 <div layout:fragment="content">
 
-  <!--content ȭ�� ��ü�� �� ��쿡�� �����ִ� class�� container��, css�� board�� ������� quick, side�� �ִ� ��쿡�� class���� �ٸ��� �ֱ�  -->
 	<div class="containers">
-	    <form action="/board/notice/list" id="frm" method="get">
-			<div class="col-md-12 mt-4">
-			 	<div class="main-notice">
-			 		<h4 class="notice">공지사항</h4>
-			 			<button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
-			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/notice/write'">등록</button>
-					</div>
-			        <table class="table">
-			            <thead class="thead-strong">
-			                <tr class="thead1">
-			                    <th width="2%"><input type="checkbox" id="chkAll"></th>
-			                    <th width="90%" class="totalCnt1">총 <span th:text="${resultMap.totalCnt}"></span> 건</th>
-			                    <th width="8%">작성자</th>
-			                </tr>
-			            </thead>
-			            <tbody class="tbody">
-			            	<tr th:each="list,index : ${resultMap.list}" th:with="paging=${resultMap.paging}">
-								<td>
-									<input type="checkbox" name="deleteId" th:value="${list.id}">
-								</td>
-								<!-- <td>
-									<span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
-								</td> -->
-								<td>
-									<a th:href="@{./view(id=${list.id})}">
-									<strong th:text="${list.title}" id="title1"></strong></a>
-									<div th:text="${list.registerTime}"></div>
-								</td>
-								<td>
-									<span th:text="${list.registerId}"></span>
-								</td>
-								<!-- <td>
-									<span th:text="${list.readCnt}"></span>
-								</td> -->
-								<!-- <td>
-									
-								</td> -->
-								</tr>
-							<tr>
-			            </tbody>
-			        </table>
-			        <div class="row">
-						<div class="col">
-							<ul class="pagination">
-								<li class="page-item" th:with="paging=${resultMap.paging}">
-     								<a class="page-link" th:href="@{./list(page=0)}" aria-label="first">
-        								<span aria-hidden="true">&laquo;</span>
-        							</a>
-       					 		</li>
-								<li class="page-item" th:with="paging=${resultMap.paging}">
-     								<a class="page-link" th:href="@{./list(page=${paging.pageNumber - 10})} ? 'disabled'" aria-label="Previous">
-        								<span aria-hidden="true">&lsaquo;</span>
-        							</a>
-       					 		</li>
-								<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-									<a class="page-link" th:classappend="${paging.pageNumber == (index-1)}" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
-									 th:href="@{./list(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
-									
-										<span class="t-white" th:text="${index}"></span>
-									</a>
-								</li>
-    							<li class="page-item" th:with="paging=${resultMap.paging}">
-      								<a class="page-link" th:href="@{./list(page=${paging.pageNumber + 10})}" aria-label="Next">
-       									<span aria-hidden="true">&rsaquo;</span>
-       								</a>
-       							</li>
-       							<li class="page-item" th:with="paging=${resultMap.paging}">
-      								<a class="page-link" th:href="@{./list(page=${resultMap.totalPage - 1})}" aria-label="end">
-       								 	<span aria-hidden="true">&raquo;</span>
-       								</a>
-       							</li>
-							</ul>
-						</div>
-					</div>
-    	<div class="search">
-		<select name ="type" class="type1">
-             <option selected value="">전체</option>
-             <option value = "title" >제목</option>
-             <option value = "content">내용</option>
-        </select>
-        <input type="text" name="searchKeyword" class="text1">
-        <button type="submit" class="submit1">검색</button>
-    </div>
-    </div>
-    </form>
-    </div>
-    
-    
-     <!--��Ʈ��Ʈ�� js, jquery �߰�-->
-    <script src="/js/lib/jquery.min.js"></script>
-    <script src="/js/lib/bootstrap.min.js"></script>
-    <script th:inline="javascript">
-    	// header checkbox event
-    	$("#chkAll").click(function() {
-    		if (this.checked) {
-    			$("input[name='deleteId']").prop("checked", true);
-    		} else {
-    			$("input[name='deleteId']").prop("checked", false);
-    		}
-    	});
-    	
-    	// body checkbox event
-    	$("input[name='deleteId']").click(function() {
-    		let delInpLen = $("input[name='deleteId']").length;
-    		let delInpChkLen = $("input[name='deleteId']:checked").length;
-    		
-    		if (delInpLen == delInpChkLen) {
-    			$("#chkAll").prop("checked", true);
-    		} else {
-    			$("#chkAll").prop("checked", false);
-    		}
-    	});
-    
-		function fnDelete() {
-			let delInpChkLen = $("input[name='deleteId']:checked").length;
-			
-			if (delInpChkLen > 0) {
-				if (confirm("삭제하시겠습니까?")) {
-					let frm = $("#frm");
-					frm.attr("action","/board/notice/delete");
-					frm.attr("method","post");
-					frm.submit();
-				}
-			} else {
-				alert("Not selected.");
-			}
-		}
-	</script>
+		<h1>게시판 등록</h1>
+		<form action="/board/policy/write/action" method="post" enctype="multipart/form-data">
+			<div class="mb-3">
+				<label class="form-label">제목</label>
+				<input type="text" class="form-control" name="title">
+			</div>
+			<div class="mb-3">
+				<label class="form-label">내용</label>
+				<textarea class="form-control" rows="5" name="content">
+				</textarea>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">작성자</label>
+				<input type="text" class="form-control" name="registerId">
+			</div>
+			<button type="button" class="btn btn-success" onclick="javascript:location.href='/board/list'">이전</button>
+			<button type="submit" class="btn btn-primary">제출</button>
+			        <div class="form-group row">
+          <label for="inputFile" class="col-sm-2 col-form-label"><strong>첨부 파일</strong></label>
+          <div class="col-sm-10">
+            <div class="custom-file" id="inputFile">
+              <input name="file" type="file" class="custom-file-input" id="customFile" />
+              <label class="custom-file-label" for="customFile">파일을 선택해 주세요.</label>
+            </div>
+          </div>
+        </div>
+		</form>
+	</div>
+	<script src="/js/lib/jquery.min.js"></script>
+	<script src="/js/lib/bootstrap.min.js"></script>
+
+
 </div>
 </body>
 </html>

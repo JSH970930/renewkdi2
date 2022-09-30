@@ -63,4 +63,6 @@ public interface Policy_BoardRepository extends JpaRepository<Policy_Board, Long
 
 public Page<Policy_Board> findByTitleContaining(Pageable pageable, String searchKeyword);	
 
+public Page<Policy_Board> findByContentContaining(Pageable pageable, String searchKeyword);   
+
 }

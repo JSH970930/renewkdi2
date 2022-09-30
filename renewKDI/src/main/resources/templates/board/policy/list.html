@@ -35,7 +35,6 @@ layout:decorate="~{layouts/board}">
     <!-- Template Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/side.css" />
-    <link rel="stylesheet" href="/assets/css/list.css" />
 
     <!--    Jquery-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -66,13 +65,53 @@ layout:decorate="~{layouts/board}">
         .tab-content input {
             margin: 10px;
         }
+
     </style>
 </head>
+
 <body>
 <div layout:fragment="subtop">
   <div class="top_img sub01"></div>
 </div>
-	<div layout:fragment="side">
+
+<div layout:fragment="side">
+<div class="inner">
+
+							
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>경제정책정보</h2>
+									</header>
+									<ul>
+									
+										<li>
+											<span class="opener">주제별보기</span>
+											<ul>
+												<li><a href="#">경제정책자료주제</a></li>
+												<li><a href="#">국내외연구자료주제</a></li>
+											</ul>
+										</li>
+										<li>
+											<span><a href="#">발간처별보기</a></span>
+										
+										</li>
+										<li>
+											<span ><a href="#">정책세미나영상</a></span>
+											
+										</li>
+										<li>
+											<span><a href="#">맞춤형정책서비스</a></span>
+											
+										</li>
+										
+										
+									</ul>
+								</nav>
+                        </div>
+                        
+                        <!-- Scripts -->
 			<script src="/assets/js/jquery.min.js"></script>
 			<script src="/assets/js/browser.min.js"></script>
 			<script src="/assets/js/breakpoints.min.js"></script>
@@ -81,25 +120,26 @@ layout:decorate="~{layouts/board}">
                         </div>
 
 <div layout:fragment="content">
+<div>
 
-  <!--content ȭ�� ��ü�� �� ��쿡�� �����ִ� class�� container��, css�� board�� ������� quick, side�� �ִ� ��쿡�� class���� �ٸ��� �ֱ�  -->
+  <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
 	<div class="containers">
-	    <form action="/board/notice/list" id="frm" method="get">
-			<div class="col-md-12 mt-4">
-			 	<div class="main-notice">
-			 		<h4 class="notice">공지사항</h4>
-			 			<button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
-			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/notice/write'">등록</button>
-					</div>
-			        <table class="table">
+		<h1 class="notice">공지사항</h1>
+	    	<form action="/board/policy/list" id="frm" method="get">
+			    <div class="col-md-12 mt-4">			    	
+			    	<div class="button">
+			    	<button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
+			        <button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/policy/write'">등록</button>
+			    </div>
+			        <table class="table table-striped table-horizontal table-bordered mt-3">
 			            <thead class="thead-strong">
-			                <tr class="thead1">
+			                <tr>
 			                    <th width="2%"><input type="checkbox" id="chkAll"></th>
-			                    <th width="90%" class="totalCnt1">총 <span th:text="${resultMap.totalCnt}"></span> 건</th>
+			                    <th width="90%" class="totalCnt">총<span th:text="${resultMap.totalCnt}"></span>건</th>
 			                    <th width="8%">작성자</th>
 			                </tr>
 			            </thead>
-			            <tbody class="tbody">
+			            <tbody id="tbody">
 			            	<tr th:each="list,index : ${resultMap.list}" th:with="paging=${resultMap.paging}">
 								<td>
 									<input type="checkbox" name="deleteId" th:value="${list.id}">
@@ -109,8 +149,8 @@ layout:decorate="~{layouts/board}">
 								</td> -->
 								<td>
 									<a th:href="@{./view(id=${list.id})}">
-									<strong th:text="${list.title}" id="title1"></strong></a>
-									<div th:text="${list.registerTime}"></div>
+									<span th:text="${list.title}"></span></a>
+									<div class=time th:text="${list.registerTime}"></div>
 								</td>
 								<td>
 									<span th:text="${list.registerId}"></span>
@@ -121,11 +161,10 @@ layout:decorate="~{layouts/board}">
 								<!-- <td>
 									
 								</td> -->
-								</tr>
 							<tr>
 			            </tbody>
 			        </table>
-			        <div class="row">
+			     <div class="row">
 						<div class="col">
 							<ul class="pagination">
 								<li class="page-item" th:with="paging=${resultMap.paging}">
@@ -139,10 +178,10 @@ layout:decorate="~{layouts/board}">
         							</a>
        					 		</li>
 								<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-									<a class="page-link" th:classappend="${paging.pageNumber == (index-1)}" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
+									<a class="page-link" th:classappend="${paging.pageNumber == (index-1)} ? bg-primary : bg-secondary" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
 									 th:href="@{./list(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
 									
-										<span class="t-white" th:text="${index}"></span>
+										<span class="text-white" th:text="${index}"></span>
 									</a>
 								</li>
     							<li class="page-item" th:with="paging=${resultMap.paging}">
@@ -158,21 +197,13 @@ layout:decorate="~{layouts/board}">
 							</ul>
 						</div>
 					</div>
-    	<div class="search">
-		<select name ="type" class="type1">
-             <option selected value="">전체</option>
-             <option value = "title" >제목</option>
-             <option value = "content">내용</option>
-        </select>
-        <input type="text" name="searchKeyword" class="text1">
-        <button type="submit" class="submit1">검색</button>
-    </div>
-    </div>
-    </form>
+			    </div>
+		    </form>
+
+	    </div>
     </div>
     
-    
-     <!--��Ʈ��Ʈ�� js, jquery �߰�-->
+     <!--부트스트랩 js, jquery 추가-->
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>
     <script th:inline="javascript">
@@ -203,7 +234,7 @@ layout:decorate="~{layouts/board}">
 			if (delInpChkLen > 0) {
 				if (confirm("삭제하시겠습니까?")) {
 					let frm = $("#frm");
-					frm.attr("action","/board/notice/delete");
+					frm.attr("action","/board/policy/delete");
 					frm.attr("method","post");
 					frm.submit();
 				}
@@ -212,6 +243,7 @@ layout:decorate="~{layouts/board}">
 			}
 		}
 	</script>
+
 </div>
 </body>
 </html>

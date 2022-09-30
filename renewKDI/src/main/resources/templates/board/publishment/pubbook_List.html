@@ -70,13 +70,13 @@ layout:decorate="~{layouts/board}">
         .col {
             text-align: center;
         }
-        
+
     </style>
 </head>
 
 <body>
 <div layout:fragment="subtop">
-  <div class="top_img sub03"></div>
+  <div class="top_img sub07"></div>
 </div>
 <div layout:fragment="side">
 					<div class="inner">
@@ -86,51 +86,27 @@ layout:decorate="~{layouts/board}">
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
-										<h2>경제교육</h2>
+										<h2>단행본</h2>
 									</header>
 									<ul>
 										<li>
-											<span class="opener">교사용수업자료</span>
+											<span><a href="#">나라경제</a></span>
+										</li>
+										<li>
+											<span><a href="#">e 경제정보리뷰</a></span>
+										</li>
+										<li>
+											<span ><a href="#">Economic</a></span>
+										</li>
+										<li>
+											<span><a href="#">단행본</a></span>
+										</li>
+										<li>
+											<span  class="opener">정책미디어</a></span>
 											<ul>
-												<li><a href="#">PBL 경제교육 시리즈</a></li>
-												<li><a href="#">경제교육 표준교재</a></li>
-												<li><a href="#">생애주기별 경제교육</a></li>
-												
-											</ul>
-										</li>
-										<li>
-											<span class="opener">멀티미디어자료</span>
-											<ul>
-												<li><a href="#">경제, 이것이 궁금해요</a></li>
-												<li><a href="#">지식채널 e</a></li>
-												<li><a href="#">경제웹툰</a></li>
-												<li><a href="#">카드뉴스</a></li>
-											</ul>
-										</li>
-										<li>
-											<span class="opener">학습자료</span>
-											<ul>
-												<li><a href="#">경제로 세상 읽기</a></li>
-												<li><a href="#">경제개념</a></li>
-												<li><a href="#">경제 백문백답</a></li>
-												
-											</ul>
-										</li>
-										<li>
-											<span><a href="#">교육프로그램</a></span>
-											
-										</li>
-										<li>
-											<span><a href="#">click 경제교육</a></span>
-										
-										</li>
-										<li>
-											<span><a href="#">시사용어사전</a></span>
-											
-										</li>
-										<li>
-											<span><a href="#">경제교과서검정</a></span>
-											
+											<li><a href="#">KDI영상보고서</a></li>
+												<li><a href="#">코리안 미러클</a></li>
+												</ul>
 										</li>
 										
 										
@@ -151,19 +127,18 @@ layout:decorate="~{layouts/board}">
 
   <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
 	<div class="containers">
-      <h1 class="notice">PBL 경제교육 시리즈</h1>
-          <form action="/board/economy/economy_list" id="frm" method="get">
+      <h1 class="notice">단행본</h1>
+          <form action="/board/publishment/pubbook_List" id="frm" method="get">
              <div class="col-md-12 mt-4">                
                 <div class="button" sec:authorize="isAuthenticated()">
                 <button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
-                 <button type="button" class="btn btn-primary" onclick="javascript:location.href='/admin/board/economy/economy_write'">등록</button>
+                 <button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/publishment/pubbook_Write'">등록</button>
              </div>
                  <table class="table table-striped table-horizontal table-bordered mt-3">
                      <thead class="thead-strong">
                          <tr>
                              <th width="2%"><input type="checkbox" id="chkAll"></th>
-                             <th width="20%">이미지</th>
-                             <th width="70%" class="totalCnt">총<span th:text="${resultMap.totalCnt}"></span>건</th>
+                             <th width="90%" class="totalCnt">총<span th:text="${resultMap.totalCnt}"></span>건</th>
                              <th width="8%">작성자</th>
                          </tr>
                      </thead>
@@ -175,11 +150,8 @@ layout:decorate="~{layouts/board}">
                         <!-- <td>
                            <span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
                         </td> -->
-                        <td class="thumbnail">
-                        <img th:src="${list.imageId}" class="thumbnail" th:alt="${list.imageName}" height="40">
-                        </td>
                         <td>
-                           <a th:href="@{./economy_view(id=${list.id})}">
+                           <a th:href="@{./pubbook_View(id=${list.id})}">
                            <span th:text="${list.title}"></span></a>
                            <div class=time th:text="${list.registerTime}"></div>
                         </td>
@@ -199,29 +171,29 @@ layout:decorate="~{layouts/board}">
                   <div class="col">
                      <ul class="pagination">
                         <li class="page-item" th:with="paging=${resultMap.paging}">
-                             <a class="page-link" th:href="@{./economy_list(page=0)}" aria-label="first">
+                             <a class="page-link" th:href="@{./pubbook_List(page=0)}" aria-label="first">
                                 <span aria-hidden="true">&laquo;</span>
                              </a>
                              </li>
                         <li class="page-item" th:with="paging=${resultMap.paging}">
-                             <a class="page-link" th:href="@{./economy_list(page=${paging.pageNumber - 10})}" aria-label="Previous">
+                             <a class="page-link" th:href="@{./pubbook_List(page=${paging.pageNumber - 10})}" aria-label="Previous">
                                 <span aria-hidden="true">&lsaquo;</span>
                              </a>
                              </li>
                         <li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
                            <a class="page-link" th:classappend="${paging.pageNumber == (index-1)} ? bg-primary : bg-secondary" 
-                            th:href="@{./economy_list(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
+                            th:href="@{./pubbook_List(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
                            
                               <span class="text-white" th:text="${index}"></span>
                            </a>
                         </li>
                          <li class="page-item" th:with="paging=${resultMap.paging}">
-                              <a class="page-link" th:href="@{./economy_list(page=${paging.pageNumber + 10})}" aria-label="Next">
+                              <a class="page-link" th:href="@{./pubbook_List(page=${paging.pageNumber + 10})}" aria-label="Next">
                                   <span aria-hidden="true">&rsaquo;</span>
                                </a>
                             </li>
                             <li class="page-item" th:with="paging=${resultMap.paging}">
-                              <a class="page-link" th:href="@{./economy_list(page=${resultMap.totalPage - 1})}" aria-label="end">
+                              <a class="page-link" th:href="@{./pubbook_List(page=${resultMap.totalPage - 1})}" aria-label="end">
                                    <span aria-hidden="true">&raquo;</span>
                                </a>
                             </li>
@@ -243,9 +215,6 @@ layout:decorate="~{layouts/board}">
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>
     <script th:inline="javascript">
-    
-    
-    
        // header checkbox event
        $("#chkAll").click(function() {
           if (this.checked) {
@@ -273,7 +242,7 @@ layout:decorate="~{layouts/board}">
          if (delInpChkLen > 0) {
             if (confirm("삭제하시겠습니까?")) {
                let frm = $("#frm");
-               frm.attr("action","/board/economy/delete");
+               frm.attr("action","/board/publishment/pubbook/delete");
                frm.attr("method","post");
                frm.submit();
             }

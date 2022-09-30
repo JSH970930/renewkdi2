@@ -75,12 +75,11 @@ layout:decorate="~{layouts/main}">
     <!-- ======= 검색창 ======= -->
     <!-- 검색창 부분 -->
     <div class="serch-box">
-	<form action="/board/totalsearch" method="get" role="search">
-        <input type="text" class="search-txt" name="searchKeyword" placeholder="Type to search" >
-        <a class="search-btn">
-            <button class="fas fa-search"></button>
+
+        <input type="text" class="search-txt" name="SearchValue" placeholder="Type to search" >
+        <a class="search-btn" onclick="konanSearch.search('topSearchValue');">
+            <i class="fas fa-search"></i>
         </a>
-        </form>
         <button class="detail-bar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">상세검색</button>
 
         <!-- offcanvas-->
@@ -89,10 +88,9 @@ layout:decorate="~{layouts/main}">
             <div class="offcanvas-header">
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <form action="/board/totalsearch" method="get" role="search">
             <div class="offcanvas-body">
                 <div id="searchBar">
-                    <div class="frm">
+                    <form class="frm">
                         <select name="sub">
                             <option value="#">전체</option>
                             <option value="#">제목</option>
@@ -102,9 +100,9 @@ layout:decorate="~{layouts/main}">
 
                         </select>
 
-               </div>
+                    </form>
                     <div class="detail-search-bar">
-                        <input type="text" class="detail-search-txt" name="searchKeyword" placeholder="Type to search">
+                        <input type="text" class="detail-search-txt" name="SearchValue" placeholder="Type to search">
                     </div>
                 </div>
 
@@ -154,22 +152,22 @@ layout:decorate="~{layouts/main}">
                     </div>
                 </div>
                 <div id="date">
+                    <form action="#" name="frm2">
                         <strong>검색기간</strong> &nbsp; &nbsp;
                         <input type="checkbox" name="datechk" checked
                         id="datechk" class="datechks"><span>전체</span>&nbsp;&nbsp;
                         <input type="date"  name="startDate" class="ckdate" disabled />
                         <span>~</span>
                         <input type="date" name="endDate" class="ckdate" disabled />
-                   
+                    </form>
                 </div>
                 <div id="sbtns">
-                    <button type="submit" class="sbtn">검색</button>
+                    <button type="button" class="sbtn" onclick="konanSearch.search('DetailSearchForm');">검색</button>
                  <button type="button" class="sbtn" data-bs-dismiss="offcanvas" aria-label="Close">창닫기</button>
                  
                 </div>
 
             </div>
-            </form>
         </div>
 
     </div>

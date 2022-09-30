@@ -2,26 +2,30 @@ package com.project.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
+@Setter
+@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name="image")
 public class Image {
 	
 	@Id
 	@GeneratedValue
-	private Long imageId;
+	@Column(name="imageId")
+	private Long id;
 	
 	@Column(nullable = false)
 	private String origImageName;
@@ -32,13 +36,13 @@ public class Image {
 	@Column(nullable = false)
 	private String imagePath;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="economy_id")
-	private Economy_Board economy_board;
+	@OneToOne(mappedBy = "image")
+	@ToString.Exclude
+	private Economy_Board economy_Board;
 	
 	@Builder
-	public Image (Long imageId, String origImageName, String imageName, String imagePath) {
-		this.imageId = imageId;
+	public Image (Long id, String origImageName, String imageName, String imagePath) {
+		this.id = id;
 		this.origImageName = origImageName;
 		this.imageName = imageName;
 		this.imagePath = imagePath;

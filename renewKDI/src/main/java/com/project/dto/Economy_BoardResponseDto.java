@@ -18,8 +18,8 @@ public class Economy_BoardResponseDto {
 	private String fileName;
 	private String registerId;
 	private LocalDate registerTime;
-	private Long imageId;
-	private String imageName;
+	
+	
 	
 	public Economy_BoardResponseDto(Economy_Board entity) {
 		this.id = entity.getId();
@@ -30,15 +30,14 @@ public class Economy_BoardResponseDto {
 		this.fileName = entity.getFileName();
 		this.registerId = entity.getRegisterId();
 		this.registerTime = entity.getRegisterTime();
-		this.imageId = entity.getImageId();
-		this.imageName = entity.getImageName();
+		
+		
 	}
 	
 	
 	@Override
 	public String toString() {
 		return "Economy_BoardResponseDto [id=" + id + ", title=" + title + ", content=" + content + ", readCnt=" + readCnt
-						+ ", fileId=" + fileId 	+ ", registerId=" + registerId+ ", registerTime=" + registerTime +
-						", imageId" + imageId + ", imageName" + imageName + "]";
+						+ ", fileId=" + fileId 	+ ", registerId=" + registerId+ ", registerTime=" + registerTime + "]";
 	}
 }

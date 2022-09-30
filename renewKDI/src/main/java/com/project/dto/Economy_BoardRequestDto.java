@@ -21,7 +21,6 @@ public class Economy_BoardRequestDto {
 	private Long fileId;
 	private String registerId;
 	private String fileName;
-	private Long imageId;
 	private String imageName;
 	
 	public Economy_Board toEntity() {
@@ -32,8 +31,8 @@ public class Economy_BoardRequestDto {
 			.fileId(fileId)
 			.registerId(registerId)
 			.fileName(fileName)
-			.imageId(imageId)
-			.imageName(imageName)
+			
+		
 			.build();
 	}
 	
@@ -46,16 +45,14 @@ public class Economy_BoardRequestDto {
 	        this.fileId = fileId;
 	        this.registerId = registerId;
 	        this.fileName = fileName;
-	        this.imageId = imageId;
-	        this.imageName = imageName;
+	       
 
 	    }
 
 
 	@Override
 	public String toString() {
-		return "economy_BoardRequestDto [id=" + id + ", title=" + title + ", content=" + content + ", registerId=" + registerId
-				+ ", imageId" + imageId + ", imageName" + imageName +"]";
+		return "economy_BoardRequestDto [id=" + id + ", title=" + title + ", content=" + content + ", registerId=" + registerId + "]";
 	}
 
 	

@@ -51,10 +51,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		;
 		
 
-<<<<<<< HEAD
-		http.csrf().ignoringAntMatchers("/board/**");
-		
-=======
+//<<<<<<< HEAD
+//		http.csrf().ignoringAntMatchers("/board/**");
+//		
+//=======
 
 //		http.cors().and();
 //		http.csrf().disable();
@@ -62,7 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().ignoringAntMatchers("/board/economy/**");
 		http.csrf().ignoringAntMatchers("/economy_download/**");
 // branch 'main' of https://github.com/JSH970930/renewkdi2.git
->>>>>>> branch 'main' of https://github.com/JSH970930/renewkdi2
+//>>>>>>> branch 'main' of https://github.com/JSH970930/renewkdi2
 
 
 

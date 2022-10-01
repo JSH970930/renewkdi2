@@ -5,17 +5,20 @@ import org.springframework.stereotype.Service;
 
 import com.project.dto.FileDto;
 import com.project.entity.File;
+import com.project.repository.Economy_BoardRepository;
 import com.project.repository.FileRepository;
+import com.project.repository.ImageRepository;
+
+import lombok.RequiredArgsConstructor;
 
 import javax.transaction.Transactional;
 
 @Service
+@RequiredArgsConstructor
 public class FileService {
-    private FileRepository fileRepository;
+	
+    private final FileRepository fileRepository;
 
-    public FileService(FileRepository fileRepository) {
-        this.fileRepository = fileRepository;
-    }
 
     @Transactional
     public Long saveFile(FileDto fileDto) {

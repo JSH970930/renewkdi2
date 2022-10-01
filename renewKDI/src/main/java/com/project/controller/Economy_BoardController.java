@@ -1,5 +1,13 @@
 package com.project.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -10,34 +18,32 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.project.dto.Economy_BoardRequestDto;
 import com.project.dto.FileDto;
 import com.project.dto.ImageDto;
+import com.project.entity.Image;
 import com.project.service.Economy_BoardService;
 import com.project.service.FileService;
 import com.project.service.ImageService;
 import com.project.util.MD5Generator;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import javax.servlet.http.HttpServletResponse;
 
 import lombok.RequiredArgsConstructor;
-import net.coobird.thumbnailator.Thumbnails;
 
 @Controller
 @RequiredArgsConstructor
 public class Economy_BoardController {
 	
+	
+	private final Logger LOGGER = LoggerFactory.getLogger(MainController.class.getName());
+	
 	private final Economy_BoardService boardService;
 	private final FileService fileService;
 	private final ImageService imageService;
+	
+	
 	
 
 	
@@ -101,7 +107,7 @@ public class Economy_BoardController {
 //	}
 	
 	@PostMapping("/board/economy/economy_write/action")
-	public String boardWriteAction(@RequestParam("file") MultipartFile files, @RequestParam("image") MultipartFile images, Model model, 
+	public String boardWriteAction(@RequestParam("file") MultipartFile files, @RequestParam("economyimage") MultipartFile images, Model model, 
 	Economy_BoardRequestDto boardRequestDto)
 	{
 		
@@ -130,7 +136,6 @@ public class Economy_BoardController {
 	            Long fileId = fileService.saveFile(fileDto);
 	            boardRequestDto.setFileId(fileId);
 	            
-	            boardService.save(boardRequestDto);
 	            
 	        } catch(Exception e) {
 	            e.printStackTrace();
@@ -157,9 +162,11 @@ public class Economy_BoardController {
 	            imageDto.setOrigImageName(origImageName);
 	            imageDto.setImageName(imageName);
 	            imageDto.setImagePath(imagePath);
-
-	            Long imageId = imageService.saveFile(imageDto);
-	          
+	            Image image = imageDto.toEntity();
+	            Long id = imageService.saveFile(image);
+	            LOGGER.info("이미지 저장 완료");
+	            boardService.save(boardRequestDto, id);
+	            LOGGER.info("게시글 저장 완료");
 	            
 	            
       } catch(Exception e){

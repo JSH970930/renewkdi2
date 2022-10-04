@@ -42,4 +42,3 @@ public class Expert_BoardResponseDto {
 						+ ", fileId=" + fileId 	+ ", registerId=" + registerId+ ", registerTime=" + registerTime + "]";
 	}
 }
-

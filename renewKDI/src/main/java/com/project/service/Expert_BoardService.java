@@ -45,6 +45,7 @@ private final ImageRepository imageRepository;
 			boardSaveDto.setImage(image);
 			return boardRepository.save(boardSaveDto.toEntity()).getId();
 		}
+		
 	@Transactional(readOnly = true)
 	public HashMap<String, Object> findAll(Integer page, Integer size) {
 		

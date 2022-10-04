@@ -51,13 +51,18 @@ public class Image {
 	@OneToOne(mappedBy = "image")
 	private Economy_Board economy_Boards;
 	
+	@ToString.Exclude
+	@OneToOne(mappedBy = "image")
+	private Expert_Board expert_Boards;
+	
 	@Builder
-	public Image (Long id, String origImageName, String imageName, String imagePath, Economy_Board economy_Boards) {
+	public Image (Long id, String origImageName, String imageName, String imagePath, Economy_Board economy_Boards,Expert_Board expert_Boards) {
 		this.id = id;
 		this.origImageName = origImageName;
 		this.imageName = imageName;
 		this.imagePath = imagePath;
 		this.economy_Boards =economy_Boards;
+		this.expert_Boards =expert_Boards;
 	}
 	
 }

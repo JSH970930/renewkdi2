@@ -20,12 +20,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name="expert_board")
-
 @SequenceGenerator(
 		  name = "EXPERT_BOARD_SEQ_GENERATOR", 
 		  sequenceName = "EXPERT_BOARD_SEQ",
@@ -35,8 +36,7 @@ public class Expert_Board extends BaseTimeEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,
-			        generator = "EXPERT_BOARD_SEQ_GENERATOR")
-	
+					generator = "EXPERT_BOARD_SEQ_GENERATOR")
 	@Column(name="expert_id")
 	private Long id;
 	
@@ -55,6 +55,8 @@ public class Expert_Board extends BaseTimeEntity {
 	@JoinColumn(name="imageId")
 	@ToString.Exclude
 	private Image image;
+	
+	
 	
 	@Builder
 	public Expert_Board(Long id, String title, String content, int readCnt, Long fileId, 

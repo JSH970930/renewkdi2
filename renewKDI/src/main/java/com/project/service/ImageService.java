@@ -1,25 +1,25 @@
 package com.project.service;
 
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.project.dto.ImageDto;
 import com.project.entity.Image;
 import com.project.repository.ImageRepository;
 
-import javax.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class ImageService {
-    private ImageRepository imageRepository;
-
-    public ImageService(ImageRepository imageRepository) {
-        this.imageRepository = imageRepository;
-    }
+    
+	private final ImageRepository imageRepository;
 
     @Transactional
-    public Long saveFile(ImageDto imageDto) {
-        return imageRepository.save(imageDto.toEntity()).getId();
+    public Long saveFile(Image image) {
+        return imageRepository.save(image).getId();
     }
 
     @Transactional

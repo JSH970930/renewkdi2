@@ -5,6 +5,7 @@ package com.project.dto;
 
 
 import com.project.entity.Economy_Board;
+import com.project.entity.Image;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class Economy_BoardRequestDto {
 	private String registerId;
 	private String fileName;
 	private String imageName;
+	private Image image;
 	
 	public Economy_Board toEntity() {
 		return Economy_Board.builder()
@@ -31,21 +33,21 @@ public class Economy_BoardRequestDto {
 			.fileId(fileId)
 			.registerId(registerId)
 			.fileName(fileName)
-			
+			.image(image)
 		
 			.build();
 	}
 	
 	  @Builder
 	    public Economy_BoardRequestDto(Long id, String title, String content, Long fileId, String registerId, String fileName,
-	    		Long imageId, String imageName) {
+	    		Long imageId, String imageName, Image image) {
 	        this.id = id;
 	        this.title = title;
 	        this.content = content;
 	        this.fileId = fileId;
 	        this.registerId = registerId;
 	        this.fileName = fileName;
-	       
+	        this.image = image;
 
 	    }
 

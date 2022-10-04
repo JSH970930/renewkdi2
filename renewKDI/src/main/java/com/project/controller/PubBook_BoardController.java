@@ -158,7 +158,7 @@ public class PubBook_BoardController {
                    imageDto.setImageName(imagename);
                    imageDto.setImagePath(imagePath);
 
-                   Long imageId = imageService.saveFile(imageDto);
+                   Long imageId = imageService.saveFile(imageDto.toEntity());
                    boardRequestDto.setFileid(imageId);
               } catch(Exception e){
                  e.printStackTrace();

@@ -27,8 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
-		
+				
 		http.formLogin()
 		.loginPage("/member/login") // 로그인 페이지 url을 설정
 		.defaultSuccessUrl("/main") // 로그인 성공 시 이동할 url
@@ -59,7 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //		http.cors().and();
 //		http.csrf().disable();
 
-		http.csrf().ignoringAntMatchers("/board/economy/**");
+		http.csrf().ignoringAntMatchers("/board/**");
+
 		http.csrf().ignoringAntMatchers("/economy_download/**");
 // branch 'main' of https://github.com/JSH970930/renewkdi2.git
 //>>>>>>> branch 'main' of https://github.com/JSH970930/renewkdi2
@@ -91,6 +91,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.passwordEncoder(passwordEncoder());
 	}
 	
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+	web.ignoring().antMatchers("/css/**", "/js/**", "/images/**","/files/**");} // static 디렉토리 하위 파일은 인증을 무시하도록 설정
 	
 	
 	

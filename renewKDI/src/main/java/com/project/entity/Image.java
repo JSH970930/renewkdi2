@@ -55,16 +55,21 @@ public class Image {
 	
 	@ToString.Exclude
 	@OneToOne(mappedBy = "image")
+	private PubBook_Board pubbook_Boards;
+	
+	@ToString.Exclude
+	@OneToOne(mappedBy = "image")
 	private Expert_Board expert_Boards;
 	
 	@Builder
-	public Image (Long id, String origImageName, String imageName, String imagePath, String imageUrl,Economy_Board economy_Boards,Expert_Board expert_Boards) {
+	public Image (Long id, String origImageName, String imageName, String imagePath, String imageUrl,Economy_Board economy_Boards,Expert_Board expert_Boards, PubBook_Board pubbook_Board) {
 		this.id = id;
 		this.origImageName = origImageName;
 		this.imageName = imageName;
 		this.imagePath = imagePath;
 		this.economy_Boards =economy_Boards;
 		this.expert_Boards =expert_Boards;
+		this.pubbook_Boards = pubbook_Board;
 		this.imageUrl = imageUrl;
 	}
 	

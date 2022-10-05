@@ -32,15 +32,15 @@ public interface PubBook_BoardRepository extends JpaRepository<PubBook_Board, Lo
 			+ "CONTENT = :#{#boardRequestDto.content}, "
 			+ "REGISTER_ID = :#{#boardRequestDto.registerId}, "
 			+ "UPDATE_TIME = SYSDATE() "
-			+ "WHERE ID = :#{#boardRequestDto.id}";
+			+ "WHERE PUBBOOK_ID = :#{#boardRequestDto.id}";
 			
 	
 	static final String UPDATE_BOARD_READ_CNT_INC = "UPDATE pubbook_board "
 			+ "SET READ_CNT = READ_CNT + 1 "
-			+ "WHERE ID = : id";
+			+ "WHERE PUBBOOK_ID = : id";
 	
 	static final String DELETE_BOARD = "DELETE FROM pubbook_board "
-			+ "WHERE ID IN (:deleteList)";
+			+ "WHERE PUBBOOK_ID IN (:deleteList)";
 	
 	@Transactional
 	@Modifying

@@ -1,8 +1,13 @@
 package com.project.service;
 
+
+
 import java.util.HashMap;
 import java.util.stream.Collectors;
 
+import javax.persistence.EntityManager;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -10,10 +15,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.project.dto.Economy_BoardRequestDto;
+import com.project.dto.Economy_BoardResponseDto;
 import com.project.dto.PubBook_BoardRequestDto;
 import com.project.dto.PubBook_BoardResponseDto;
-import com.project.entity.Policy_Board;
+import com.project.entity.Economy_Board;
+import com.project.entity.Image;
 import com.project.entity.PubBook_Board;
+import com.project.repository.ImageRepository;
 import com.project.repository.PubBook_BoardRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -22,10 +31,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PubBook_BoardService {
 	
-private final PubBook_BoardRepository boardRepository;
+	private final PubBook_BoardRepository boardRepository;
+	private final ImageRepository imageRepository;
+	
+	@Autowired
+	EntityManager em;
 	
 	@Transactional
-	public Long save(PubBook_BoardRequestDto boardSaveDto) {
+	public Long save(PubBook_BoardRequestDto boardSaveDto, Long id) {
+		Image image = imageRepository.getById(id);
+		em.persist(image);
+		boardSaveDto.setImage(image);
 		return boardRepository.save(boardSaveDto.toEntity()).getId();
 	}
 	
@@ -68,11 +84,10 @@ private final PubBook_BoardRepository boardRepository;
 	            .id(board.getId())
 	            .title(board.getTitle())
 	            .content(board.getContent())
-	            .fileid(board.getFileid())
+	            .fileId(board.getFileId())
 	            .registerId(board.getRegisterId())
-	            .filename(board.getFilename())
-	            .imageid(board.getImageid())
-	            .imageName(board.getImageName())
+	            .fileName(board.getFileName())
+	            
 
 	            .build();
 	    return boardRequestDto;
@@ -101,11 +116,7 @@ private final PubBook_BoardRepository boardRepository;
 		boardRepository.deleteBoard(deleteId);
 	}
 
-	
 
 	
-
-	
-
-
 }
+

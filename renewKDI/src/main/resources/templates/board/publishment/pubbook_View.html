@@ -139,8 +139,8 @@ layout:decorate="~{layouts/board}">
          
          <div class="float-right">
             <strong>첨부파일 다운로드 : </strong>
-            <a th:href="@{'/download/' + ${info.fileid}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
-            <span  th:text="${filename}"></span>
+            <a th:href="@{'/download/' + ${info.fileId}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
+            <span  th:text="${fileName}"></span>
          </div>
          
          <div class="float-left" sec:authorize="isAuthenticated()">

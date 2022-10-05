@@ -1,10 +1,16 @@
 package com.project.entity;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -12,36 +18,55 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name="pubbook_board")
+@SequenceGenerator(
+		  name = "PUBBOOK_BOARD_SEQ_GENERATOR", 
+		  sequenceName = "PUBBOOK_BOARD_SEQ",
+		  initialValue = 1,
+		  allocationSize = 1)
 public class PubBook_Board extends BaseTimeEntity {
-   
-   @Id
-   @GeneratedValue(strategy = GenerationType.SEQUENCE)
-   private Long id;
-   private String title;
-   private String content;
-   private Long readcnt;
-   private String registerId;
-   private Long fileid;
-   private String filename;
-   private Long imageid;
-   private String imageName;
-   
-   @Builder
-   public PubBook_Board(Long id, String title, String content, Long readcnt, Long fileid, String registerId, String filename, Long imageid, String imageName) {
-      this.id = id;
-      this.title = title;
-      this.content = content;
-      this.readcnt = readcnt;
-      this.fileid = fileid;
-      this.registerId = registerId;
-      this.filename = filename;
-      this.imageid = imageid;
-      this.imageName = imageName;
-   }
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,
+					generator = "PUBBOOK_BOARD_SEQ_GENERATOR")
+	@Column(name="pubbook_id")
+	private Long id;
+	
+	private String title;
+	
+	@Lob
+	@Column(nullable = false)
+	private String content;
+	
+	private int readCnt;
+	private String registerId;
+	private Long fileId;
+	private String fileName;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="imageId")
+	@ToString.Exclude
+	private Image image;
+	
+	
+	
+	@Builder
+	public PubBook_Board(Long id, String title, String content, int readCnt, Long fileId, 
+			String registerId, String fileName, Image image) {
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.readCnt = readCnt;
+		this.fileId = fileId;
+		this.registerId = registerId;
+		this.fileName = fileName;
+		this.image = image;
+		
+	}
 }

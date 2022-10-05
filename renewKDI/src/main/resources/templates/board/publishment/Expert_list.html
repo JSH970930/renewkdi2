@@ -171,7 +171,7 @@ layout:decorate="~{layouts/board3}">
              <div th:each="list, listState: ${resultMap.list}" th:if="${listState.count le 2}">
 	<div class="card d-flex flex-row align-items-center overflow-hidden" style="height:190px;">
 		<div class="card-image w-25 ">
-			<img class="card-img-top h-auto" src="" alt="Card image cap" onerror="'">
+			<img class="card-img-top h-auto" th:src="${list.image}" alt="Card image cap" onerror="'">
 		</div>
 		<div class="card-body">
 		<!-- el표현식은 변수명을 적으면 자동으로 get함수를 호출해준다. -->

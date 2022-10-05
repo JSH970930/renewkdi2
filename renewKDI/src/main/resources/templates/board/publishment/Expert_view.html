@@ -164,7 +164,7 @@ layout:decorate="~{layouts/board3}">
 		    	<textarea class="form-control"  name="content" th:text="${info.content}"></textarea>
 			</div>
 		
-			<div class="float-left" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+			<div class="float-left" >
 				<button type="button" class="btn btn-success" onclick="javascript:location.href='/board/publishment/Expert_list'">이전</button>
 				<button type="submit" class="btn btn-primary">수정</button>
 			</div>

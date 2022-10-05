@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 
 import com.project.entity.Expert_Board;
+import com.project.entity.Image;
 
 import lombok.Getter;
 
@@ -19,6 +20,7 @@ public class Expert_BoardResponseDto {
 	private String fileName;
 	private String registerId;
 	private LocalDate registerTime;
+	private Image image;
 	
 	
 	

@@ -115,7 +115,7 @@ public class Expert_BoardController {
 		  
 		  try {
 	            String origImageName = images.getOriginalFilename();
-	            String imageName = new MD5Generator(origImageName).toString()+".jpg";
+	            String imageName = new MD5Generator(origImageName).toString()+"."+origImageName.substring(origImageName.lastIndexOf(".")+1);
 	            /* 실행되는 위치의 'images' 폴더에 파일이 저장됩니다. */
 	            String savePath2 = System.getProperty("user.dir") + "\\images";
 	            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */

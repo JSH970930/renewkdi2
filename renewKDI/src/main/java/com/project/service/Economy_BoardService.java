@@ -2,6 +2,8 @@ package com.project.service;
 
 
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Collectors;
 
@@ -12,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +33,7 @@ public class Economy_BoardService {
 	
 	private final Economy_BoardRepository boardRepository;
 	private final ImageRepository imageRepository;
+	private final ImageService imageSerivce;
 	
 	@Autowired
 	EntityManager em;
@@ -43,13 +47,12 @@ public class Economy_BoardService {
 	}
 	
 	@Transactional(readOnly = true)
-	public HashMap<String, Object> findAll(Integer page, Integer size) {
+	public HashMap<String, Object> findAll(Integer page, Integer size) throws IOException {
 		
 		
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		PageRequest pageRequest = PageRequest.of(page, size, Sort.by("id").descending());
 		Page<Economy_Board> list = boardRepository.findAll(pageRequest);
-		
 		resultMap.put("list", list.stream().map(Economy_BoardResponseDto::new).collect(Collectors.toList()));
 		resultMap.put("paging", list.getPageable());
 		resultMap.put("totalCnt", list.getTotalElements());

@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.project.dto.Economy_BoardRequestDto;
+import com.project.dto.Economy_BoardResponseDto;
 import com.project.dto.FileDto;
 import com.project.dto.ImageDto;
 import com.project.entity.Image;
@@ -37,7 +40,7 @@ import lombok.RequiredArgsConstructor;
 public class Economy_BoardController {
 	
 	
-	private final Logger LOGGER = LoggerFactory.getLogger(MainController.class.getName());
+	private final Logger LOGGER = LoggerFactory.getLogger(Economy_BoardController.class.getName());
 	
 	private final Economy_BoardService boardService;
 	private final FileService fileService;
@@ -54,13 +57,13 @@ public class Economy_BoardController {
 			, @RequestParam(required = false, defaultValue = "0") Integer page
 			, @RequestParam(required = false, defaultValue = "5") Integer size) throws Exception {
 		
-		System.out.println(searchKeyword);
+		
 		
 		if(searchKeyword == null){
 	
 		try {
 			model.addAttribute("resultMap", boardService.findAll(page, size));
-		
+			
 		} catch (Exception e) {
 		throw new Exception(e.getMessage()); 
 		}
@@ -113,7 +116,11 @@ public class Economy_BoardController {
 		
 		  try {
 	            String origFilename = files.getOriginalFilename();
-	            String filename = new MD5Generator(origFilename).toString();
+	            int dot = origFilename.indexOf(".");
+	            String ext = origFilename.substring(dot);
+	            LOGGER.info(origFilename);
+	            String filename = new MD5Generator(origFilename).toString() + ext;
+	            LOGGER.info(filename);
 	            /* 실행되는 위치의 'files' 폴더에 파일이 저장됩니다. */
 	            String savePath = System.getProperty("user.dir") + "\\files";
 	            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
@@ -140,12 +147,14 @@ public class Economy_BoardController {
 	        } catch(Exception e) {
 	            e.printStackTrace();
 	        }
-		  
 		  try {
 	            String origImageName = images.getOriginalFilename();
-	            String imageName = new MD5Generator(origImageName).toString();
+	            int dot = origImageName.indexOf(".");
+	            String ext = origImageName.substring(dot);
+	            String imageName = new MD5Generator(origImageName).toString() + ext;
+	            
 	            /* 실행되는 위치의 'images' 폴더에 파일이 저장됩니다. */
-	            String savePath2 = System.getProperty("user.dir") + "\\images";
+	            String savePath2 = System.getProperty("user.dir") +	 "\\src\\main\\resources\\static\\images";
 	            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
 	            if (!new File(savePath2).exists()) {
 	                try{

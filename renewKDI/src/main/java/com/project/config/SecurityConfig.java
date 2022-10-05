@@ -50,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.authenticationEntryPoint(new CustomAuthenticationEntryPoint())
 		;
 		
+		
 
 //<<<<<<< HEAD
 //		http.csrf().ignoringAntMatchers("/board/**");
@@ -91,6 +92,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.passwordEncoder(passwordEncoder());
 	}
 	
+	@Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/css/**");      
+        web.ignoring().antMatchers("/scripts/**");
+        web.ignoring().antMatchers("/images/**");
+    }
 	
 	
 	

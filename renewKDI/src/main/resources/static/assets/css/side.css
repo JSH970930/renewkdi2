@@ -14,7 +14,9 @@ html {
     padding: 0;
 }
 .major{
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #909089;
+    padding-bottom: 10px;
 }
 
 
@@ -27,15 +29,27 @@ html {
 #search form {
   text-decoration: none;
   position: relative; }
+
+	h2{
+	  
+        line-height: 1em;
+    font-size: 24px;
+    color: #444;
+    font-weight: 500;
+	} 
  
-
-
-   h2 {
-    font-size: 1.4em;
-    margin-bottom: 40px;
+ 
+ 
+   h3 {
+        line-height: 1em;
+    font-size: 24px;
+    color: #444;
+    font-weight: 500;
 }
+
   .inner {
-    padding: 2em 2em 2em 2em ;
+  margin-top:50px;
+ 
     position: relative;
     width: 220px; }
     .inner > * {

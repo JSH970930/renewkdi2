@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.project.dto.Economy_BoardRequestDto;
 import com.project.dto.Expert_BoardRequestDto;
 import com.project.dto.FileDto;
 import com.project.dto.ImageDto;
@@ -117,7 +118,7 @@ public class Expert_BoardController {
 	            String origImageName = images.getOriginalFilename();
 	            String imageName = new MD5Generator(origImageName).toString()+"."+origImageName.substring(origImageName.lastIndexOf(".")+1);
 	            /* 실행되는 위치의 'images' 폴더에 파일이 저장됩니다. */
-	            String savePath2 = System.getProperty("user.dir") + "\\images";
+	            String savePath2 = System.getProperty("user.dir") +"\\src\\main\\resources\\static\\images";
 	            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
 	            if (!new File(savePath2).exists()) {
 	                try{

@@ -55,7 +55,6 @@ public class Expert_Board extends BaseTimeEntity {
 	@JoinColumn(name="imageId")
 	@ToString.Exclude
 	private Image image;
-
 	
 	
 	

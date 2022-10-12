@@ -1,12 +1,15 @@
 @charset "EUC-KR";
 
 .container2{
- width: 1360px;
+ width: 70%;
     margin: 0 auto;
+    position: relative;
 }
 .content{
 	margin:0 40px;
+	width:100%;
 }
+
 
 .footer{
 	margin:0;

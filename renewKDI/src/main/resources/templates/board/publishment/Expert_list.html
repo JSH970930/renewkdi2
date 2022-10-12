@@ -99,6 +99,20 @@ layout:decorate="~{layouts/board3}">
     color: #909089;
     line-height: 1.5em;
         }
+        .containers{
+        border-bottom:1px solid #909089;
+        width:100%;
+        }
+        .containers h4{
+            font-size: 24px;
+    line-height: 1em;
+    padding-bottom: 15px;
+    font-weight: 500;
+        }
+        .card{
+        border:hidden;
+         border-bottom:1px solid #c4ccd1;
+        }
        
         .title{
         font-size:19px;
@@ -106,8 +120,9 @@ layout:decorate="~{layouts/board3}">
         }
         .card-image{
         width:250px;
-        }
-        
+        } 
+  
+  
     </style>
 </head>
 
@@ -164,7 +179,7 @@ layout:decorate="~{layouts/board3}">
 	<div class="containers">
       <h4 class="notice">전문가 좌담</h4>
           <form action="/board/publishment/Expert_list" id="frm" method="get">
-             <div class="col-md-12 mt-4">                
+             <div class="col-md-12">                
                 
    
              <!-- 카드 글 시작 -->

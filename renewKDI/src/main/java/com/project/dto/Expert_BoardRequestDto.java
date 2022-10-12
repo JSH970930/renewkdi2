@@ -3,6 +3,7 @@ package com.project.dto;
 
 
 import com.project.entity.Expert_Board;
+import com.project.entity.Expert_Board;
 import com.project.entity.Image;
 
 import lombok.Builder;
@@ -36,7 +37,7 @@ public class Expert_BoardRequestDto {
 			.fileId(fileId)
 			.registerId(registerId)
 			.fileName(fileName)
-
+			.image(image)
 		
 			.build();
 	}
@@ -52,13 +53,12 @@ public class Expert_BoardRequestDto {
 	        this.fileName = fileName;
 	        this.image = image;
 
-	  }
-	  
+	    }
 
 
 	@Override
 	public String toString() {
-		return "expert_BoardRequestDto [id=" + id + ", title=" + title + ", content=" + content + ", registerId=" + registerId + "]";
+		return "Expert_BoardRequestDto [id=" + id + ", title=" + title + ", content=" + content + ", registerId=" + registerId + "]";
 	}
 
 	

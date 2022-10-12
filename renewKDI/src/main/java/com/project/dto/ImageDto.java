@@ -2,8 +2,6 @@ package com.project.dto;
 
 
 
-
-
 import com.project.entity.Economy_Board;
 import com.project.entity.Expert_Board;
 import com.project.entity.Image;
@@ -28,6 +26,7 @@ public class ImageDto {
     private Expert_Board expert_Board;
     private PubBook_Board pubbook_Board;
     
+
 
     public Image toEntity() {
         Image build = Image.builder()

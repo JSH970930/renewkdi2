@@ -33,6 +33,7 @@ public class Expert_BoardResponseDto {
 		this.fileName = entity.getFileName();
 		this.registerId = entity.getRegisterId();
 		this.registerTime = entity.getRegisterTime();
+		this.image=entity.getImage();
 		
 		
 	}
@@ -41,6 +42,6 @@ public class Expert_BoardResponseDto {
 	@Override
 	public String toString() {
 		return "Expert_BoardResponseDto [id=" + id + ", title=" + title + ", content=" + content + ", readCnt=" + readCnt
-						+ ", fileId=" + fileId 	+ ", registerId=" + registerId+ ", registerTime=" + registerTime + "]";
+						+ ", fileId=" + fileId 	+ ", registerId=" + registerId+ ", registerTime=" + registerTime + "image="+image+"]";
 	}
 }

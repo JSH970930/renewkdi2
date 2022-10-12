@@ -59,6 +59,16 @@
     .content{
     	margin-top:50px;
     }
+    @media (max-width: 1199px){
+        .col-xl-2{
+      display:none;
+        }
+    }
+   .col-xl-2{
+      width:230px;
+      position:relative;
+        }
+
     </style>
 </head>
 <body>
@@ -66,12 +76,12 @@
     <div th:replace="fragments/header::header"></div>
 	 <div layout:fragment="subtop" class=""></div>
 	<div class="container2">
-	 <div class="row gy3">
+	 <div class="row gy2">
 	 
 		<div class="col-xl-2">
 			 <div layout:fragment="side" class="side"></div>
 	 	</div>
-	 	<div class="col-xxl-9">
+	 	<div class="col-xl-10">
 	 	<div layout:fragment="content" class="content"></div>
 	 	</div>
 	 

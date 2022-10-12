@@ -156,16 +156,7 @@
         .t-white {
         	border-color: #a1a4b0;
         }
-        
-		.col-xxl-8 {
-    		flex: 0 0 auto;
-    		width: 76.66666667%;
-		}
-		
-		.col-xxl-2 {
-		    flex: 0 0 auto;
-		    width: 6.66666667%;
-		}
+
 		
 		.icon-boxes {
 		    position: relative;

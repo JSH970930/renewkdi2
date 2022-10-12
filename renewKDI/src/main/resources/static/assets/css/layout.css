@@ -1,7 +1,7 @@
 @charset "EUC-KR";
 
 .container2{
- width: 70%;
+ width:70%;
     margin: 0 auto;
     position: relative;
 }
@@ -10,6 +10,9 @@
 	width:100%;
 }
 
+  .col-xl-10{
+   width:100%;
+   }
 
 .footer{
 	margin:0;

@@ -380,6 +380,10 @@ section {
     transition: 0.3s;
     border-radius: 4px;
   }
+  
+  .navbar .dropdown a {
+  	text-decoration:none;
+  }
 
   .navbar .dropdown ul li {
     min-width: 200px;

@@ -298,6 +298,13 @@ section {
   .navbar {
     padding: 0;
   }
+  
+  .navbar {
+    position: relative;
+    min-height: 50px;
+    margin-top: 20px;
+    border: 1px solid transparent;
+  }
 
   .navbar ul {
     margin: 0;

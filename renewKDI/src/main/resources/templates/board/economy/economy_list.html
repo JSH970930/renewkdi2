@@ -36,6 +36,7 @@ layout:decorate="~{layouts/board}">
     <!-- Template Main CSS File -->
     <link href="/assets/css/header.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/side.css" />
+    <link rel="stylesheet" href="/assets/css/economy_list.css" />
 
     <!--    Jquery-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -145,25 +146,24 @@ layout:decorate="~{layouts/board}">
 			<script src="/assets/js/main.js"></script>
 			<script src="/assets/js/side.js"></script>
 </div>
-
 <div layout:fragment="content">
-<div>
-
   <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
 	<div class="containers">
-      <h1 class="notice">PBL 경제교육 시리즈</h1>
           <form action="/board/economy/economy_list" id="frm" method="get">
-             <div class="col-md-12 mt-4">                
-                <div class="button" sec:authorize="isAuthenticated()">
-                <button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
+             <div class="col-md-12 mt-4">
+             <div class="main-notice">  
+             <h1 class="notice">PBL 경제교육 시리즈</h1>   
+             	 <button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
                  <button type="button" class="btn btn-primary" onclick="javascript:location.href='/admin/board/economy/economy_write'">등록</button>
+                 </div>           
+                <div class="button" sec:authorize="isAuthenticated()">
              </div>
                  <table class="table table-striped table-horizontal table-bordered mt-3">
                      <thead class="thead-strong">
-                         <tr>
+                         <tr class="thead1">
                              <th width="2%"><input type="checkbox" id="chkAll"></th>
                              <th width="20%">이미지</th>
-                             <th width="70%" class="totalCnt">총<span th:text="${resultMap.totalCnt}"></span>건</th>
+                             <th width="70%" class="totalCnt1">총<span th:text="${resultMap.totalCnt}"></span>건</th>
                              <th width="8%">작성자</th>
                          </tr>
                      </thead>
@@ -229,15 +229,21 @@ layout:decorate="~{layouts/board}">
                   
                   </div>
                </div>
-             </div>
-          </form>
-<!--              <form th:action="@{/board/economy/economy_list}" method="get">
              
-        <input type="text" name="searchKeyword">
-        <button type="submit">검색</button>
-    </form> -->
+          
+		<div class="search">
+			<select name ="type" class="type1">
+            	<option selected value="">전체</option>
+            	<option value = "title" >제목</option>
+            	<option value = "content">내용</option>
+        	</select>
+        <input type="text" name="searchKeyword" class="text1">
+        <button type="submit" class="submit1">검색</button>
+    	</div>
+    	</div>
+    	</form>
        </div>
-    </div>
+
     
      <!--부트스트랩 js, jquery 추가-->
     <script src="/js/lib/jquery.min.js"></script>

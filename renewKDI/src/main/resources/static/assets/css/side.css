@@ -113,7 +113,7 @@ html {
   .inactive {
     margin-left: -26em; }
  
-
+  
 
 
 
@@ -132,7 +132,7 @@ html {
   margin-bottom: 0;
   padding: 0;
   text-transform: uppercase; }
-  #menu ul a, #menu ul span {
+  #menu ul a, #menu ul span.opener  {
     border-bottom: 0;
     color: inherit;
     cursor: pointer;
@@ -189,7 +189,7 @@ html {
     margin: 0.5em 0 1.5em 0;
     padding-left: 1em; }
     #menu > ul > li > ul a, #menu > ul > li > ul span {
-      font-size: 0.8em; }
+      font-size: 1em; }
     #menu > ul > li > ul > li {
       margin: 0.125em 0 0 0;
       padding: 0.125em 0 0 0; }
@@ -197,3 +197,5 @@ html {
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
+    
+  

@@ -74,9 +74,7 @@ layout:decorate="~{layouts/board3}">
         .notice{
         font-size:24px;
         }
-        .card{
-          border-bottom: 1px solid #c4ccd1;
-        }
+  
         #index{
             padding: 18px 100px 18px 10px;
   
@@ -112,6 +110,7 @@ layout:decorate="~{layouts/board3}">
         .card{
         border:hidden;
          border-bottom:1px solid #c4ccd1;
+         margin-top:4px;
         }
        
         .title{
@@ -120,6 +119,12 @@ layout:decorate="~{layouts/board3}">
         }
         .card-image{
         width:250px;
+      
+        } 
+        .card-image img{
+        width:240px;
+        height:170px;
+        margin:0 auto;
         } 
   
   
@@ -185,8 +190,8 @@ layout:decorate="~{layouts/board3}">
              <!-- 카드 글 시작 -->
              <div th:each="list, listState: ${resultMap.list}" th:if="${listState.count le 2}">
 	<div class="card d-flex flex-row align-items-center overflow-hidden" style="height:190px;">
-		<div class="card-image w-25 ">
-            <img th:src="'/images/'+ ${list.image.imageName}" class="thumbnail" th:alt="${list.image.imageName}" height="40">
+		<div class="card-image">
+            <img th:src="'/images/'+ ${list.image.imageName}" class="thumbnail" th:alt="${list.image.imageName}">
 		</div>
 		<div class="card-body">
 		<!-- el표현식은 변수명을 적으면 자동으로 get함수를 호출해준다. -->

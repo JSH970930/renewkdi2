@@ -115,10 +115,13 @@ public class Expert_BoardController {
 	        }
 		  
 		  try {
-	            String origImageName = images.getOriginalFilename();
-	            String imageName = new MD5Generator(origImageName).toString()+"."+origImageName.substring(origImageName.lastIndexOf(".")+1);
+			  String origImageName = images.getOriginalFilename();
+	            int dot = origImageName.indexOf(".");
+	            String ext = origImageName.substring(dot);
+	            String imageName = new MD5Generator(origImageName).toString() + ext;
+	            
 	            /* 실행되는 위치의 'images' 폴더에 파일이 저장됩니다. */
-	            String savePath2 = System.getProperty("user.dir") +"\\src\\main\\resources\\static\\images";
+	            String savePath2 = System.getProperty("user.dir") +	 "\\src\\main\\resources\\static\\images";
 	            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
 	            if (!new File(savePath2).exists()) {
 	                try{
@@ -142,10 +145,9 @@ public class Expert_BoardController {
 	            LOGGER.info("게시글 저장 완료");
 	            
 	            
-      } catch(Exception e){
-      	e.printStackTrace();
-      }
-		  
+    } catch(Exception e){
+    	e.printStackTrace();
+    }
 		  
 		  
 		return "redirect:/board/publishment/Expert_list";

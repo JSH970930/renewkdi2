@@ -70,10 +70,7 @@ layout:decorate="~{layouts/board3}">
         .col {
             text-align: center;
         }
-        .linfo{
-        	font-size: 14px;
-    		color: #859199;
-        }
+     
       .tbody{
       margin:20px;
       }
@@ -95,6 +92,27 @@ layout:decorate="~{layouts/board3}">
         }
         .card-image{
         width:250px;
+        }
+           .linfo{
+    font-size: 15px;
+    color: #859199;
+    vertical-align: top;
+        }
+        .containers h3{
+            font-size: 24px;
+    line-height: 1em;
+    padding-bottom: 15px;
+    font-weight: 500;
+        }
+        .usertitle{
+          border:hidden;
+            border-top:1px solid #909089;
+      border-bottom:1px solid #909089;
+         margin-top:4px;
+         padding-bottom:20px;
+        }
+        .ucont{
+        margin-top:30px;
         }
         
     </style>
@@ -151,27 +169,40 @@ layout:decorate="~{layouts/board3}">
 	<div class="containers">
 		<h3>전문가 좌담</h3>
 		<form id="frm" action="/board/publishment/Expert_view/action" method="post">
-			<input type="hidden" name="id" th:value="${info.id}">
-			<div class="mb-3">
-
-			    <input type="text" class="form-control" name="title" th:value="${info.title}">
+		<input type="hidden" name="id" th:value="${info.id}">
+		<!--이용자 출력화면------------------>
+				<div class="usertitle">
+			    <h3 th:text="${info.title}"></h3>
+			    <span class="linfo" th:text="${info.registerId}"></span> <span> &nbsp;| &nbsp;</span>
+			     <span class="linfo" th:text="${info.registerTime}"></span>
 			</div>
+			<div class="ucont">
+		    	<p th:text="${info.content}"></p>
+			</div>
+			<!-- 이용자 출력 화면 끝------------------------------------------------- -->
+		
+		<!-- 관리자 수정 폼 -->
+			<div class="mb-3">
+			<br>
+			    <input type="text" class="form-control" name="title" th:value="${info.title}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+			</div>
+			<br>
 				<div class="mb-3">
-			    <label class="form-label">작성자</label>
-			    <input type="text" class="form-control" name="registerId" th:value="${info.registerId}">
+			    <label class="form-label" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">작성자</label><br>
+			    <input type="text" class="form-control" name="registerId" th:value="${info.registerId}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
 			</div>
 			<div class="mb-3">
-		    	<textarea class="form-control"  name="content" th:text="${info.content}"></textarea>
+		    	<textarea class="form-control"  name="content" th:text="${info.content}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')"></textarea>
 			</div>
+			<!-- 관리자 글 수정 폼 끝 -------------------------------------------------->
 		
 			<div class="float-left" >
 				<button type="button" class="btn btn-success" onclick="javascript:location.href='/board/publishment/Expert_list'">이전</button>
-				<button type="submit" class="btn btn-primary">수정</button>
+				<button type="submit" class="btn btn-primary" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">수정</button>
+					<button type="button" class="btn btn-danger" th:onclick="fnViewDelete()"  sec:authorize="hasAnyAuthority('ROLE_ADMIN')">삭제</button>
 			</div>
 		
-			<div class="float-right" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-				<button type="button" class="btn btn-danger" th:onclick="fnViewDelete()">삭제</button>
-			</div>
+
 			
 			<div>
             <strong>첨부파일 다운로드 : </strong>

@@ -1,0 +1,15 @@
+.container-edit{
+margin-top : 120px;
+margin-bottom : -150px;
+width : 50%;
+height : 500px;
+}
+
+#loginform{
+	display : grid;
+	grid-template-columns: 50% 50%;	
+}
+
+#loginbox{
+	margin : 97px 0px 0 350px;
+}

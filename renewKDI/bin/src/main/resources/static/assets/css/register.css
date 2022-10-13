@@ -1,0 +1,56 @@
+.register{
+	margin-top : 50px;
+	margin-left : 500px;
+	width : 35%;
+}
+.birth{
+	display : grid;
+	grid-template-columns: 15% 20% 20% 20%;
+	grid-column-gap : 1%;
+	}
+	
+.phone{
+	display : grid;
+	grid-template-columns: 15% 20% 20% 20%;
+	grid-column-gap: 1%;	
+}
+
+.phoneform{
+	height : 50%;
+}
+
+.job{
+	display : grid;
+	grid-template-columns: 15% 20% 50%;
+	grid-column-gap: 1%;
+}
+
+.address{
+	display : grid;
+	grid-template-columns: 24% 24% 48%;
+	grid-template-rows : 15% 25% 25% 25%;
+	grid-column-gap: 1%;
+	grid-row-gap: 0.5%;
+}
+
+#address1{
+	grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+#address4{
+	grid-column-start: 1;
+    grid-column-end: 4;
+}
+#address5{
+	grid-column-start: 1;
+    grid-column-end: 3;
+}
+#address6{
+	grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.addressform{
+z-index : 1;
+}

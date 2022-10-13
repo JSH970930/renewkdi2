@@ -77,6 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //		branch 'main' of https://github.com/JSH970930/renewkdi2
 // branch 'main' of https://github.com/JSH970930/renewkdi2.git
        // 이 부분에 권한이 없어도 기능을 가능하게 하는 예외처리 코드
+		
 
 	}
 	

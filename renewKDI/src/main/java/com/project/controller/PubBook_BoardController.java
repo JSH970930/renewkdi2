@@ -45,9 +45,6 @@ public class PubBook_BoardController {
 	private final ImageService imageService;
 	
 	
-	
-
-	
 
 	
 	@GetMapping("/board/publishment/pubbook_List")
@@ -143,10 +140,13 @@ public class PubBook_BoardController {
 	        }
 		  
 		  try {
-	            String origImageName = images.getOriginalFilename();
-	            String imageName = new MD5Generator(origImageName).toString();
+			  String origImageName = images.getOriginalFilename();
+	            int dot = origImageName.indexOf(".");
+	            String ext = origImageName.substring(dot);
+	            String imageName = new MD5Generator(origImageName).toString() + ext;
+	            
 	            /* 실행되는 위치의 'images' 폴더에 파일이 저장됩니다. */
-	            String savePath2 = System.getProperty("user.dir") + "\\images";
+	            String savePath2 = System.getProperty("user.dir") +	 "\\src\\main\\resources\\static\\images";
 	            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
 	            if (!new File(savePath2).exists()) {
 	                try{
@@ -204,7 +204,7 @@ public class PubBook_BoardController {
 			throw new Exception(e.getMessage()); 
 		}
 		
-		return "redirect:redirect:/board/publishment/pubbook_List";
+		return "redirect:/board/publishment/pubbook_List";
 	}
 	
 	@PostMapping("/board/publishment/pubbook/delete")

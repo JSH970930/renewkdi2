@@ -59,13 +59,61 @@ layout:decorate="~{layouts/board}">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="/assets/js/side.js"></script>
     <style>
-        .tab-content label {
+         .tab-content label {
             margin: 30px;
 
         }
 
         .tab-content input {
             margin: 10px;
+        }
+        
+        .col {
+            text-align: center;
+        }
+     
+      .tbody{
+      margin:20px;
+      }
+       #tcontent{
+       width:800px;
+       }
+       
+        #tcontent p{
+        height:60px;
+        overflow:hidden;
+        font-size: 14px;
+    color: #909089;
+    line-height: 1.5em;
+        }
+       
+        .title{
+        font-size:19px;
+        color: #000;
+        }
+        .card-image{
+        width:250px;
+        }
+           .linfo{
+    font-size: 15px;
+    color: #859199;
+    vertical-align: top;
+        }
+        .containers h3{
+            font-size: 24px;
+    line-height: 1em;
+    padding-bottom: 15px;
+    font-weight: 500;
+        }
+        .usertitle{
+          border:hidden;
+            border-top:1px solid #909089;
+      border-bottom:1px solid #909089;
+         margin-top:4px;
+         padding-bottom:20px;
+        }
+        .ucont{
+        margin-top:30px;
         }
 
     </style>
@@ -80,35 +128,33 @@ layout:decorate="~{layouts/board}">
 
 							
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>단행본</h2>
-									</header>
-									<ul>
-										<li>
-											<span><a href="#">나라경제</a></span>
-										</li>
-										<li>
-											<span><a href="#">e 경제정보리뷰</a></span>
-										</li>
-										<li>
-											<span ><a href="#">Economic</a></span>
-										</li>
-										<li>
-											<span><a href="#">단행본</a></span>
-										</li>
-										<li>
-											<span  class="opener">정책미디어</a></span>
-											<ul>
-											<li><a href="#">KDI영상보고서</a></li>
-												<li><a href="#">코리안 미러클</a></li>
-												</ul>
-										</li>
-										
-										
-									</ul>
-								</nav>
+							 <nav id="menu">
+                           <header class="major">
+                              <h2>발행물</h2>
+                           </header>
+                           <ul>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/publish/naraMain.do">나라경제</a></span>
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/publish/reviewMain.do">e 경제정보리뷰</a></span>
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/publish/ebMain.do">Economic</a></span>
+                              </li>
+                              <li>
+                                 <span><a href="@{./pubbook_List}">단행본</a></span>
+                              </li>
+                              <li>
+                                 <span class="opener">정책미디어</a></span>
+                                 <ul>
+                                 <li><a href="https://eiec.kdi.re.kr/publish/videoReport.do">KDI영상보고서</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/publish/koreanMiracle.do">코리안 미러클</a></li>
+                                    </ul>
+                              </li>
+                              
+                              
+                        </nav>
                         </div>
                         
                         <!-- Scripts -->
@@ -124,26 +170,40 @@ layout:decorate="~{layouts/board}">
       <h1>단행본</h1>
       <form id="frm" action="/board/publishment/pubbook_View/action" method="post">
          <input type="hidden" name="id" th:value="${info.id}">
+         
+         <!--이용자 출력화면------------------>
+				<div class="usertitle">
+			    <h3 th:text="${info.title}"></h3>
+			    <span class="linfo" th:text="${info.registerId}"></span> <span> &nbsp;| &nbsp;</span>
+			     <span class="linfo" th:text="${info.registerTime}"></span>
+			</div>
+			<div class="ucont">
+		    	<pre th:text="${info.content}"></pre>
+			</div>
+			<!-- 이용자 출력 화면 끝------------------------------------------------- -->
+         
+         
+         <!-- 관리자 수정 폼 -->
          <div class="mb-3">
             <!--  <label class="form-label">제목</label> -->
-             <input type="text" class="form-control" name="title" th:value="${info.title}">
+             <input type="text" class="form-control" name="title" th:value="${info.title}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
          </div>
          <div class="mb-3">
           <!--    <label class="form-label">내용</label> -->
-             <textarea class="form-control" rows="5" cols="" name="content" th:text="${info.content}"></textarea>
+             <textarea class="form-control" rows="5" cols="" name="content" th:text="${info.content}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')"></textarea>
          </div>
          <div class="mb-3">
-             <label class="form-label">작성자</label>
-             <input type="text" class="form-control" name="registerId" th:value="${info.registerId}">
+             <label class="form-label" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">작성자</label>
+             <input type="text" class="form-control" name="registerId" th:value="${info.registerId}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
          </div>
          
          <div class="float-right">
             <strong>첨부파일 다운로드 : </strong>
-            <a th:href="@{'/download/' + ${info.fileId}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
+            <a th:href="@{'/pubbook_download/' + ${info.fileId}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
             <span  th:text="${fileName}"></span>
          </div>
          
-         <div class="float-left" sec:authorize="isAuthenticated()">
+         <div class="float-left"  sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
             <button type="button" class="btn btn-success" onclick="javascript:location.href='/board/publishment/pubbook_List'">이전</button>
             <button type="submit" class="btn btn-primary">수정</button>
             <button type="button" class="btn btn-danger" th:onclick="fnViewDelete()">삭제</button>

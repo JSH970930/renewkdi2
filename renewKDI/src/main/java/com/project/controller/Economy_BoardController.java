@@ -1,5 +1,15 @@
 package com.project.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -14,16 +24,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.project.dto.Economy_BoardRequestDto;
+import com.project.dto.Economy_BoardResponseDto;
 import com.project.dto.FileDto;
 import com.project.dto.ImageDto;
+import com.project.entity.Image;
 import com.project.service.Economy_BoardService;
 import com.project.service.FileService;
 import com.project.service.ImageService;
 import com.project.util.MD5Generator;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,9 +39,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Economy_BoardController {
 	
+	
+	private final Logger LOGGER = LoggerFactory.getLogger(Economy_BoardController.class.getName());
+	
 	private final Economy_BoardService boardService;
 	private final FileService fileService;
 	private final ImageService imageService;
+	
+	
 	
 
 	
@@ -44,13 +57,13 @@ public class Economy_BoardController {
 			, @RequestParam(required = false, defaultValue = "0") Integer page
 			, @RequestParam(required = false, defaultValue = "5") Integer size) throws Exception {
 		
-		System.out.println(searchKeyword);
+		
 		
 		if(searchKeyword == null){
 	
 		try {
 			model.addAttribute("resultMap", boardService.findAll(page, size));
-		
+			
 		} catch (Exception e) {
 		throw new Exception(e.getMessage()); 
 		}
@@ -59,6 +72,7 @@ public class Economy_BoardController {
 			model.addAttribute("resultMap", boardService.findByTitleContaining(page, size, searchKeyword ));
 		
 		}
+		System.out.println(boardService.findAll(page, size));
 		return "/board/economy/economy_list";
 	}
 
@@ -96,13 +110,17 @@ public class Economy_BoardController {
 //	}
 	
 	@PostMapping("/board/economy/economy_write/action")
-	public String boardWriteAction(@RequestParam("file") MultipartFile files, @RequestParam("image") MultipartFile images, Model model, 
+	public String boardWriteAction(@RequestParam("file") MultipartFile files, @RequestParam("economyimage") MultipartFile images, Model model, 
 	Economy_BoardRequestDto boardRequestDto)
 	{
 		
 		  try {
 	            String origFilename = files.getOriginalFilename();
-	            String filename = new MD5Generator(origFilename).toString();
+	            int dot = origFilename.indexOf(".");
+	            String ext = origFilename.substring(dot);
+	            LOGGER.info(origFilename);
+	            String filename = new MD5Generator(origFilename).toString() + ext;
+	            LOGGER.info(filename);
 	            /* 실행되는 위치의 'files' 폴더에 파일이 저장됩니다. */
 	            String savePath = System.getProperty("user.dir") + "\\files";
 	            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
@@ -125,15 +143,18 @@ public class Economy_BoardController {
 	            Long fileId = fileService.saveFile(fileDto);
 	            boardRequestDto.setFileId(fileId);
 	            
+	            
 	        } catch(Exception e) {
 	            e.printStackTrace();
 	        }
-		  
 		  try {
 	            String origImageName = images.getOriginalFilename();
-	            String imageName = new MD5Generator(origImageName).toString();
+	            int dot = origImageName.indexOf(".");
+	            String ext = origImageName.substring(dot);
+	            String imageName = new MD5Generator(origImageName).toString() + ext;
+	            
 	            /* 실행되는 위치의 'images' 폴더에 파일이 저장됩니다. */
-	            String savePath2 = System.getProperty("user.dir") + "\\images";
+	            String savePath2 = System.getProperty("user.dir") +	 "\\src\\main\\resources\\static\\images";
 	            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
 	            if (!new File(savePath2).exists()) {
 	                try{
@@ -150,16 +171,18 @@ public class Economy_BoardController {
 	            imageDto.setOrigImageName(origImageName);
 	            imageDto.setImageName(imageName);
 	            imageDto.setImagePath(imagePath);
-
-	            Long imageId = imageService.saveFile(imageDto);
-	            boardRequestDto.setFileId(imageId);
+	            Image image = imageDto.toEntity();
+	            Long id = imageService.saveFile(image);
+	            LOGGER.info("이미지 저장 완료");
+	            boardService.save(boardRequestDto, id);
+	            LOGGER.info("게시글 저장 완료");
 	            
 	            
       } catch(Exception e){
       	e.printStackTrace();
       }
 		  
-		  boardService.save(boardRequestDto);
+		  
 		  
 		return "redirect:/board/economy/economy_list";
 	}
@@ -214,8 +237,6 @@ public class Economy_BoardController {
 	            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDto.getOrigFilename() + "\"")
 	            .body(resource);
 	}
-	
-	
 	
 	
 }

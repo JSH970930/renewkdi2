@@ -5,6 +5,7 @@ package com.project.dto;
 import java.time.LocalDate;
 
 import com.project.entity.Economy_Board;
+import com.project.entity.Image;
 
 import lombok.Getter;
 
@@ -18,8 +19,8 @@ public class Economy_BoardResponseDto {
 	private String fileName;
 	private String registerId;
 	private LocalDate registerTime;
-	private Long imageId;
-	private String imageName;
+	private Image image;
+	
 	
 	public Economy_BoardResponseDto(Economy_Board entity) {
 		this.id = entity.getId();
@@ -30,15 +31,16 @@ public class Economy_BoardResponseDto {
 		this.fileName = entity.getFileName();
 		this.registerId = entity.getRegisterId();
 		this.registerTime = entity.getRegisterTime();
-		this.imageId = entity.getImageId();
-		this.imageName = entity.getImageName();
+		this.image = entity.getImage();
+		
+		
 	}
 	
 	
 	@Override
 	public String toString() {
 		return "Economy_BoardResponseDto [id=" + id + ", title=" + title + ", content=" + content + ", readCnt=" + readCnt
-						+ ", fileId=" + fileId 	+ ", registerId=" + registerId+ ", registerTime=" + registerTime +
-						", imageId" + imageId + ", imageName" + imageName + "]";
+						+ ", fileId=" + fileId 	+ ", registerId=" + registerId+ ", registerTime=" + registerTime+", image="+
+						image + " ]";
 	}
 }

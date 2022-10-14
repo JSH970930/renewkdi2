@@ -14,7 +14,9 @@ html {
     padding: 0;
 }
 .major{
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #909089;
+    padding-bottom: 10px;
 }
 
 
@@ -27,15 +29,27 @@ html {
 #search form {
   text-decoration: none;
   position: relative; }
+
+	h2{
+	  
+        line-height: 1em;
+    font-size: 24px;
+    color: #444;
+    font-weight: 500;
+	} 
  
-
-
-   h2 {
-    font-size: 1.4em;
-    margin-bottom: 40px;
+ 
+ 
+   h3 {
+        line-height: 1em;
+    font-size: 24px;
+    color: #444;
+    font-weight: 500;
 }
+
   .inner {
-    padding: 2.22222em 2.22222em 2.44444em 2.22222em ;
+  margin-top:50px;
+ 
     position: relative;
     width: 220px; }
     .inner > * {
@@ -99,7 +113,7 @@ html {
   .inactive {
     margin-left: -26em; }
  
-
+  
 
 
 
@@ -118,7 +132,7 @@ html {
   margin-bottom: 0;
   padding: 0;
   text-transform: uppercase; }
-  #menu ul a, #menu ul span {
+  #menu ul a, #menu ul span.opener  {
     border-bottom: 0;
     color: inherit;
     cursor: pointer;
@@ -175,7 +189,7 @@ html {
     margin: 0.5em 0 1.5em 0;
     padding-left: 1em; }
     #menu > ul > li > ul a, #menu > ul > li > ul span {
-      font-size: 0.8em; }
+      font-size: 1em; }
     #menu > ul > li > ul > li {
       margin: 0.125em 0 0 0;
       padding: 0.125em 0 0 0; }
@@ -183,3 +197,5 @@ html {
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
+    
+  

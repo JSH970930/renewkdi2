@@ -2,9 +2,11 @@ package com.project.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -50,19 +52,22 @@ public class Image {
 	
 	@ToString.Exclude
 	@OneToOne(mappedBy = "image")
-	private PubBook_Board pubbook_Board;
+	private PubBook_Board pubbook_Boards;
+	
+	@ToString.Exclude
+	@OneToOne(mappedBy = "image")
+	private Expert_Board expert_Boards;
 	
 	
 	@Builder
-	public Image (Long id, String origImageName, String imageName, String imagePath, Economy_Board economy_Boards, PubBook_Board pubbook_Board) {
+	public Image (Long id, String origImageName, String imageName, String imagePath, String imageUrl,Economy_Board economy_Boards,Expert_Board expert_Boards, PubBook_Board pubbook_Boards) {
 		this.id = id;
 		this.origImageName = origImageName;
 		this.imageName = imageName;
 		this.imagePath = imagePath;
 		this.economy_Boards =economy_Boards;
-		this.pubbook_Board = pubbook_Board;
-		
-		
+		this.expert_Boards =expert_Boards;
+		this.pubbook_Boards = pubbook_Boards;
 	}
 	
 }

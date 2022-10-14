@@ -1,10 +1,16 @@
 package com.project.entity;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -12,29 +18,47 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name="economy_board")
+@SequenceGenerator(
+		  name = "ECONOMY_BOARD_SEQ_GENERATOR", 
+		  sequenceName = "ECONOMY_BOARD_SEQ",
+		  initialValue = 1,
+		  allocationSize = 1)
 public class Economy_Board extends BaseTimeEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,
+					generator = "ECONOMY_BOARD_SEQ_GENERATOR")
+	@Column(name="economy_id")
 	private Long id;
+	
 	private String title;
+	
+	@Lob
+	@Column(nullable = false)
 	private String content;
+	
 	private int readCnt;
 	private String registerId;
 	private Long fileId;
 	private String fileName;
-	private Long imageId;
-	private String imageName;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="imageId")
+	@ToString.Exclude
+	private Image image;
+	
+	
 	
 	@Builder
 	public Economy_Board(Long id, String title, String content, int readCnt, Long fileId, 
-			String registerId, String fileName, Long imageId, String imageName) {
+			String registerId, String fileName, Image image) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
@@ -42,7 +66,7 @@ public class Economy_Board extends BaseTimeEntity {
 		this.fileId = fileId;
 		this.registerId = registerId;
 		this.fileName = fileName;
-		this.imageId = imageId;
-		this.imageName = imageName;
+		this.image = image;
+		
 	}
 }

@@ -10,22 +10,20 @@
         .main-notice .btn-danger {
        		position: relative;
         	float: right;
-        	top: 20px;
-        	left: 10px;
         }
         
         .main-notice .btn-primary {
         	position: relative;
         	float: right;
-        	top: 20px;
-        	left: 25px;
+        	left: -5px;
         }
         
         .notice {
         	float: left;
-        	font-size: 25px;
+        	font-size: 24px;
 		    line-height: 1em;
 		    padding-bottom: 10px;
+		    font-weight: 550;
         	
         }
         
@@ -65,6 +63,13 @@
 		    font-weight: 400;
 		    color: #444;
 		    letter-spacing: -0.02em;
+		    
+        }
+        
+        .table>tbody>tr>td>a:hover {
+        	border-color: #a1a4b0;
+        	color: #f5821f;
+        	text-decoration: none;
         }
          
         .table>tbody>tr>td>div{
@@ -80,32 +85,45 @@
         }
         
         .pagination .page-item {
-        	display: inline-block;
 		    vertical-align: top;
 		    width: 37px;
 		    height: 40px;
 		    line-height: 40px;
 		    box-sizing: border-box;
+		    font-size: 0.8em;
+		    
         }
         
         .pagination .page-link {
-        	font-size: 1.3em;
+        	font-size: 1.5em;
 		    transition-timing-function: cubic-bezier(0.75,0.1,0.25,1);
 		    transition-duration: 0.6s;
 		    transition-property: border-color,color;
+		    margin: 0 5px;
+		    box-sizing: border-box;
+		    color: black;
+		    
+		    
+		    
         }
         
+        .pagination .page-link:hover {
+        	border-color: #a1a4b0;
+        	color: #f5821f;
+        }
         .search {
-        	background: #e0e0e0;
+        	background: #efeded;
         	text-align: center;
-        	bottom: 20px;
         	padding: 20px;
 			border-width: 1px 0;
 			margin-top: 15px;
+			margin-bottom: 50px;
         }
         
         .search .text1 {
         	height: 35px;
+        	width: 250px;
+        	border: 1px solid #b5b4ba;
         }
         
         .search .submit1 {
@@ -114,14 +132,46 @@
         	color: #fff;
         	height: 35px;
         	width: 80px;
+        	border: 1px solid #b5b4ba;
+        	transition: background-color 0.2s cubic-bezier(0.75,0.1,0.25,1);
         	
+        }
+        .search .submit1:hover {
+        	background-color: #00008C;
+        	transition: background-color 0.2s cubic-bezier(0.75,0.1,0.25,1);
         }
         
         .search .type1 {
         	cursor: pointer;
         	height: 35px;
-        	width: 85px;
+        	width: 110px;
+        	border: 1px solid #b5b4ba;
+        	text-align: left;
+        	padding-left: 16px;
+   			padding-right: 30px;
         }
         .thead-strong .totalCnt {
         	background: #e0e0e0;
         }
+        .t-white {
+        	border-color: #a1a4b0;
+        }
+
+		
+		.icon-boxes {
+		    position: relative;
+		    width: 220px;
+		    height: 700px;
+		    float: left;
+		    top: 30px;
+		   	margin: 50px;
+		}
+		
+		.stretched-link::after {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    left: 0;
+		    z-index: 1;
+		    content: "";
+		}

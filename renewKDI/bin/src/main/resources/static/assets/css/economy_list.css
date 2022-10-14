@@ -1,0 +1,176 @@
+		.tab-content label {
+            margin: 30px;
+
+        }
+
+        .tab-content input {
+            margin: 10px;
+        }
+        
+        .main-notice .btn-danger {
+       		position: relative;
+        	float: right;
+        }
+        
+        .main-notice .btn-primary {
+        	position: relative;
+        	float: right;
+        	left: -5px;
+        }
+        
+        .notice {
+        	float: left;
+        	font-size: 24px;
+		    line-height: 1em;
+		    padding-bottom: 10px;
+		    font-weight: 550;
+        	
+        }
+        
+        .table {
+        	position: relative;
+		    padding: 18px 100px 18px 10px;
+		    border-bottom: 1px solid #c4ccd1;
+
+        }
+        
+        .thead-strong {
+        	border-top: 1px solid #859199;
+    		border-bottom: 1px solid #c4ccd1;
+		    background-color: #edf1f3;
+		    margin-top: -1px;
+		    
+        }
+        
+        .table .thead-strong .thead1 {
+		    line-height: 1.5em;
+		    color: #000;
+        }
+        
+        .table>thead:first-child>tr:first-child>th {
+        	line-height: 35px;
+        	font-size: 15px;
+        }
+        
+        .totalCnt1 {
+        	opacity: 0.5;
+        }
+        
+         .table>tbody>tr>td>a {
+        	font-family: "Noto Sans CJK KR","Noto Sans KR",'Noto Sans EOT',SimHei,Sans-serif;
+   		 	font-size: 18px;
+		    line-height: 1.8em;
+		    font-weight: 400;
+		    color: #444;
+		    letter-spacing: -0.02em;
+		    
+        }
+        
+        .table>tbody>tr>td>a:hover {
+        	border-color: #a1a4b0;
+        	color: #f5821f;
+        	text-decoration: none;
+        }
+         
+        .table>tbody>tr>td>div{
+        	vertical-align: top;
+		    font-size: 15px;
+		    padding-right: 10px;
+		    color: #859199;
+		    line-height: 1.5em
+        }
+        
+        .col {
+        	text-align: center;
+        }
+        
+        .pagination .page-item {
+		    vertical-align: top;
+		    width: 37px;
+		    height: 40px;
+		    line-height: 40px;
+		    box-sizing: border-box;
+		    font-size: 0.8em;
+		    
+        }
+        
+        .pagination .page-link {
+        	font-size: 1.5em;
+		    transition-timing-function: cubic-bezier(0.75,0.1,0.25,1);
+		    transition-duration: 0.6s;
+		    transition-property: border-color,color;
+		    margin: 0 5px;
+		    box-sizing: border-box;
+		    color: black;
+		    
+		    
+		    
+        }
+        
+        .pagination .page-link:hover {
+        	border-color: #a1a4b0;
+        	color: #f5821f;
+        }
+        .search {
+        	background: #efeded;
+        	text-align: center;
+        	padding: 20px;
+			border-width: 1px 0;
+			margin-top: 15px;
+			margin-bottom: 50px;
+        }
+        
+        .search .text1 {
+        	height: 35px;
+        	width: 250px;
+        	border: 1px solid #b5b4ba;
+        }
+        
+        .search .submit1 {
+        	border: none;
+        	background-color: #8ab6cf;
+        	color: #fff;
+        	height: 35px;
+        	width: 80px;
+        	border: 1px solid #b5b4ba;
+        	transition: background-color 0.2s cubic-bezier(0.75,0.1,0.25,1);
+        	
+        }
+        .search .submit1:hover {
+        	background-color: #00008C;
+        	transition: background-color 0.2s cubic-bezier(0.75,0.1,0.25,1);
+        }
+        
+        .search .type1 {
+        	cursor: pointer;
+        	height: 35px;
+        	width: 110px;
+        	border: 1px solid #b5b4ba;
+        	text-align: left;
+        	padding-left: 16px;
+   			padding-right: 30px;
+        }
+        .thead-strong .totalCnt {
+        	background: #e0e0e0;
+        }
+        .t-white {
+        	border-color: #a1a4b0;
+        }
+		
+		.icon-boxes {
+		    position: relative;
+		    width: 220px;
+		    height: 700px;
+		    float: left;
+		    top: 30px;
+		   	margin: 50px;
+		}
+		
+		.stretched-link::after {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    left: 0;
+		    z-index: 1;
+		    content: "";
+		}

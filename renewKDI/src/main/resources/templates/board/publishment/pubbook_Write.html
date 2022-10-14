@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
-layout:decorate="~{layouts/board}">
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+layout:decorate="~{layouts/board3}">
 
 
 <head>
@@ -80,35 +81,34 @@ layout:decorate="~{layouts/board}">
 <div layout:fragment="side">
 					<div class="inner">
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>단행본</h2>
-									</header>
-									<ul>
-										<li>
-											<span><a href="#">나라경제</a></span>
-										</li>
-										<li>
-											<span><a href="#">e 경제정보리뷰</a></span>
-										</li>
-										<li>
-											<span ><a href="#">Economic</a></span>
-										</li>
-										<li>
-											<span><a href="#">단행본</a></span>
-										</li>
-										<li>
-											<span  class="opener">정책미디어</a></span>
-											<ul>
-											<li><a href="#">KDI영상보고서</a></li>
-												<li><a href="#">코리안 미러클</a></li>
-												</ul>
-										</li>
-										
-										
-									</ul>
-								</nav>
+							 <!-- Menu -->
+                        <nav id="menu">
+                           <header class="major">
+                              <h2>발행물</h2>
+                           </header>
+                           <ul>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/publish/naraMain.do">나라경제</a></span>
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/publish/reviewMain.do">e 경제정보리뷰</a></span>
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/publish/ebMain.do">Economic</a></span>
+                              </li>
+                              <li>
+                                 <span><a href="@{./pubbook_List}">단행본</a></span>
+                              </li>
+                              <li>
+                                 <span class="opener">정책미디어</a></span>
+                                 <ul>
+                                 <li><a href="https://eiec.kdi.re.kr/publish/videoReport.do">KDI영상보고서</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/publish/koreanMiracle.do">코리안 미러클</a></li>
+                                    </ul>
+                              </li>
+                              
+                              
+                        </nav>
                         </div>
                         
                         <!-- Scripts -->
@@ -148,6 +148,7 @@ layout:decorate="~{layouts/board}">
            </div>
            
           <label for="inputFile" class="col-sm-2 col-form-label"><strong>첨부 이미지 파일</strong></label> 
+          
           <div class="col-sm-10">
           <div name="form" method="post" enctype="multipart/form-data">
                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

@@ -67,6 +67,11 @@ layout:decorate="~{layouts/board}">
         .tab-content input {
             margin: 10px;
         }
+        
+        .content {
+   		 	margin: 0 40px;
+    		width: 90%;
+        }
 
     </style>
 </head>
@@ -163,7 +168,7 @@ layout:decorate="~{layouts/board}">
          
          <div class="float-right">
             <strong>첨부파일 다운로드 : </strong>
-            <a th:href="@{'/download/' + ${info.fileId}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
+            <a th:href="@{'/economy_download/' + ${info.fileId}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
             <span  th:text="${fileName}"></span>
          </div>
          

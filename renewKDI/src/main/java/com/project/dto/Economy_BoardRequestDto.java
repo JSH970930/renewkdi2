@@ -5,6 +5,7 @@ package com.project.dto;
 
 
 import com.project.entity.Economy_Board;
+import com.project.entity.Image;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -21,8 +22,8 @@ public class Economy_BoardRequestDto {
 	private Long fileId;
 	private String registerId;
 	private String fileName;
-	private Long imageId;
 	private String imageName;
+	private Image image;
 	
 	public Economy_Board toEntity() {
 		return Economy_Board.builder()
@@ -32,30 +33,28 @@ public class Economy_BoardRequestDto {
 			.fileId(fileId)
 			.registerId(registerId)
 			.fileName(fileName)
-			.imageId(imageId)
-			.imageName(imageName)
+			.image(image)
+		
 			.build();
 	}
 	
 	  @Builder
 	    public Economy_BoardRequestDto(Long id, String title, String content, Long fileId, String registerId, String fileName,
-	    		Long imageId, String imageName) {
+	    		Long imageId, String imageName, Image image) {
 	        this.id = id;
 	        this.title = title;
 	        this.content = content;
 	        this.fileId = fileId;
 	        this.registerId = registerId;
 	        this.fileName = fileName;
-	        this.imageId = imageId;
-	        this.imageName = imageName;
+	        this.image = image;
 
 	    }
 
 
 	@Override
 	public String toString() {
-		return "Policy_BoardRequestDto [id=" + id + ", title=" + title + ", content=" + content + ", registerId=" + registerId
-				+ ", imageId" + imageId + ", imageName" + imageName +"]";
+		return "economy_BoardRequestDto [id=" + id + ", title=" + title + ", content=" + content + ", registerId=" + registerId + "]";
 	}
 
 	

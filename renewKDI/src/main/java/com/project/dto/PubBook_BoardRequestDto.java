@@ -1,9 +1,6 @@
 package com.project.dto;
 
 
-
-
-
 import com.project.entity.Image;
 import com.project.entity.PubBook_Board;
 

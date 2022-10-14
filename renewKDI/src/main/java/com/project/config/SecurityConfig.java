@@ -27,10 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
-//		http.cors().and();
-//		http.csrf().disable();
-		
+				
 		http.formLogin()
 		.loginPage("/member/login") // 로그인 페이지 url을 설정
 		.defaultSuccessUrl("/main") // 로그인 성공 시 이동할 url
@@ -52,13 +49,35 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.authenticationEntryPoint(new CustomAuthenticationEntryPoint())
 		;
 		
+		
 
-		http.cors().and();
-		http.csrf().disable();
+//<<<<<<< HEAD
+//		http.csrf().ignoringAntMatchers("/board/**");
+//		
+//=======
+
+//		http.cors().and();
+//		http.csrf().disable();
+
+		http.csrf().ignoringAntMatchers("/board/**");
+
+		http.csrf().ignoringAntMatchers("/economy_download/**");
+// branch 'main' of https://github.com/JSH970930/renewkdi2.git
+//>>>>>>> branch 'main' of https://github.com/JSH970930/renewkdi2
 
 
-		http.csrf().ignoringAntMatchers("/board/economy/**");
+
+		http.csrf().ignoringAntMatchers("/board/notice/**");
+
+//		http.cors().and();
+//		http.csrf().disable();
+
+
+//		http.csrf().ignoringAntMatchers("/board/economy/**"); 
+//		branch 'main' of https://github.com/JSH970930/renewkdi2
+// branch 'main' of https://github.com/JSH970930/renewkdi2.git
        // 이 부분에 권한이 없어도 기능을 가능하게 하는 예외처리 코드
+		
 
 	}
 	
@@ -74,6 +93,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.passwordEncoder(passwordEncoder());
 	}
 	
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+	web.ignoring().antMatchers("/css/**", "/js/**", "/images/**","/files/**");} // static 디렉토리 하위 파일은 인증을 무시하도록 설정
 	
 	
 	

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+layout:decorate="~{layouts/board3}">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Impact Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/header.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/side.css" />
+
+    <!--    Jquery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+ 
+
+
+    <!-- =======================================================
+  * Template Name: Impact - v1.0.0
+  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="/assets/js/side.js"></script>
+    <style>
+        .tab-content label {
+            margin: 30px;
+
+        }
+
+        .tab-content input {
+            margin: 10px;
+        }
+        
+        .col {
+            text-align: center;
+        }
+        
+        .notice{
+        font-size:24px;
+        }
+  
+        #index{
+            padding: 18px 100px 18px 10px;
+  
+        }
+        .linfo{
+        	font-size: 14px;
+    		color: #859199;
+        }
+      .tbody{
+      margin:20px;
+      }
+       #tcontent{
+       width:800px;
+       }
+       
+        #tcontent p{
+        height:60px;
+        overflow:hidden;
+        font-size: 14px;
+    color: #909089;
+    line-height: 1.5em;
+        }
+        .containers{
+        border-bottom:1px solid #909089;
+        width:100%;
+        }
+        .containers h4{
+            font-size: 24px;
+    line-height: 1em;
+    padding-bottom: 15px;
+    font-weight: 500;
+        }
+        .card{
+        border:hidden;
+         border-bottom:1px solid #c4ccd1;
+         margin-top:4px;
+        }
+       
+        .title{
+        font-size:19px;
+        color: #000;
+        }
+        .card-image{
+        width:250px;
+      
+        } 
+        .card-image img{
+        width:240px;
+        height:170px;
+        margin:0 auto;
+        } 
+  
+  
+    </style>
+</head>
+
+<body>
+<div layout:fragment="subtop">
+  <div class="top_img sub08"></div>
+</div>
+<div layout:fragment="side">
+					<div class="inner">
+
+							
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h3>e경제정보리뷰</h3>
+									</header>
+									<ul>
+										<li>
+											<span><a href="https://eiec.kdi.re.kr/publish/reviewList.do?ridx=10&pp=20&pg=1&fcode=000020003600001">핵심이슈 동영상</a></span>
+										</li>
+										<li>
+											<span><a href="https://eiec.kdi.re.kr/publish/reviewList.do?ridx=10&pp=20&pg=1&fcode=000020003600003">해외동향</a></span>
+										</li>
+										<li>
+											<span><a href="@{./Expert_view}">전문가 좌담</a></span>
+										</li>
+										<li>
+											<span><a href="https://eiec.kdi.re.kr/publish/reviewList.do?ridx=10&pp=20&pg=1&fcode=000020003600006">Editor's Letter</a></span>
+											
+										</li>
+										<li>
+											<span><a href="https://eiec.kdi.re.kr/publish/reviewList.do?ridx=10&pp=20&pg=1&fcode=000020003600007">e경제 웹툰</a></span>
+											
+										</li>
+										
+										
+									</ul>
+								</nav>
+                        </div>
+                        
+                        <!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/main.js"></script>
+			<script src="/assets/js/side.js"></script>
+</div>
+
+<div layout:fragment="content">
+
+
+  <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
+	<div class="containers">
+      <h4 class="notice">전문가 좌담</h4>
+          <form action="/board/publishment/Expert_list" id="frm" method="get">
+             <div class="col-md-12">                
+                
+   
+             <!-- 카드 글 시작 -->
+             <div th:each="list, listState: ${resultMap.list}" th:if="${listState.count le 2}">
+	<div class="card d-flex flex-row align-items-center overflow-hidden" style="height:190px;">
+		<div class="card-image">
+            <img th:src="'/images/'+ ${list.image.imageName}" class="thumbnail" th:alt="${list.image.imageName}">
+		</div>
+		<div class="card-body">
+		<!-- el표현식은 변수명을 적으면 자동으로 get함수를 호출해준다. -->
+			<h4 class="card-title"> <a th:href="@{./Expert_view(id=${list.id})}">  
+			<strong class="title" th:text="${list.title}"></strong></a></h4>
+			<div id="tcontent"><p th:text="${list.content}"></p></div>
+			  <div class="linfo"> <span class="linfo" th:text="${list.registerId}"></span> <span> &nbsp;| &nbsp;</span>
+			  <span th:text="${list.registerTime}"></span></div>
+		</div>
+	</div>
+	</div>
+	<!-- 카드 글 끝 -->
+             
+             
+             
+             
+             
+                 <table class="table table-striped table-horizontal table-bordered mt-3">
+                     <thead class="thead-strong">
+                         <tr>
+                             <th width="4%"><input type="checkbox" id="chkAll"></th>
+                             <th width="96%" class="totalCnt">총<span th:text="${resultMap.totalCnt}"></span>건</th>
+                         </tr>
+                     </thead>
+                   <tbody id="tbody">
+                        <tr th:each="list,index : ${resultMap.list}" th:with="paging=${resultMap.paging}" id="index">
+                        <td>
+                           <input type="checkbox" name="deleteId" th:value="${list.id}">
+                        </td>
+                        <td>
+                           <a th:href="@{./Expert_view(id=${list.id})}">
+                           <strong class="title" th:text="${list.title}"></strong></a>
+                           &nbsp; &nbsp; <span class="linfo" th:text="${list.registerId}"></span> <span> &nbsp;| &nbsp;</span>
+                           <span class="linfo" th:text="${list.registerTime}"></span>
+                         
+                        </td>
+                    
+                     <tr>
+                     </tbody>
+                 </table>
+                 
+                 <div class="button" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                <button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
+                 <button type="button" class="btn btn-primary" onclick="javascript:location.href='/admin/board/Expert/write'">등록</button>
+             </div>
+             
+                 <div class="row">
+                  <div class="col">
+                     <ul class="pagination">
+                        <li class="page-item" th:with="paging=${resultMap.paging}">
+                             <a class="page-link" th:href="@{./Expert_list(page=0)}" aria-label="first">
+                                <span aria-hidden="true">&laquo;</span>
+                             </a>
+                             </li>
+                        <li class="page-item" th:with="paging=${resultMap.paging}">
+                             <a class="page-link" th:href="@{./Expert_list(page=${paging.pageNumber - 10})}" aria-label="Previous">
+                                <span aria-hidden="true">&lsaquo;</span>
+                             </a>
+                             </li>
+                        <li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
+                           <a class="page-link" th:classappend="${paging.pageNumber == (index-1)} ? bg-primary : bg-secondary" 
+                            th:href="@{./Expert_list(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
+                           
+                              <span class="text-white" th:text="${index}"></span>
+                           </a>
+                        </li>
+                         <li class="page-item" th:with="paging=${resultMap.paging}">
+                              <a class="page-link" th:href="@{./Expert_list(page=${paging.pageNumber + 10})}" aria-label="Next">
+                                  <span aria-hidden="true">&rsaquo;</span>
+                               </a>
+                            </li>
+                            <li class="page-item" th:with="paging=${resultMap.paging}">
+                              <a class="page-link" th:href="@{./Expert_list(page=${resultMap.totalPage - 1})}" aria-label="end">
+                                   <span aria-hidden="true">&raquo;</span>
+                               </a>
+                            </li>
+                     </ul>
+                  
+                  </div>
+               </div>
+             </div>
+          </form>
+
+     <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <script th:inline="javascript">
+       // header checkbox event
+       $("#chkAll").click(function() {
+          if (this.checked) {
+             $("input[name='deleteId']").prop("checked", true);
+          } else {
+             $("input[name='deleteId']").prop("checked", false);
+          }
+       });
+       
+       // body checkbox event
+       $("input[name='deleteId']").click(function() {
+          let delInpLen = $("input[name='deleteId']").length;
+          let delInpChkLen = $("input[name='deleteId']:checked").length;
+          
+          if (delInpLen == delInpChkLen) {
+             $("#chkAll").prop("checked", true);
+          } else {
+             $("#chkAll").prop("checked", false);
+          }
+       });
+    
+      function fnDelete() {
+         let delInpChkLen = $("input[name='deleteId']:checked").length;
+         
+         if (delInpChkLen > 0) {
+            if (confirm("삭제하시겠습니까?")) {
+               let frm = $("#frm");
+               frm.attr("action","/board/Expert/delete");
+               frm.attr("method","post");
+               frm.submit();
+            }
+         } else {
+            alert("Not selected.");
+         }
+      }
+   </script>
+</div>
+</div>
+
+</body>
+</html>

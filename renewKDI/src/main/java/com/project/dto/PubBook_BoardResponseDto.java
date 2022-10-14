@@ -4,6 +4,7 @@ package com.project.dto;
 
 import java.time.LocalDate;
 
+import com.project.entity.Image;
 import com.project.entity.PubBook_Board;
 
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class PubBook_BoardResponseDto {
 	private String fileName;
 	private String registerId;
 	private LocalDate registerTime;
+	private Image image;
 	
 	
 	
@@ -30,6 +32,9 @@ public class PubBook_BoardResponseDto {
 		this.fileName = entity.getFileName();
 		this.registerId = entity.getRegisterId();
 		this.registerTime = entity.getRegisterTime();
+		this.image = entity.getImage();
+	
+		
 		
 		
 	}
@@ -37,7 +42,8 @@ public class PubBook_BoardResponseDto {
 	
 	@Override
 	public String toString() {
-		return "PubBook_BoardResponseDto [id=" + id + ", title=" + title + ", content=" + content + ", readCnt=" + readCnt
-						+ ", fileId=" + fileId 	+ ", registerId=" + registerId+ ", registerTime=" + registerTime + "]";
+		return "Pubbook_BoardResponseDto [id=" + id + ", title=" + title + ", content=" + content + ", readCnt=" + readCnt
+						+ ", fileId=" + fileId 	+ ", registerId=" + registerId+ ", registerTime=" + registerTime+", image="+
+						image + " ]";
 	}
 }

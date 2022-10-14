@@ -36,7 +36,7 @@ public class ImageDto {
                 .imagePath(imagePath)
                 .economy_Boards(economy_Board)
                 .expert_Boards(expert_Board)
-                .pubbook_Board(pubbook_Board)
+                .pubbook_Boards(pubbook_Board)
                 .build();
         return build;
     }

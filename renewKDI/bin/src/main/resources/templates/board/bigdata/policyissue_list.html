@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
 xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-layout:decorate="~{layouts/board3}">
+layout:decorate="~{layouts/board}">
 
 
 <head>
@@ -36,6 +36,7 @@ layout:decorate="~{layouts/board3}">
     <!-- Template Main CSS File -->
     <link href="/assets/css/header.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/side.css" />
+    <link rel="stylesheet" href="/assets/css/economy_list.css" />
 
     <!--    Jquery-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -70,57 +71,13 @@ layout:decorate="~{layouts/board3}">
         .col {
             text-align: center;
         }
-     
-      .tbody{
-      margin:20px;
-      }
-       #tcontent{
-       width:800px;
-       }
-       
-        #tcontent p{
-        height:60px;
-        overflow:hidden;
-        font-size: 14px;
-    color: #909089;
-    line-height: 1.5em;
-        }
-       
-        .title{
-        font-size:19px;
-        color: #000;
-        }
-        .card-image{
-        width:250px;
-        }
-           .linfo{
-    font-size: 15px;
-    color: #859199;
-    vertical-align: top;
-        }
-        .containers h3{
-            font-size: 24px;
-    line-height: 1em;
-    padding-bottom: 15px;
-    font-weight: 500;
-        }
-        .usertitle{
-          border:hidden;
-            border-top:1px solid #909089;
-      border-bottom:1px solid #909089;
-         margin-top:4px;
-         padding-bottom:20px;
-        }
-        .ucont{
-        margin-top:30px;
-        }
         
     </style>
 </head>
 
 <body>
 <div layout:fragment="subtop">
-  <div class="top_img sub08"></div>
+  <div class="top_img sub03"></div>
 </div>
 <div layout:fragment="side">
 					<div class="inner">
@@ -130,25 +87,28 @@ layout:decorate="~{layouts/board3}">
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
-										<h3>e경제정보리뷰</h3>
+										<h2>이슈&분석</h2>
 									</header>
 									<ul>
-										<li>
-											<span><a href="https://eiec.kdi.re.kr/publish/reviewList.do?ridx=10&pp=20&pg=1&fcode=000020003600001">핵심이슈 동영상</a></span>
+							<li>
+											<span><a href="http://localhost:8090/board/bigdata/issuetrend_list">이슈 트렌드 분석</a></span>
+									
 										</li>
 										<li>
-											<span><a href="https://eiec.kdi.re.kr/publish/reviewList.do?ridx=10&pp=20&pg=1&fcode=000020003600003">해외동향</a></span>
+											<span><a href="http://localhost:8090/board/bigdata/emerging_list">이머징 이슈 분석</a></span>
+									
 										</li>
 										<li>
-											<span><a href="@{./Expert_view}">전문가 좌담</a></span>
+											<span><a href="http://localhost:8090/board/bigdata/policyissue_list">정책 이슈 심층 이해</a></span>
+									
 										</li>
 										<li>
-											<span><a href="https://eiec.kdi.re.kr/publish/reviewList.do?ridx=10&pp=20&pg=1&fcode=000020003600006">Editor's Letter</a></span>
+											<span><a href="http://localhost:8090/board/bigdata/economy_list">경제 지표</a></span>
 											
 										</li>
 										<li>
-											<span><a href="https://eiec.kdi.re.kr/publish/reviewList.do?ridx=10&pp=20&pg=1&fcode=000020003600007">e경제 웹툰</a></span>
-											
+											<span><a href="http://localhost:8090/board/bigdata/bigdatajisu_list">빅데이터 지수</a></span>
+										
 										</li>
 										
 										
@@ -163,68 +123,18 @@ layout:decorate="~{layouts/board3}">
 			<script src="/assets/js/main.js"></script>
 			<script src="/assets/js/side.js"></script>
 </div>
-
 <div layout:fragment="content">
-
+  <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
 	<div class="containers">
-		<h3>전문가 좌담</h3>
-		<form id="frm" action="/board/publishment/Expert_view/action" method="post">
-		<input type="hidden" name="id" th:value="${info.id}">
-		<!--이용자 출력화면------------------>
-				<div class="usertitle">
-			    <h3 th:text="${info.title}"></h3>
-			    <span class="linfo" th:text="${info.registerId}"></span> <span> &nbsp;| &nbsp;</span>
-			     <span class="linfo" th:text="${info.registerTime}"></span>
-			</div>
-			<div class="ucont">
-		    	<p th:text="${info.content}"></p>
-			</div>
-			<!-- 이용자 출력 화면 끝------------------------------------------------- -->
-		
-		<!-- 관리자 수정 폼 -->
-			<div class="mb-3">
-			<br>
-			    <input type="text" class="form-control" name="title" th:value="${info.title}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-			</div>
-			<br>
-				<div class="mb-3">
-			    <label class="form-label" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">작성자</label><br>
-			    <input type="text" class="form-control" name="registerId" th:value="${info.registerId}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-			</div>
-			<div class="mb-3">
-		    	<textarea class="form-control"  name="content" th:text="${info.content}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')"></textarea>
-			</div>
-			<!-- 관리자 글 수정 폼 끝 -------------------------------------------------->
-		
-			<div class="float-left" >
-				<button type="button" class="btn btn-success" onclick="javascript:location.href='/board/publishment/Expert_list'">이전</button>
-				<button type="submit" class="btn btn-primary" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">수정</button>
-					<button type="button" class="btn btn-danger" th:onclick="fnViewDelete()"  sec:authorize="hasAnyAuthority('ROLE_ADMIN')">삭제</button>
-			</div>
-		
-
-			
-			<div>
-            <strong>첨부파일 다운로드 : </strong>
-            <a th:href="@{'/Expert_download/' + ${info.fileId}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
-            <span  th:text="${filename}"></span>
-          </div>
-		</form>
+	<form action="board/bigdata/policyissue_list" id="frm" method="get"></form>
+	<div>
+		<img th:src="@{/images/img01.png}" width="500px" height="500px">
+		<img th:src="@{/images/img02.png}" width="500px" height="500px">
 	</div>
-    <!--부트스트랩 js, jquery 추가-->
-    <script src="/js/lib/jquery.min.js"></script>
-    <script src="/js/lib/bootstrap.min.js"></script>
+  
 
-    <script th:inline="javascript">
-		function fnViewDelete() {
-			if (confirm("Do you want to delete it?")) {
-				let frm = $("#frm");
-				frm.attr("action","/board/Expert/view/delete");
-				frm.submit();
-			}
-		}
-		</script>
-		
 </div>
+</div>
+
 </body>
 </html>

@@ -88,8 +88,10 @@ layout:decorate="~{layouts/board}">
 			<div class="col-md-12 mt-4">
 			 	<div class="main-notice">
 			 		<h4 class="notice">공지사항</h4>
+			 		<div class="button" sec:authorize="isAuthenticated()">
 			 			<button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
 			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/notice/write'">등록</button>
+			        	</div>
 					</div>
 			        <table class="table">
 			            <thead class="thead-strong">

@@ -72,6 +72,20 @@ layout:decorate="~{layouts/board}">
             text-align: center;
         }
         
+        .thumbnail {
+            height: 200px;
+            
+        }
+        .thumbnail img {
+            height: 180px;
+            weight: 90px;
+            margin: 0 auto;
+            
+        }
+        
+        .name {
+            font-size: 40px;
+        }
     </style>
 </head>
 
@@ -82,8 +96,6 @@ layout:decorate="~{layouts/board}">
 <div layout:fragment="side">
 					<div class="inner">
 
-							
-
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
@@ -91,46 +103,46 @@ layout:decorate="~{layouts/board}">
 									</header>
 									<ul>
 										<li>
-											<span class="opener">교사용수업자료</span>
+											<span class="opener" >교사용수업자료</span>
 											<ul>
-												<li><a href="#">PBL 경제교육 시리즈</a></li>
-												<li><a href="#">경제교육 표준교재</a></li>
-												<li><a href="#">생애주기별 경제교육</a></li>
+												<li><a href="http://localhost:8090/board/economy/economy_list">PBL 경제교육 시리즈</a></li>
+												<li><a href="https://eiec.kdi.re.kr/material/ecoEduList.do">경제교육 표준교재</a></li>
+												<li><a href="https://eiec.kdi.re.kr/material/lifeList.do">생애주기별 경제교육</a></li>
 												
 											</ul>
 										</li>
 										<li>
 											<span class="opener">멀티미디어자료</span>
 											<ul>
-												<li><a href="#">경제, 이것이 궁금해요</a></li>
-												<li><a href="#">지식채널 e</a></li>
-												<li><a href="#">경제웹툰</a></li>
-												<li><a href="#">카드뉴스</a></li>
+												<li><a href="https://eiec.kdi.re.kr/material/qnaList.do">경제, 이것이 궁금해요</a></li>
+												<li><a href="https://eiec.kdi.re.kr/material/echannList.do">지식채널 e</a></li>
+												<li><a href="https://eiec.kdi.re.kr/material/webtoonList.do">경제웹툰</a></li>
+												<li><a href="https://eiec.kdi.re.kr/material/cardNewsList.do">카드뉴스</a></li>
 											</ul>
 										</li>
 										<li>
 											<span class="opener">학습자료</span>
 											<ul>
-												<li><a href="#">경제로 세상 읽기</a></li>
-												<li><a href="#">경제개념</a></li>
-												<li><a href="#">경제 백문백답</a></li>
+												<li><a href="https://eiec.kdi.re.kr/material/pageoneList.do">경제로 세상 읽기</a></li>
+												<li><a href="https://eiec.kdi.re.kr/material/conceptList.do">경제개념</a></li>
+												<li><a href="https://eiec.kdi.re.kr/material/ecoQueList.do">경제 백문백답</a></li>
 												
 											</ul>
 										</li>
 										<li>
-											<span><a href="#">교육프로그램</a></span>
+											<span><a href="https://eiec.kdi.re.kr/material/ecoProgram.do">교육프로그램</a></span>
 											
 										</li>
 										<li>
-											<span><a href="#">click 경제교육</a></span>
+											<span><a href="https://eiec.kdi.re.kr/material/clickList.do">click 경제교육</a></span>
 										
 										</li>
 										<li>
-											<span><a href="#">시사용어사전</a></span>
+											<span><a href="https://eiec.kdi.re.kr/material/wordDic.do">시사용어사전</a></span>
 											
 										</li>
 										<li>
-											<span><a href="#">경제교과서검정</a></span>
+											<span><a href="https://eiec.kdi.re.kr/material/textbookList.do">경제교과서검정</a></span>
 											
 										</li>
 										
@@ -153,12 +165,12 @@ layout:decorate="~{layouts/board}">
              <div class="col-md-12 mt-4">
              <div class="main-notice">  
              <h1 class="notice">PBL 경제교육 시리즈</h1>   
+               <div class="button" sec:authorize="isAuthenticated()">
              	 <button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
                  <button type="button" class="btn btn-primary" onclick="javascript:location.href='/admin/board/economy/economy_write'">등록</button>
-                 </div>           
-                <div class="button" sec:authorize="isAuthenticated()">
+               </div>           
              </div>
-                 <table class="table table-striped table-horizontal table-bordered mt-3">
+                 <table class="table">
                      <thead class="thead-strong">
                          <tr class="thead1">
                              <th width="2%"><input type="checkbox" id="chkAll"></th>
@@ -172,11 +184,10 @@ layout:decorate="~{layouts/board}">
                         <td>
                            <input type="checkbox" name="deleteId" th:value="${list.id}">
                         </td>
-                        <!-- <td>
-                           <span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
-                        </td> -->
-                        <td class="thumbnail">
-                      		<img th:src="'/images/'+ ${list.image.imageName}" class="thumbnail" th:alt="${list.image.imageName}" height="40">
+                        <td>
+                          <div class="thumbnail">
+                      		<img th:src="'/images/'+ ${list.image.imageName}"  th:alt="${list.image.imageName}">
+                      	  </div>
                         </td>
                         <td>
                            <a th:href="@{./economy_view(id=${list.id})}">
@@ -186,12 +197,6 @@ layout:decorate="~{layouts/board}">
                         <td>
                            <span th:text="${list.registerId}"></span>
                         </td>
-                        <!--  <td>
-                           <span th:text="${list.readcnt}"></span>
-                        </td>  --> 
-                        <!-- <td>
-                           
-                        </td> -->
                      <tr>
                      </tbody>
                  </table>

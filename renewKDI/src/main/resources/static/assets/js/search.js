@@ -2,6 +2,7 @@ $(document).ready(function() {
 	$("#chkAll").click(function() {
 		if($("#chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
 		else $("input[name=chk]").prop("checked", false);
+		
 	});
 
 	$("input[name=chk]").click(function() {
@@ -58,9 +59,35 @@ $(document).ready(function() {
 		else $("#chkAll4").prop("checked", true); 
 	});
 	
-    
+    $('#policydc').change(function(){
+    	
+    	policydcYn = ($("#policydc").is(":checked") ? "a" : null);
+    	console.log(policydcYn);
+		$('#policydcYn').val(policydcYn);
+
+    });
 	
+	$('#study').change(function(){
+    	
+    	studyYn = ($("#study").is(":checked") ? "b" : null);
+    	console.log(studyYn);
+		$('#studyYn').val(studyYn);
+
+    });
+	
+	$("#chkAll").change(function(){
+	
+		policydcYn = ($("#policydc").is(":checked") ? "a" : null);
+    	console.log(policydcYn);
+		$('#policydcYn').val(policydcYn);
+		
+		studyYn = ($("#study").is(":checked") ? "b" : null);
+    	console.log(studyYn);
+		$('#studyYn').val(studyYn);
+		
+	});
 });
+var policydcYn;
 
 $(function(){
     $("#datechk").change (function (){
@@ -75,4 +102,6 @@ $(function(){
    
 });
 
-				
+
+
+

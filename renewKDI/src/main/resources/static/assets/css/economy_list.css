@@ -58,7 +58,7 @@
         
          .table>tbody>tr>td>a {
         	font-family: "Noto Sans CJK KR","Noto Sans KR",'Noto Sans EOT',SimHei,Sans-serif;
-   		 	font-size: 18px;
+   		 	font-size: 20px;
 		    line-height: 1.8em;
 		    font-weight: 400;
 		    color: #444;
@@ -75,7 +75,6 @@
         .table>tbody>tr>td>div{
         	vertical-align: top;
 		    font-size: 15px;
-		    padding-right: 10px;
 		    color: #859199;
 		    line-height: 1.5em
         }

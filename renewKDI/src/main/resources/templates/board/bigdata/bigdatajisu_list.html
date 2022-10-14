@@ -91,7 +91,14 @@ layout:decorate="~{layouts/board}">
 									</header>
 									<ul>
 										<li>
-											<span><a href="http://localhost:8090/board/bigdata/issuetrend_list">이슈 트렌드 분석</a></span>
+											<span class="opener"><a href="http://localhost:8090/board/bigdata/issuetrend_list">이슈 트렌드 분석</a></span>
+											<ul>
+												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list">경제 전반</a></li>
+												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/industrywaste">산업 및 소비 </a></li>
+												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/tradework">무역 및 노동</a></li>
+												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/prices">물가 및 부동산</a></li>
+												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/money">금융</a></li>
+											</ul>
 									
 										</li>
 										<li>
@@ -129,7 +136,7 @@ layout:decorate="~{layouts/board}">
 	<div class="containers">
 	<form action="board/bigdata/bigdatajisu_list" id="frm" method="get"></form>
 	<div>
-		<img th:src="@{/images/img01.png}" width="500px" height="500px">
+		<img th:src="@{/images/bigdata/단어별빈도수.png}" width="500px" height="500px">
 		<img th:src="@{/images/img02.png}" width="500px" height="500px">
 	</div>
   

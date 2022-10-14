@@ -184,6 +184,7 @@ layout:decorate="~{layouts/board3}">
 		<!-- 관리자 수정 폼 -->
 			<div class="mb-3">
 			<br>
+			<label class="form-label" sec:authorize="hasAnyAuthority('ROLE_ADMIN')"> 제목 수정</label><br>
 			    <input type="text" class="form-control" name="title" th:value="${info.title}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
 			</div>
 			<br>
@@ -192,6 +193,7 @@ layout:decorate="~{layouts/board3}">
 			    <input type="text" class="form-control" name="registerId" th:value="${info.registerId}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
 			</div>
 			<div class="mb-3">
+				<label class="form-label" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">내용 수정</label><br>
 		    	<textarea class="form-control"  name="content" th:text="${info.content}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')"></textarea>
 			</div>
 			<!-- 관리자 글 수정 폼 끝 -------------------------------------------------->

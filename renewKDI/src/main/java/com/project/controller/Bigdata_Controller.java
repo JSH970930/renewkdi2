@@ -1,6 +1,6 @@
 package com.project.controller;
 
-import org.springframework.data.domain.PageRequest;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -43,6 +43,30 @@ public class Bigdata_Controller {
 	      
 	      return "/board/bigdata/bigdatajisu_list";
 	   }
+	   
+	   @GetMapping("/board/bigdata/issuetrend_list_industry")
+	   public String getBigdataissue_industryListPage() throws Exception {
+	      
+	      return "/board/bigdata/issuetrend_list_industry";
+	   }
+	   @GetMapping("/board/bigdata/issuetrend_list_tradework")
+	   public String getBigdataissue_trdaeworkListPage() throws Exception {
+	      
+	      return "/board/bigdata/issuetrend_list_tradework";
+	   }
+
+	   @GetMapping("/board/bigdata/issuetrend_list_prices")
+	   public String getBigdataissue_pricesListPage() throws Exception {
+	      
+	      return "/board/bigdata/issuetrend_list_prices";
+	   }
+
+	   @GetMapping("/board/bigdata/issuetrend_list_money")
+	   public String getBigdataissue_moneyListPage() throws Exception {
+	      
+	      return "/board/bigdata/issuetrend_list_money";
+	   }
+
 
 
 

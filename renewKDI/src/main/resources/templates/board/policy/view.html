@@ -1,6 +1,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 layout:decorate="~{layouts/board3}">
 
 
@@ -65,6 +66,31 @@ layout:decorate="~{layouts/board3}">
         .tab-content input {
             margin: 10px;
         }
+             .linfo{
+    font-size: 15px;
+    color: #859199;
+    vertical-align: top;
+        }
+        .containers h3{
+            font-size: 24px;
+    line-height: 1em;
+    padding-bottom: 15px;
+    font-weight: 500;
+        }
+        .usertitle{
+          border:hidden;
+            border-top:1px solid #909089;
+      border-bottom:1px solid #909089;
+         margin-top:4px;
+         padding-bottom:20px;
+        }
+        .ucont{
+        margin-top:30px;
+        }
+         .ucont pre{
+     overflow:auto;
+     white-space: pre-wrap;    
+        
 
     </style>
 </head>
@@ -89,20 +115,20 @@ layout:decorate="~{layouts/board3}">
 										<li>
 											<span class="opener">주제별보기</span>
 											<ul>
-												<li><a href="#">주제별보기</a></li>
-												<li><a href="#">국내외연구자료주제</a></li>
+												<li><a href="https://eiec.kdi.re.kr/policy/epSubjectList.do">주제별보기</a></li>
+												<li><a href="https://eiec.kdi.re.kr/policy/keSubjectList.do">국내외연구자료주제</a></li>
 											</ul>
 										</li>
 										<li>
-											<span><a href="#">발간처별보기</a></span>
+											<span><a href="https://eiec.kdi.re.kr/policy/publisherList.do">발간처별보기</a></span>
 										
 										</li>
 										<li>
-											<span ><a href="#">발간처별보기</a></span>
+											<span ><a href="https://eiec.kdi.re.kr/publish/archList.do">정책세미나영상</a></span>
 											
 										</li>
 										<li>
-											<span><a href="#">맞춤형정책서비스</a></span>
+											<span><a href="https://eiec.kdi.re.kr/policy/customList.do">맞춤형정책서비스</a></span>
 											
 										</li>
 										
@@ -124,32 +150,46 @@ layout:decorate="~{layouts/board3}">
 		<h1>정책정보게시판</h1>
 		<form id="frm" action="/board/policy/view/action" method="post">
 			<input type="hidden" name="id" th:value="${info.id}">
+			
+				<!--이용자 출력화면------------------>
+				<div class="usertitle">
+			    <h3 th:text="${info.title}"></h3>
+			    <span class="linfo" th:text="${info.registerId}"></span> <span> &nbsp;| &nbsp;</span>
+			     <span class="linfo" th:text="${info.registerTime}"></span>
+			     <span>  <strong>첨부파일 다운로드 : </strong>
+            <a th:href="@{'/download/' + ${info.fileId}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
+            <span  th:text="${filename}"></span></span>
+			</div>
+			<div class="ucont">
+		    	<p th:text="${info.content}"></p>
+			</div>
+			<!-- 이용자 출력 화면 끝------------------------------------------------- -->
+		
+		<!-- 관리자 수정 폼 -->
 			<div class="mb-3">
-			   <!--  <label class="form-label">제목</label> -->
-			    <input type="text" class="form-control" name="title" th:value="${info.title}">
+			<br>
+				<label class="form-label" sec:authorize="hasAnyAuthority('ROLE_ADMIN')"> 제목 수정</label><br>
+			    <input type="text" class="form-control" name="title" th:value="${info.title}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+			</div>
+			<br>
+				<div class="mb-3">
+			    <label class="form-label" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">작성자 수정</label><br>
+			    <input type="text" class="form-control" name="registerId" th:value="${info.registerId}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
 			</div>
 			<div class="mb-3">
-		    <!-- 	<label class="form-label">내용</label> -->
-		    	<textarea class="form-control" rows="5" cols="" name="content" th:text="${info.content}"></textarea>
+				<label class="form-label" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">내용 수정</label><br>
+		    	<textarea class="form-control"  name="content" th:text="${info.content}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')"></textarea>
 			</div>
-			<div class="mb-3">
-			    <label class="form-label">작성자</label>
-			    <input type="text" class="form-control" name="registerId" th:value="${info.registerId}">
-			</div>
-			<div class="float-left">
-				
-				<button type="submit" class="btn btn-primary">수정</button>
+			<!-- 관리자 글 수정 폼 끝 -------------------------------------------------->
+		
+			<div class="float-left" >
+				<button type="button" class="btn btn-success" onclick="javascript:location.href='/board/publishment/Expert_list'">이전</button>
+				<button type="submit" class="btn btn-primary" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">수정</button>
+					<button type="button" class="btn btn-danger" th:onclick="fnViewDelete()"  sec:authorize="hasAnyAuthority('ROLE_ADMIN')">삭제</button>
 			</div>
 		
-			<div class="float-right">
-				<button type="button" class="btn btn-danger" th:onclick="fnViewDelete()">삭제</button>
-			</div>
 			
-			<div>
-            <strong>첨부파일 다운로드 : </strong>
-            <a th:href="@{'/download/' + ${info.fileId}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
-            <span  th:text="${filename}"></span>
-          </div>
+			
 		</form>
 	</div>
     <!--부트스트랩 js, jquery 추가-->

@@ -83,7 +83,7 @@ layout:decorate="~{layouts/board}">
 <div layout:fragment="side">
 		<div class="inner">
 							  <!-- Menu -->
-                         <nav id="menu">
+                        <nav id="menu">
                            <header class="major">
                               <h2>발행물</h2>
                            </header>
@@ -125,10 +125,10 @@ layout:decorate="~{layouts/board}">
 	<div class="containers">
 	    <form action="/board/publishment/pubbook_List" id="frm" method="get">
 			<div class="col-md-12 mt-4">
-			 	<div class="main-notice"  sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+			 	<div class="main-notice" >
 			 		<h4 class="notice">단행본</h4>
-			 			<button type="button" class="btn btn-danger" onclick="fnDelete()">등록</button>
-			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/publishment/pubbook_Write'">삭제</button>
+			 			<button type="button" class="btn btn-danger" onclick="fnDelete()" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">삭제</button>
+			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/publishment/pubbook_Write'" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">등록</button>
 					</div>
 			        <table class="table">
 			            <thead class="thead-strong">

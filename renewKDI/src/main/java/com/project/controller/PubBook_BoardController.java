@@ -140,7 +140,7 @@ public class PubBook_BoardController {
 	        }
 		  
 		  try {
-			  String origImageName = images.getOriginalFilename();
+	            String origImageName = images.getOriginalFilename();
 	            int dot = origImageName.indexOf(".");
 	            String ext = origImageName.substring(dot);
 	            String imageName = new MD5Generator(origImageName).toString() + ext;

@@ -83,7 +83,7 @@ layout:decorate="~{layouts/board}">
 <div layout:fragment="side">
 		<div class="inner">
 							  <!-- Menu -->
-                        <nav id="menu">
+                         <nav id="menu">
                            <header class="major">
                               <h2>발행물</h2>
                            </header>
@@ -127,15 +127,15 @@ layout:decorate="~{layouts/board}">
 			<div class="col-md-12 mt-4">
 			 	<div class="main-notice"  sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
 			 		<h4 class="notice">단행본</h4>
-			 			<button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
-			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/publishment/pubbook_Write'">등록</button>
+			 			<button type="button" class="btn btn-danger" onclick="fnDelete()">등록</button>
+			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/publishment/pubbook_Write'">삭제</button>
 					</div>
 			        <table class="table">
 			            <thead class="thead-strong">
 			                <tr class="thead1">
 			                    <th width="2%"><input type="checkbox" id="chkAll"></th>
 			                    <th width="20%">이미지</th>
-			                    <th width="70%" class="totalCnt1">총 <span th:text="${resultMap.totalCnt}"></span>건</th>
+			                    <th width="70%" class="totalCnt1">총<span th:text="${resultMap.totalCnt}"></span>건</th>
 			                
 			                    <th width="8%">작성자</th>
 			                </tr>
@@ -149,7 +149,7 @@ layout:decorate="~{layouts/board}">
 									<span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
 								</td> -->
 								  <td class="thumbnail">
-                      		<img th:src="'/images/'+ ${list.image.imageName}" class="thumbnail" th:alt="${list.image.imageName}" width="100" height="100">
+                      		<img th:src="'/images/'+ ${list.image.imageName}" class="thumbnail" th:alt="${list.image.imageName}" >
                         </td>
 								<td >
 								

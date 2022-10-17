@@ -110,7 +110,7 @@ layout:decorate="~{layouts/board2}">
         </div>   	      	 
         <div class="form-group">
             <label th:for="email">이메일</label>
-            <input type="email" th:field="*{email}" class="form-control" readonly>
+            <input type="email" th:field="*{email}" class="form-control" >
         </div>
         <div class="form-group">
         	 <label th:for="name">직업분류</label>
@@ -147,6 +147,7 @@ layout:decorate="~{layouts/board2}">
         <button type="button"onclick = "location.href='/main'" class="btn btn-primary">뒤로가기</button>
     </form>
     <br/>
+    
 </div>
 </body>
 

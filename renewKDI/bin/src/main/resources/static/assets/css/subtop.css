@@ -33,6 +33,9 @@
     background-image: url("/assets/img/notice.png");
         background-color: #1a7eb8;
 }
+.top_img.sub07{
+    background-image: url("https://eiec.kdi.re.kr/res/img/sub_top02_4.jpg");
+}
 
 .top_img.sub08{
     background-image: url("https://eiec.kdi.re.kr/res/img/sub_top02_6.jpg");

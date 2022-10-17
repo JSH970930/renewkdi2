@@ -71,6 +71,22 @@ layout:decorate="~{layouts/board}">
         .col {
             text-align: center;
         }
+        .jisu{
+        position : relative;}
+        
+        .tab-pane{
+        position : absolute;}
+        
+        .fill1{
+        margin-bottom : 50px;}
+        
+        .fill2{
+        
+        position : relative;
+        margin-top : 500px;
+        
+        }
+       
         
     </style>
 </head>
@@ -91,14 +107,7 @@ layout:decorate="~{layouts/board}">
 									</header>
 									<ul>
 										<li>
-											<span class="opener"><a href="http://localhost:8090/board/bigdata/issuetrend_list">이슈 트렌드 분석</a></span>
-											<ul>
-												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list">경제 전반</a></li>
-												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/industrywaste">산업 및 소비 </a></li>
-												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/tradework">무역 및 노동</a></li>
-												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/prices">물가 및 부동산</a></li>
-												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/money">금융</a></li>
-											</ul>
+											<span><a href="http://localhost:8090/board/bigdata/issuetrend_list">이슈 트렌드 분석</a></span>
 									
 										</li>
 										<li>
@@ -135,14 +144,173 @@ layout:decorate="~{layouts/board}">
   <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
 	<div class="containers">
 	<form action="board/bigdata/bigdatajisu_list" id="frm" method="get"></form>
-	<div>
-		<img th:src="@{/images/bigdata/단어별빈도수.png}" width="500px" height="500px">
-		<img th:src="@{/images/img02.png}" width="500px" height="500px">
-	</div>
+	
+	     <div class="fill1">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#epu" data-toggle="tab">epu지수</a></li>
+                        <li><a href="#jisu1" data-toggle="tab">&nbsp;금융불안지수</a></li>
+                        <li><a href="#jisu2" data-toggle="tab">&nbsp;소비자물가불안지수</a></li>
+                        <li><a href="#employ" data-toggle="tab">&nbsp;고용불안지수</a></li>
+                        
+                         <li><a href="#jisu3" data-toggle="tab">&nbsp;소비자신뢰지수</a></li>
+                    </ul>
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="epu">
+                        <img th:src="@{/images/epu.png}" width="850px" height="500px">
+                       
+                        </div>
+                        
+                        
+                         
+                        
+                        <div class="tab-pane fade" id="jisu1">
+                       <img th:src="@{/images/금융불안지수.png}" width="850px" height="500px">
+                        </div>
+                        
+                        <div class="tab-pane fade" id="jisu2">
+                          <img th:src="@{/images/소비자물가불안지수.png}" width="850px" height="500px">
+                        </div>
+                        
+                        
+                         <div class="tab-pane fade" id="employ">
+                          <ul class="nav nav-tabs">
+                        <li class="active"><a href="#20" data-toggle="tab">20대</a></li>
+                        <li><a href="#30" data-toggle="tab">&nbsp;30대</a></li>
+                        <li><a href="#40" data-toggle="tab">&nbsp;40대</a></li>
+                        <li><a href="#50" data-toggle="tab">&nbsp;50대</a></li>
+                         <li><a href="#60" data-toggle="tab">&nbsp;60대</a></li>
+                         <li><a href="#70" data-toggle="tab">&nbsp;70대</a></li>
+                         <li><a href="#80" data-toggle="tab">&nbsp;80대이상</a></li>
+                    </ul>
+                    <div class = jisu>
+                    <div class="tab-pane fade" id="20">
+                      <img th:src="@{/images/고용불안지수0.png}" width="500px" height="350px">
+                        </div>
+                        
+                        <div class="tab-pane fade" id="30">
+                      <img th:src="@{/images/고용불안지수1.png}" width="500px" height="350px">
+                        </div>
+                        
+                        <div class="tab-pane fade" id="40">
+                      <img th:src="@{/images/고용불안지수2.png}" width="500px" height="350px">
+                        </div>
+                        
+                        <div class="tab-pane fade" id="50">
+                     <img th:src="@{/images/고용불안지수3.png}" width="500px" height="350px">
+                        </div>
+                    
+                    
+                    <div class="tab-pane fade" id="60">
+                     <img th:src="@{/images/고용불안지수4.png}" width="500px" height="350px">
+                        </div>
+                        
+                         <div class="tab-pane fade" id="70">
+                     <img th:src="@{/images/고용불안지수5.png}" width="500px" height="350px">
+                        </div>
+                        
+                         <div class="tab-pane fade" id="80">
+                     <img th:src="@{/images/고용불안지수6.png}" width="500px" height="350px">
+                        </div>
+                    
+                    </div>
+                  
+                    
+                        </div>
+                        
+                        
+                        <div class="tab-pane fade" id="jisu3">
+                         <img th:src="@{/images/소비자신뢰지수.png}" width="850px" height="500px">
+
+                        </div>
+                    </div>
+                </div>
+                
+        
+                
+                
+                
+                
+	
   
 
 </div>
+        <!-- 사회지수 -->
+                
+               
+
+<div class="fill2">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#happy" data-toggle="tab">행복지수</a></li>
+                        <li><a href="#sad" data-toggle="tab">&nbsp;양극화불평등지수</a></li>
+                        <li><a href="#lisk" data-toggle="tab">&nbsp;지정학적 리스크</a></li>
+                    </ul>
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="happy">
+                        <img th:src="@{/images/행복지수.png}" width="850px" height="500px">
+                       
+                        </div>
+                        
+                        
+                        
+                        
+                         <div class="tab-pane fade" id="sad">
+                          <ul class="nav nav-tabs">
+                        <li class="active"><a href="#100" data-toggle="tab">100만원 이상</a></li>
+                        <li><a href="#200" data-toggle="tab">&nbsp;100-200만원</a></li>
+                        <li><a href="#300" data-toggle="tab">&nbsp;200-300만원</a></li>
+                        <li><a href="400" data-toggle="tab">&nbsp;300-400만원</a></li>
+                         <li><a href="#500" data-toggle="tab">&nbsp;400-500만원</a></li>
+                         <li><a href="#600" data-toggle="tab">&nbsp;500-600만원</a></li>
+                         <li><a href="#700" data-toggle="tab">&nbsp;600-700만원</a></li>
+                         <li><a href="#800" data-toggle="tab">&nbsp;700만원 이상</a></li>
+                    </ul>
+                    <div class = 100>
+                    <div class="tab-pane fade" id="100">
+                      <img th:src="@{/images/양극화불평등지수0.png}" width="500px" height="350px">
+                        </div>
+                        
+                        <div class="tab-pane fade" id="200">
+                      <img th:src="@{/images/양극화불평등지수1.png}" width="500px" height="350px">
+                        </div>
+                        
+                        <div class="tab-pane fade" id="300">
+                      <img th:src="@{/images/양극화불평등지수2.png}" width="500px" height="350px">
+                        </div>
+                        
+                         <div class="tab-pane fade" id="300">
+                      <img th:src="@{/images/양극화불평등지수3.png}" width="500px" height="350px">
+                        </div>
+                    
+                    
+                    <div class="tab-pane fade" id="500">
+                     <img th:src="@{/images/양극화불평등지수4.png}" width="500px" height="350px">
+                        </div>
+                        
+                         <div class="tab-pane fade" id="600">
+                     <img th:src="@{/images/양극화불평등지수5.png}" width="500px" height="350px">
+                        </div>
+                        
+                         <div class="tab-pane fade" id="700">
+                     <img th:src="@{/images/양극화불평등지수6.png}" width="500px" height="350px">
+                        </div>
+                    
+                    </div>
+                  
+                    
+                        </div>
+                        
+                        
+                        <div class="tab-pane fade" id="lisk">
+                         <img th:src="@{/images/지정학적리스크.png}" width="850px" height="500px">
+
+                        </div>
+                    </div>
+                </div>
 </div>
+
+ 
 
 </body>
 </html>

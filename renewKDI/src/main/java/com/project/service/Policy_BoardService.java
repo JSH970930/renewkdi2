@@ -53,6 +53,28 @@ private final Policy_BoardRepository boardRepository;
 		
 		return resultMap;
 	}
+	
+	@Transactional(readOnly = true)
+	public HashMap<String, Object> FindAll(Pageable pageable) {
+		
+		
+		HashMap<String, Object> PresultMap = new HashMap<String, Object>();
+		
+		Page<Policy_Board> list = boardRepository.findAll(pageable);
+		
+		
+		PresultMap.put("list", list.stream().map(Policy_BoardResponseDto::new).collect(Collectors.toList()));
+		PresultMap.put("paging", list.getPageable());
+		PresultMap.put("First", list.isFirst());
+		PresultMap.put("Last", list.isLast());
+		PresultMap.put("totalCnt", list.getTotalElements());
+		PresultMap.put("totalPage", list.getTotalPages());
+	
+		
+		
+		return PresultMap;
+	}
+	
 	@Transactional
 	public HashMap<String, Object> findByTitleContaining(Pageable pageable, String searchKeyword) {
 		// TODO Auto-generated method stub
@@ -98,6 +120,22 @@ private final Policy_BoardRepository boardRepository;
 	      resultMap.put("totalPage", list.getTotalPages());
 	      
 	      return resultMap;
+	   }
+	
+	@Transactional
+	   public HashMap<String, Object> FindByContentContaining(Pageable pageable, String searchKeyword) {
+	      // TODO Auto-generated method stub
+
+	      HashMap<String, Object> PresultMap = new HashMap<String, Object>();
+	     
+	      Page<Policy_Board> list = boardRepository.findByContentContaining(pageable, searchKeyword);
+	   
+	      PresultMap.put("list", list.stream().map(Policy_BoardResponseDto::new).collect(Collectors.toList()));
+	      PresultMap.put("paging", list.getPageable());
+	      PresultMap.put("totalCnt", list.getTotalElements());
+	      PresultMap.put("totalPage", list.getTotalPages());
+	      
+	      return PresultMap;
 	   }
 	   
 	

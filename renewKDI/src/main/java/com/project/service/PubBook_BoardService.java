@@ -17,10 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.project.dto.Economy_BoardRequestDto;
 import com.project.dto.Economy_BoardResponseDto;
+import com.project.dto.Policy_BoardResponseDto;
 import com.project.dto.PubBook_BoardRequestDto;
 import com.project.dto.PubBook_BoardResponseDto;
 import com.project.entity.Economy_Board;
 import com.project.entity.Image;
+import com.project.entity.Policy_Board;
 import com.project.entity.PubBook_Board;
 import com.project.repository.ImageRepository;
 import com.project.repository.PubBook_BoardRepository;
@@ -60,6 +62,23 @@ public class PubBook_BoardService {
 		
 		return resultMap;
 	}
+	
+	@Transactional(readOnly = true)
+	public HashMap<String, Object> FindAll(Integer page, Integer size) {
+		
+		
+		HashMap<String, Object> BresultMap = new HashMap<String, Object>();
+		PageRequest pageRequest = PageRequest.of(page, size, Sort.by("id").descending());
+		Page<PubBook_Board> list = boardRepository.findAll(pageRequest);
+		
+		BresultMap.put("list", list.stream().map(PubBook_BoardResponseDto::new).collect(Collectors.toList()));
+		BresultMap.put("paging", list.getPageable());
+		BresultMap.put("totalCnt", list.getTotalElements());
+		BresultMap.put("totalPage", list.getTotalPages());
+		
+		return BresultMap;
+	}
+	
 	@Transactional
 	public HashMap<String, Object> findByTitleContaining(Integer page, Integer size, String searchKeyword) {
 		// TODO Auto-generated method stub
@@ -75,6 +94,39 @@ public class PubBook_BoardService {
 		
 		return resultMap;
 	}
+	
+	@Transactional
+	public HashMap<String, Object> FindByTitleContaining(Integer page, Integer size, String searchKeyword) {
+		// TODO Auto-generated method stub
+
+		HashMap<String, Object> BresultMap = new HashMap<String, Object>();
+		Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+		Page<PubBook_Board> list = boardRepository.findByTitleContaining(pageable, searchKeyword);
+	
+		BresultMap.put("list", list.stream().map(PubBook_BoardResponseDto::new).collect(Collectors.toList()));
+		BresultMap.put("paging", list.getPageable());
+		BresultMap.put("totalCnt", list.getTotalElements());
+		BresultMap.put("totalPage", list.getTotalPages());
+		
+		return BresultMap;
+	}
+	
+	@Transactional
+	   public HashMap<String, Object> FindByContentContaining(Pageable pageable, String searchKeyword) {
+	      // TODO Auto-generated method stub
+
+	      HashMap<String, Object> BresultMap = new HashMap<String, Object>();
+	     
+	      Page<PubBook_Board> list = boardRepository.findByContentContaining(pageable, searchKeyword);
+	   
+	      BresultMap.put("list", list.stream().map(PubBook_BoardResponseDto::new).collect(Collectors.toList()));
+	      BresultMap.put("paging", list.getPageable());
+	      BresultMap.put("totalCnt", list.getTotalElements());
+	      BresultMap.put("totalPage", list.getTotalPages());
+	      
+	      return BresultMap;
+	   }
+	
 	
 	@Transactional
 	public PubBook_BoardRequestDto getPost(Long id) {

@@ -69,9 +69,25 @@ $(document).ready(function() {
 	
 	$('#study').change(function(){
     	
-    	studyYn = ($("#study").is(":checked") ? "b" : null);
+    	studyYn = ($("#study").is(":checked") ? "n" : null);
     	console.log(studyYn);
 		$('#studyYn').val(studyYn);
+
+    });
+    
+    $('#book').change(function(){
+    	
+    	bookYn = ($("#book").is(":checked") ? "b" : null);
+    	console.log(bookYn);
+		$('#bookYn').val(bookYn);
+
+    });
+    
+    $('#review').change(function(){
+    	
+    	bookYn = ($("#review").is(":checked") ? "b" : null);
+    	console.log(reviewYn);
+		$('#reviewYn').val(reviewYn);
 
     });
 	
@@ -81,11 +97,26 @@ $(document).ready(function() {
     	console.log(policydcYn);
 		$('#policydcYn').val(policydcYn);
 		
-		studyYn = ($("#study").is(":checked") ? "b" : null);
+		studyYn = ($("#study").is(":checked") ? "n" : null);
     	console.log(studyYn);
 		$('#studyYn').val(studyYn);
 		
+		
+		
 	});
+	
+	$("#chkAll2").change(function(){
+	
+	bookYn = ($("#book").is(":checked") ? "b" : null);
+    console.log(bookYn);
+	$('#bookYn').val(bookYn);
+		
+	reviewYn = ($("#review").is(":checked") ? "b" : null);
+    console.log(reviewYn);
+	$('#reviewYn').val(reviewYn);	
+	
+	});
+		
 });
 var policydcYn;
 

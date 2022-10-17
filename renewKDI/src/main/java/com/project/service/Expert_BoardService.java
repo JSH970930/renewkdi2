@@ -20,10 +20,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.project.dto.Expert_BoardRequestDto;
 import com.project.dto.Expert_BoardResponseDto;
-
+import com.project.dto.PubBook_BoardResponseDto;
 import com.project.entity.Expert_Board;
 
 import com.project.entity.Image;
+import com.project.entity.PubBook_Board;
 import com.project.repository.Expert_BoardRepository;
 
 import com.project.repository.ImageRepository;
@@ -63,6 +64,23 @@ public class Expert_BoardService {
 		
 		return resultMap;
 	}
+	
+	@Transactional(readOnly = true)
+	public HashMap<String, Object> FindAll(Integer page, Integer size) {
+		
+		
+		HashMap<String, Object> RresultMap = new HashMap<String, Object>();
+		PageRequest pageRequest = PageRequest.of(page, size, Sort.by("id").descending());
+		Page<Expert_Board> list = boardRepository.findAll(pageRequest);
+		
+		RresultMap.put("list", list.stream().map(Expert_BoardResponseDto::new).collect(Collectors.toList()));
+		RresultMap.put("paging", list.getPageable());
+		RresultMap.put("totalCnt", list.getTotalElements());
+		RresultMap.put("totalPage", list.getTotalPages());
+		
+		return RresultMap;
+	}
+	
 	@Transactional
 	public HashMap<String, Object> findByTitleContaining(Integer page, Integer size, String searchKeyword) {
 
@@ -77,6 +95,37 @@ public class Expert_BoardService {
 		
 		return resultMap;
 	}
+	
+	@Transactional
+	public HashMap<String, Object> FindByTitleContaining(Integer page, Integer size, String searchKeyword) {
+
+		HashMap<String, Object> RresultMap = new HashMap<String, Object>();
+		Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+		Page<Expert_Board> list = boardRepository.findByTitleContaining(pageable, searchKeyword);
+	
+		RresultMap.put("list", list.stream().map(Expert_BoardResponseDto::new).collect(Collectors.toList()));
+		RresultMap.put("paging", list.getPageable());
+		RresultMap.put("totalCnt", list.getTotalElements());
+		RresultMap.put("totalPage", list.getTotalPages());
+		
+		return RresultMap;
+	}
+	
+	@Transactional
+	   public HashMap<String, Object> FindByContentContaining(Pageable pageable, String searchKeyword) {
+	      // TODO Auto-generated method stub
+
+	      HashMap<String, Object> RresultMap = new HashMap<String, Object>();
+	     
+	      Page<Expert_Board> list = boardRepository.findByContentContaining(pageable, searchKeyword);
+	   
+	      RresultMap.put("list", list.stream().map(Expert_BoardResponseDto::new).collect(Collectors.toList()));
+	      RresultMap.put("paging", list.getPageable());
+	      RresultMap.put("totalCnt", list.getTotalElements());
+	      RresultMap.put("totalPage", list.getTotalPages());
+	      
+	      return RresultMap;
+	   }
 	
 	@Transactional
 	public Expert_BoardRequestDto getPost(Long id) {

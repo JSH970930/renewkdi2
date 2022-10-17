@@ -93,16 +93,13 @@ layout:decorate="~{layouts/main}">
             <div class="offcanvas-body">
                 <div id="searchBar">
                     <div class="frm">
-                        <select name="sub">
-                            <option value="#">전체</option>
-                            <option value="#">제목</option>
-                            <option value="#">요약</option>
-                            <option value="#">저자</option>
-                            <option value="#">원문</option>
+                        <select name ="type" class="type1">
+	            			<option selected value="">전체</option>
+	            			<option value = "title" >제목</option>
+            				<option value = "content">내용</option>
+        				</select>
 
-                        </select>
-
-               </div>
+              		</div>
                     <div class="detail-search-bar">
                         <input type="text" class="detail-search-txt" name="searchKeyword" placeholder="검색할 내용을 입력해 주세요">
                     </div>
@@ -120,19 +117,21 @@ layout:decorate="~{layouts/main}">
                         <div class="tab-pane fade in active" id="economic">
                             <label><input  type="checkbox" id="chkAll"  ><span>전체</span></label>
                             <label><input type="checkbox" name="chk" id="policydc" value="a" ><span>경제정책자료</span></label>
-                            <label> <input type="checkbox" name="chk" id="study" value="b"><span>국내외연구자료</span></label>
+                            <label> <input type="checkbox" name="chk" id="study" value="n"><span>국내외연구자료</span></label>
                             <label> <input type="checkbox" name="chk" id=seminar><span>정책세미나영상</span></label>
                             <label> <input type="checkbox" name="chk" id="service"><span>맞춤형정책서비스</span></label>
-                            <input type="text" id="policydcYn" name="policydcYn" th:value="${searchchk}">
-                            <input type="text" id="studyYn" name="studyYn" th:value="${searchchk}">
+                            <input type="hidden" id="policydcYn" name="policydcYn" th:value="${searchchk}">
+                            <input type="hidden" id="studyYn" name="studyYn" th:value="${searchchk}">
                         </div>
                         <div class="tab-pane fade" id="pub">
                             <label><input type="checkbox" id="chkAll2" name="chkAll2"><span>전체</span></label>
                             <label> <input type="checkbox" name="chk2" id=ceconomy><span>나라경제</span></label>
-                            <label> <input type="checkbox" name="chk2" id="review"><span>e경제정보리뷰</span></label>
+                            <label> <input type="checkbox" name="chk2" id="review" value="r"><span>e경제정보리뷰</span></label>
                             <label> <input type="checkbox" name="chk2" id="bulletin"><span>Economic Bulletin</span></label>
-                         <label> <input type="checkbox" name="chk2" id="book"><span>단행본</span></label>
+                         	<label> <input type="checkbox" name="chk2" id="book" value="b"><span>단행본</span></label>
                             <label> <input type="checkbox" name="chk2" id="media"><span>정책미디어</span></label>
+                            <input type="hidden" id="reviewYn" name="reviewYn" th:value="${searchchk2}">
+                            <input type="hidden" id="bookYn" name="bookYn" th:value="${searchchk2}">
                         </div>
                         <div class="tab-pane fade" id="edu">
                             <label><input type="checkbox" id="chkAll3" name="chkAll3"><span>전체</span></label>

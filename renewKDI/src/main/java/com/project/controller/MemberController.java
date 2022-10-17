@@ -112,7 +112,7 @@ public class MemberController {
 		
 		memberService.updateMember(memberDto);
 		LOGGER.info("회원 정보 수정 완료");
-		return "/main";
+		return "main/main";
 	}
 
 }

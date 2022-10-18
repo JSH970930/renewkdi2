@@ -71,6 +71,22 @@ layout:decorate="~{layouts/board}">
         .col {
             text-align: center;
         }
+        .jisu{
+        position : relative;}
+        
+        .tab-pane{
+        position : absolute;}
+        
+        .fill1{
+        margin-bottom : 50px;}
+        
+        .fill2{
+        position : relative;
+        margin-top : 500px;
+        padding-bottom : 650px;
+        
+        }
+      
         
     </style>
 </head>
@@ -80,69 +96,119 @@ layout:decorate="~{layouts/board}">
   <div class="top_img sub03"></div>
 </div>
 <div layout:fragment="side">
-					<div class="inner">
+               <div class="inner">
 
-							
+                     
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>이슈&분석</h2>
-									</header>
-									<ul>
-							<li>
-											<span><a href="http://localhost:8090/board/bigdata/issuetrend_list">이슈 트렌드 분석</a></span>
-												<ul>
-												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list">경제 전반</a></li>
-												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/industrywaste">산업 및 소비 </a></li>
-												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/tradework">무역 및 노동</a></li>
-												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/prices">물가 및 부동산</a></li>
-												<li><a href="http://localhost:8090/board/bigdata/issuetrend_list/money">금융</a></li>
-											</ul>
-									
-										</li>
-										<li>
-											<span><a href="http://localhost:8090/board/bigdata/emerging_list">이머징 이슈 분석</a></span>
-									
-										</li>
-										<li>
-											<span><a href="http://localhost:8090/board/bigdata/policyissue_list">정책 이슈 심층 이해</a></span>
-									
-										</li>
-										<li>
-											<span><a href="http://localhost:8090/board/bigdata/economy_list">경제 지표</a></span>
-											
-										</li>
-										<li>
-											<span><a href="http://localhost:8090/board/bigdata/bigdatajisu_list">빅데이터 지수</a></span>
-										
-										</li>
-										
-										
-									</ul>
-								</nav>
+                     <!-- Menu -->
+                        <nav id="menu">
+                           <header class="major">
+                              <h2>이슈&분석</h2>
+                           </header>
+                           <ul>
+                              <li>
+                                 <span><a href="http://localhost:8090/board/bigdata/issuetrend_list">이슈 트렌드 분석</a></span>
+                           
+                              </li>
+                              <li>
+                                 <span><a href="http://localhost:8090/board/bigdata/emerging_list">이머징 이슈 분석</a></span>
+                           
+                              </li>
+                              <li>
+                                 <span><a href="http://localhost:8090/board/bigdata/policyissue_list">정책 이슈 심층 이해</a></span>
+                           
+                              </li>
+                              <li>
+                                 <span><a href="http://localhost:8090/board/bigdata/economy_list">경제 지표</a></span>
+                                 
+                              </li>
+                              <li>
+                                 <span><a href="http://localhost:8090/board/bigdata/bigdatajisu_list">빅데이터 지수</a></span>
+                              </li>
+                           
+                           </ul>
+                        </nav>
                         </div>
                         
                         <!-- Scripts -->
-			<script src="/assets/js/jquery.min.js"></script>
-			<script src="/assets/js/browser.min.js"></script>
-			<script src="/assets/js/breakpoints.min.js"></script>
-			<script src="/assets/js/main.js"></script>
-			<script src="/assets/js/side.js"></script>
+         <script src="/assets/js/jquery.min.js"></script>
+         <script src="/assets/js/browser.min.js"></script>
+         <script src="/assets/js/breakpoints.min.js"></script>
+         <script src="/assets/js/main.js"></script>
+         <script src="/assets/js/side.js"></script>
 </div>
 <div layout:fragment="content">
   <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
-	<div class="containers">
-	<form action="board/bigdata/policyissue_list" id="frm" method="get"></form>
-	<div>
-		<img th:src="@{/images/img01.png}" width="500px" height="500px">
-		
-		<img th:src="@{/images/img02.png}" width="500px" height="500px">
-	</div>
-  
+   <div class="containers">
+   <form action="board/bigdata/bigdatajisu_list" id="frm" method="get"></form>
+   
+        <div class="fill1">
+         <h2>망 사용료 법안</h2>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#net" data-toggle="tab">네트워크 분석</a></li>
+                        <li><a href="#text" data-toggle="tab">&nbsp;텍스트 마이닝</a></li>
+                        <li><a href="#keword" data-toggle="tab">&nbsp;키워드 순위</a></li>
+                        
+                        
+                    </ul>
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="net">
+                          <img th:src="@{/images/망 사용료 네트워크 분석.png}" width="850px" height="500px">
+                        </div>
+                        
+                        
+                        <div class="tab-pane fade" id="text">
+                          <img th:src="@{/images/망 사용료 텍스트 마이닝.png}" width="850px" height="500px">
+                        </div>
+                        
+                        <div class="tab-pane fade" id="keword">
+                          <img th:src="@{/images/망 사용료 키워드 그래프.png}" width="850px" height="500px">
+                        </div>
+                        
+                        
+                        
+                  
+                    </div>
+                </div>
+                
 
+        <!-- 사회지수 -->
+                
+               
+
+ <div class="fill2">
+         <h2>여성 가족부 폐지 법안</h2>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#net2" data-toggle="tab">네트워크 분석</a></li>
+                        <li><a href="#text2" data-toggle="tab">&nbsp;텍스트 마이닝</a></li>
+                        <li><a href="#keword2" data-toggle="tab">&nbsp;키워드 순위</a></li>
+                     
+                    </ul>
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="net2">
+                          <img th:src="@{/images/여성가족부 네트워크 분석.png}" width="850px" height="500px">
+                        </div>
+                        
+                        
+                        <div class="tab-pane fade" id="text2">
+                          <img th:src="@{/images/여성가족부 텍스트 마이닝.png}" width="850px" height="500px">
+                        </div>
+                        
+                        <div class="tab-pane fade" id="keword2">
+                          <img th:src="@{/images/여성가족부페지 키워드 그래프.png}" width="850px" height="500px">
+                        </div>
+                        
+                        
+                        
+                      
+                    </div>
+                </div>
+                </div>
 </div>
-</div>
+
+ 
 
 </body>
 </html>

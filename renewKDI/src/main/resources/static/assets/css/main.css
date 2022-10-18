@@ -147,7 +147,7 @@ section {
    
 }
 .search-btn button{
-	
+	right : 20px;
 	 border:none;
 	 background:white;
 	 position:relative;

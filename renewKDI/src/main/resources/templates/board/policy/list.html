@@ -125,9 +125,11 @@ layout:decorate="~{layouts/board}">
 	    <form action="/board/policy/list" id="frm" method="get">
 			<div class="col-md-12 mt-4">
 			 	<div class="main-notice">
+			 		<div class="button" sec:authorize="isAuthenticated()">
 			 		<h4 class="notice">경제정책정보</h4>
 			 			<button type="button" class="btn btn-danger" onclick="fnDelete()">삭제</button>
 			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/policy/write'">등록</button>
+					</div>
 					</div>
 			        <table class="table">
 			            <thead class="thead-strong">

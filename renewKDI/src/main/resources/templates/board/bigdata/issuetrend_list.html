@@ -71,8 +71,28 @@ layout:decorate="~{layouts/board}">
         .col {
             text-align: center;
         }
+        .container2{
+     height:1800px;
+        }
+        .image{
+        margin-top:100px;
+        margin-bottom:50px;
+       
+        }
         
+        .image2{
+        margin-top:100px;
+        margin-bottom:150px;
+        }
+        .econtent{
+        position:relative;
+        }
+        .tab-pane{
+        position:absolute;
+        margin-bottom:auto;
+        }
     </style>
+
 </head>
 
 <body>
@@ -148,18 +168,30 @@ layout:decorate="~{layouts/board}">
                     </ul>
                     
                     <div class="tab-content">
+                   
                         <div class="tab-pane fade in active" id="economy">
-                        <div>
-                        <img th:src="@{/images/경제.png}" width="850px" height="500px">
-                         </div>
-                          <div>
-                        <img th:src="@{/images/경제.png}" width="850px" height="500px">
-                         </div>
-                          <div>
-                        <img th:src="@{/images/경제.png}" width="850px" height="500px">
-                         </div>
+                           <ul class="nav nav-tabs">
+                              <li class="active"><a href="#emonth" data-toggle="tab">월별 트랜드 분석</a></li>
+                                 <li><a href="#eyear" data-toggle="tab">연간 트랜드 분석</a></li>
+                                 </ul>
+                         <div class="econtent">
+                       <div class="tab-pane fade in active" id="emonth">
+                        <img class="image" th:src="@{/images/bigdata/경제빈도수그래프.png}" width="800px" height="500px">
+                            <img class="image" th:src="@{/images/bigdata/경제월간트랜드.png}" width="800px" height="250px">
+                            <img class="image" th:src="@{/images/bigdata/경제연관어분석.png}" width="800px" height="500px">
+                         
+                             
+                     
+                     </div>
                     
-                       
+                     
+                           
+                            <div class="tab-pane fade" id="eyear">
+                        <img class="image2" th:src="@{/images/bigdata/경제이슈타임라인.png}" width="850px" height="500px">
+                         <img class="image2" th:src="@{/images/bigdata/경제연간트랜드.png}" width="850px" height="350px">
+                         </div>
+                        </div>
+                        
                         </div>
                         
                         
@@ -226,7 +258,7 @@ layout:decorate="~{layouts/board}">
 						</div>
                         </div>
                         
-                           <div class="tab-pane fade in active" id="money">
+                           <div class="tab-pane fade" id="money">
                            <div>
                         <img th:src="@{/images/금융.png}" width="850px" height="500px">
                         </div>

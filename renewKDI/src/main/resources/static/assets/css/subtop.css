@@ -40,3 +40,8 @@
 .top_img.sub08{
     background-image: url("https://eiec.kdi.re.kr/res/img/sub_top02_6.jpg");
 }
+
+.top_img.sub09{
+    background-image: url("/assets/img/search.png");
+        background-color: #1a7eb8;
+}

@@ -84,7 +84,7 @@
 
 <body>
 	<div layout:fragment="subtop">
-		<div class="top_img sub06"></div>
+		<div class="top_img sub09"></div>
 	</div>
 	<div layout:fragment="side">
 		<div class="inner">
@@ -98,11 +98,10 @@
 				</header>
 				<ul>
 					<li th:if="${resultMap1.totalCnt != 0}">정책 정보<a th:text="${resultMap1.totalCnt}" th:href="@{./list(searchKeyword=${searchKeyword})}"></a></li>
-					<li th:if="${BresultMap.totalCnt != 0}">정책 정보<a th:text="${BresultMap.totalCnt}" th:href="@{./list(searchKeyword=${searchKeyword})}"></a></li>
+					<li th:if="${RresultMap.totalCnt != 0}">e경제정보리뷰<a th:text="${RresultMap.totalCnt}" th:href="@{./list(searchKeyword=${searchKeyword})}"></a></li>
+					<li th:if="${BresultMap.totalCnt != 0}">단행본<a th:text="${BresultMap.totalCnt}" th:href="@{./list(searchKeyword=${searchKeyword})}"></a></li>
 					<li th:if="${resultMap2.totalCnt != 0}">공지 사항<a th:text="${resultMap2.totalCnt}" th:href="@{./notice/list(searchKeyword=${searchKeyword})}"></a></li>
 					
-
-
 				</ul>
 			</nav>
 		</div>
@@ -113,11 +112,6 @@
 
 			<!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
 			<div class="container">
-				<form action="/board/totalsearch" method="get" role="search">
-					<input type="text" name="searchKeyword" class="form-control"
-						id="search" placeholder="검색">
-					<button class="btn btn-success bi bi-search"></button>
-				</form>
 				<h1>통합검색</h1>
 				<form action="/board/totalsearch" id="frm" method="get">
 					<div class="col-md-10 mt-4" th:if="${resultMap1.totalCnt != 0}">
@@ -136,7 +130,7 @@
 								<tr th:each="list,index : ${resultMap1.list}"
 									th:with="paging=${resultMap1.paging}">
 
-									<td><a th:href="@{./view(id=${list.id})}"> <span
+									<td><a th:href="@{./policy/view(id=${list.id})}"> <span
 											th:text="${list.title}"></span></a>
 										<div class=time th:text="${list.registerTime}"></div></td>
 									<td><span th:text="${list.registerId}"></span></td>
@@ -147,7 +141,42 @@
 							<div class="col">
 								<ul class="pagination">
 									<li class="page-item"><a class="page-link"
-										th:href="@{./list(searchKeyword=${searchKeyword})}"> 자세히 </a>
+										th:href="@{./policy/list(searchKeyword=${searchKeyword})}"> 자세히 </a>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-10 mt-4" th:if="${RresultMap.totalCnt != 0}">
+						<h3>e경제정보리뷰</h3>
+						<table
+							class="table table-striped table-horizontal table-bordered mt-3">
+							<thead class="thead-strong">
+								<tr>
+									<th width="90%" class="totalCnt">총<span
+										th:text="${RresultMap.totalCnt}"></span>건
+									</th>
+									<th width="10%">작성자</th>
+								</tr>
+							</thead>
+							<tbody id="tbody">
+								<tr th:each="list,index : ${RresultMap.list}"
+									th:with="paging=${RresultMap.paging}">
+
+									<td><a th:href="@{./publishment/Expert_view(id=${list.id})}"> <span
+											th:text="${list.title}"></span></a>
+										<div class=time th:text="${list.registerTime}"></div></td>
+									<td><span th:text="${list.registerId}"></span></td>
+								<tr>
+							</tbody>
+						</table>
+						<div class="row">
+							<div class="col">
+								<ul class="pagination">
+									<li class="page-item"><a class="page-link"
+										th:href="@{./publishment/Expert_list(searchKeyword=${searchKeyword})}"> 자세히 </a>
 									</li>
 								</ul>
 
@@ -171,7 +200,7 @@
 								<tr th:each="list,index : ${BresultMap.list}"
 									th:with="paging=${BresultMap.paging}">
 
-									<td><a th:href="@{./view(id=${list.id})}"> <span
+									<td><a th:href="@{./publishment/pubbook_View(id=${list.id})}"> <span
 											th:text="${list.title}"></span></a>
 										<div class=time th:text="${list.registerTime}"></div></td>
 									<td><span th:text="${list.registerId}"></span></td>
@@ -182,7 +211,7 @@
 							<div class="col">
 								<ul class="pagination">
 									<li class="page-item"><a class="page-link"
-										th:href="@{./list(searchKeyword=${searchKeyword})}"> 자세히 </a>
+										th:href="@{./publishment/pubbook_List(searchKeyword=${searchKeyword})}"> 자세히 </a>
 									</li>
 								</ul>
 
@@ -216,7 +245,7 @@
 						<div class="row">
 							<div class="col">
 								<ul class="pagination">
-									<li class="page-item"><a class="page-link"
+									<li class="page-item"><a class="page-link" 
 										th:href="@{./notice/list(searchKeyword=${searchKeyword})}">
 											자세히 </a></li>
 								</ul>

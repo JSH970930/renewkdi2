@@ -115,6 +115,11 @@ layout:decorate="~{layouts/board3}">
         margin-top:30px;
         }
         
+         .ucont pre{
+     overflow:auto;
+     white-space: pre-wrap;    
+        }
+        
     </style>
 </head>
 
@@ -177,7 +182,7 @@ layout:decorate="~{layouts/board3}">
 			     <span class="linfo" th:text="${info.registerTime}"></span>
 			</div>
 			<div class="ucont">
-		    	<p th:text="${info.content}"></p>
+		    	<pre th:text="${info.content}"></pre>
 			</div>
 			<!-- 이용자 출력 화면 끝------------------------------------------------- -->
 		

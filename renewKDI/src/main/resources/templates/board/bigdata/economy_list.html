@@ -135,14 +135,37 @@ layout:decorate="~{layouts/board}">
   <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
 	<div class="containers">
 	<form action="board/bigdata/economy_list" id="frm" method="get"></form>
-	<div>
-		<img th:src="@{/images/img01.png}" width="500px" height="500px">
-		<img th:src="@{/images/img02.png}" width="500px" height="500px">
-	</div>
-  
+	<div class="fill1">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#epu" data-toggle="tab">국내총생산(GDP)</a></li>
+                        <li><a href="#jisu1" data-toggle="tab">&nbsp;민간소비지수</a></li>
+                        <li><a href="#jisu2" data-toggle="tab">&nbsp;설비,건설투자지수</a></li>
+                        <li><a href="#jisu3" data-toggle="tab">&nbsp;수출,수입금액지수</a></li>
+                        <li><a href="#jisu4" data-toggle="tab">&nbsp;고용률</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="epu">
+                        <img th:src="@{/images/bigdata/국내총생산.png}" width="850px" height="500px">
+                    </div>
+                    
+                    <div class="tab-pane fade" id="jisu1">
+                       	<img th:src="@{/images/bigdata/민간소비.png}" width="850px" height="500px">
+                    </div>
+                        
+                    <div class="tab-pane fade" id="jisu2">
+                        <img th:src="@{/images/bigdata/설비투자,건설투자.png}" width="850px" height="500px">
+                    </div>
+                        
+                    <div class="tab-pane fade" id="jisu3">
+                        <img th:src="@{/images/bigdata/수출,수입금액.png}" width="850px" height="500px">
+                    </div>
 
+                    <div class="tab-pane fade" id="jisu4">
+                        <img th:src="@{/images/bigdata/고용률.png}" width="850px" height="500px">
+                    </div>
+                    </div>
+               	 </div>
+              </div>
 </div>
-</div>
-
 </body>
 </html>

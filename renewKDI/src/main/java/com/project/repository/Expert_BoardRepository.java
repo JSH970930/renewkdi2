@@ -69,6 +69,8 @@ public interface Expert_BoardRepository extends JpaRepository<Expert_Board, Long
 
 public Page<Expert_Board> findByTitleContaining(Pageable pageable, String searchKeyword);
 
+public Page<Expert_Board> findByContentContaining(Pageable pageable, String searchKeyword);
+
 
 
 

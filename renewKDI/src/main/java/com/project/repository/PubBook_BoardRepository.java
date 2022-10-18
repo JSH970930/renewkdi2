@@ -62,6 +62,8 @@ public interface PubBook_BoardRepository extends JpaRepository<PubBook_Board, Lo
 
 	
 
-public Page<PubBook_Board> findByTitleContaining(Pageable pageable, String searchKeyword);	
+public Page<PubBook_Board> findByTitleContaining(Pageable pageable, String searchKeyword);
+
+public Page<PubBook_Board> findByContentContaining(Pageable pageable, String searchKeyword);	
 
 }

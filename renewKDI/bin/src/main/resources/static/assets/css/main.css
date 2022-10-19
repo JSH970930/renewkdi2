@@ -128,7 +128,7 @@ section {
     margin: 0 auto;
     margin-top: 80px;
     padding: 10PX;
-    width: 1000px
+    width: 1000px;
 }
 
 .search-txt {
@@ -137,13 +137,22 @@ section {
     margin: 10px -30px 30px 120px;
     border-radius: 40px;
     text-indent: 20px;
+    position:relative;
 }
 
 .search-btn {
     position: relative;
     width: 30px;
     height: 20px;
-
+   
+}
+.search-btn button{
+	right : 20px;
+	 border:none;
+	 background:white;
+	 position:relative;
+	 
+	
 }
 
 
@@ -153,7 +162,7 @@ section {
     height: 30px;
     margin: 30px;
     margin-top: 40px;
-    border: 0 none;
+    border:  none;
     border-radius: 20px;
     background: #0c3254;
     color: #fff;
@@ -162,14 +171,12 @@ section {
 
 .offcanvas-top{
     height: 600px;
-    transition-timing-function: 10s;
 }
 .offcanvas-top.show {
     height: 600px;
-    
-
 
 }
+.offcanvas-vertical-height:         80vh;
 
 .offcanvas-header {
     margin: 10px;
@@ -508,7 +515,7 @@ ul {
     width: 100%;
     position: relative;
     background: white;
-    margin: 0 auto;
+    margin: auto;
 }
 
 @media (min-width: 1365px) {
@@ -587,5 +594,6 @@ ul {
 .hero .icon-box:hover .icon {
     color: #fff;
 }
+
 
 

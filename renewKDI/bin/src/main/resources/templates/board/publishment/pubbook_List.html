@@ -83,7 +83,7 @@ layout:decorate="~{layouts/board}">
 <div layout:fragment="side">
 		<div class="inner">
 							  <!-- Menu -->
-                         <nav id="menu">
+                        <nav id="menu">
                            <header class="major">
                               <h2>발행물</h2>
                            </header>
@@ -98,7 +98,7 @@ layout:decorate="~{layouts/board}">
                                  <span><a href="https://eiec.kdi.re.kr/publish/ebMain.do">Economic</a></span>
                               </li>
                               <li>
-                                 <span><a href="@{./pubbook_List}">단행본</a></span>
+                                 <span><a  href="http://localhost:8090/board/publishment/pubbook_List">단행본</a></span>
                               </li>
                               <li>
                                  <span class="opener">정책미디어</a></span>
@@ -125,16 +125,18 @@ layout:decorate="~{layouts/board}">
 	<div class="containers">
 	    <form action="/board/publishment/pubbook_List" id="frm" method="get">
 			<div class="col-md-12 mt-4">
-			 	<div class="main-notice"  sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-			 		<h4 class="notice">단행본</h4>
-			 			<button type="button" class="btn btn-danger" onclick="fnDelete()">등록</button>
-			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/publishment/pubbook_Write'">삭제</button>
+		
+			 	<div class="main-notice" >
+			 		<h2 class="notice">단행본</h2>
+			 		
+			 			<button type="button" class="btn btn-danger" onclick="fnDelete()" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">삭제</button>
+			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/publishment/pubbook_Write'" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">등록</button>
 					</div>
 			        <table class="table">
 			            <thead class="thead-strong">
 			                <tr class="thead1">
 			                    <th width="2%"><input type="checkbox" id="chkAll"></th>
-			                    <th width="20%">이미지</th>
+			                    <th width="15%">이미지</th>
 			                    <th width="70%" class="totalCnt1">총<span th:text="${resultMap.totalCnt}"></span>건</th>
 			                
 			                    <th width="8%">작성자</th>

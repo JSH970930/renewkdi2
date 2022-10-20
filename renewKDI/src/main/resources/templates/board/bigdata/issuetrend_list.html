@@ -91,6 +91,10 @@ layout:decorate="~{layouts/board}">
         position:absolute;
         margin-bottom:auto;
         }
+        
+        .img_industry {
+        margin: auto;
+        }
     </style>
 
 </head>
@@ -198,15 +202,15 @@ layout:decorate="~{layouts/board}">
                          
                         
                         <div class="tab-pane fade" id="industry">
-                        <div>
-                       <img th:src="@{/images/산업.png}" width="850px" height="500px">
-                       </div>
-                         <div>
-                       <img th:src="@{/images/산업.png}" width="850px" height="500px">
-                       </div>
-                         <div>
-                       <img th:src="@{/images/산업.png}" width="850px" height="500px">
-                       </div>
+                        <br>
+                          <img th:src="@{/images/bigdata/wordgraph_industry.png}" width="800px" height="600px">
+                        <br><br><br>  
+                          <img th:src="@{/images/bigdata/wordlink_industry.png}" width="800px" height="500px">
+                        <br><br><br>
+                          <div>
+                          <img class="img_industry" th:src="@{/images/bigdata/wordre_industry1.png}" width="800px" height="500px">
+                          </div>
+                          <br><br><br><br>
                         </div>
                         
                         <div class="tab-pane fade" id="waste">

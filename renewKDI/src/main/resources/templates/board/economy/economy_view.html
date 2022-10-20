@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
 xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-layout:decorate="~{layouts/board}">
+layout:decorate="~{layouts/board3}">
 
 
 <head>
@@ -67,10 +67,39 @@ layout:decorate="~{layouts/board}">
         .tab-content input {
             margin: 10px;
         }
+       .col {
+            text-align: center;
+        }
+ 
+       
+           .linfo{
+    font-size: 15px;
+    color: #859199;
+    vertical-align: top;
+        }
         
-        .content {
-   		 	margin: 0 40px;
-    		width: 90%;
+        .containers h3{
+            font-size: 24px;
+    line-height: 1em;
+    padding-bottom: 15px;
+    font-weight: 500;
+        }
+        
+        .usertitle{
+          border:hidden;
+            border-top:1px solid #909089;
+      border-bottom:1px solid #909089;
+         margin-top:4px;
+         padding-bottom:20px;
+        }
+        
+        .ucont{
+        margin-top:30px;
+        }
+        
+         .ucont pre{
+     overflow:auto;
+     white-space: pre-wrap;    
         }
 
     </style>
@@ -81,98 +110,110 @@ layout:decorate="~{layouts/board}">
   <div class="top_img sub03"></div>
 </div>
 <div layout:fragment="side">
-					<div class="inner">
+               <div class="inner">
 
-							
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>경제교육</h2>
-									</header>
-									<ul>
-										<li>
-											<span class="opener">교사용수업자료</span>
-											<ul>
-												<li><a href="#">PBL 경제교육 시리즈</a></li>
-												<li><a href="#">경제교육 표준교재</a></li>
-												<li><a href="#">생애주기별 경제교육</a></li>
-												
-											</ul>
-										</li>
-										<li>
-											<span class="opener">멀티미디어자료</span>
-											<ul>
-												<li><a href="#">경제, 이것이 궁금해요</a></li>
-												<li><a href="#">지식채널 e</a></li>
-												<li><a href="#">경제웹툰</a></li>
-												<li><a href="#">카드뉴스</a></li>
-											</ul>
-										</li>
-										<li>
-											<span class="opener">학습자료</span>
-											<ul>
-												<li><a href="#">경제로 세상 읽기</a></li>
-												<li><a href="#">경제개념</a></li>
-												<li><a href="#">경제 백문백답</a></li>
-												
-											</ul>
-										</li>
-										<li>
-											<span><a href="#">교육프로그램</a></span>
-											
-										</li>
-										<li>
-											<span><a href="#">click 경제교육</a></span>
-										
-										</li>
-										<li>
-											<span><a href="#">시사용어사전</a></span>
-											
-										</li>
-										<li>
-											<span><a href="#">경제교과서검정</a></span>
-											
-										</li>
-										
-										
-									</ul>
-								</nav>
+                     <!-- Menu -->
+                        <nav id="menu">
+                           <header class="major">
+                              <h2>경제교육</h2>
+                           </header>
+                           <ul>
+                              <li>
+                                 <span class="opener" >교사용수업자료</span>
+                                 <ul>
+                                    <li><a href="http://localhost:8090/board/economy/economy_list">PBL 경제교육 시리즈</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/ecoEduList.do">경제교육 표준교재</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/lifeList.do">생애주기별 경제교육</a></li>
+                                    
+                                 </ul>
+                              </li>
+                              <li>
+                                 <span class="opener">멀티미디어자료</span>
+                                 <ul>
+                                    <li><a href="https://eiec.kdi.re.kr/material/qnaList.do">경제, 이것이 궁금해요</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/echannList.do">지식채널 e</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/webtoonList.do">경제웹툰</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/cardNewsList.do">카드뉴스</a></li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <span class="opener">학습자료</span>
+                                 <ul>
+                                    <li><a href="https://eiec.kdi.re.kr/material/pageoneList.do">경제로 세상 읽기</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/conceptList.do">경제개념</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/ecoQueList.do">경제 백문백답</a></li>
+                                    
+                                 </ul>
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/material/ecoProgram.do">교육프로그램</a></span>
+                                 
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/material/clickList.do">click 경제교육</a></span>
+                              
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/material/wordDic.do">시사용어사전</a></span>
+                                 
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/material/textbookList.do">경제교과서검정</a></span>
+                                 
+                              </li>
+                              
+                              
+                           </ul>
+                        </nav>
                         </div>
                         
                         <!-- Scripts -->
-			<script src="/assets/js/jquery.min.js"></script>
-			<script src="/assets/js/browser.min.js"></script>
-			<script src="/assets/js/breakpoints.min.js"></script>
-			<script src="/assets/js/main.js"></script>
-			<script src="/assets/js/side.js"></script>
+         <script src="/assets/js/jquery.min.js"></script>
+         <script src="/assets/js/browser.min.js"></script>
+         <script src="/assets/js/breakpoints.min.js"></script>
+         <script src="/assets/js/main.js"></script>
+         <script src="/assets/js/side.js"></script>
 </div>
 <div layout:fragment="content">
 
 	 <div class="containers">
-      <h1>PBL 경제교육 시리즈</h1>
+      <h1>단행본</h1>
       <form id="frm" action="/board/economy/economy_view/action" method="post">
          <input type="hidden" name="id" th:value="${info.id}">
+         
+         <!--이용자 출력화면------------------>
+				<div class="usertitle">
+			    <h3 th:text="${info.title}"></h3>
+			    <span class="linfo" th:text="${info.registerId}"></span> <span> &nbsp;| &nbsp;</span>
+			     <span class="linfo" th:text="${info.registerTime}"></span>
+			</div>
+			<div class="ucont">
+		    	<pre th:text="${info.content}"></pre>
+			</div>
+			<!-- 이용자 출력 화면 끝------------------------------------------------- -->
+         
+         
+         <!-- 관리자 수정 폼 -->
          <div class="mb-3">
             <!--  <label class="form-label">제목</label> -->
-             <input type="text" class="form-control" name="title" th:value="${info.title}">
+             <input type="text" class="form-control" name="title" th:value="${info.title}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
          </div>
          <div class="mb-3">
           <!--    <label class="form-label">내용</label> -->
-             <textarea class="form-control" rows="5" cols="" name="content" th:text="${info.content}"></textarea>
+             <textarea class="form-control" rows="5" cols="" name="content" th:text="${info.content}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')"></textarea>
          </div>
          <div class="mb-3">
-             <label class="form-label">작성자</label>
-             <input type="text" class="form-control" name="registerId" th:value="${info.registerId}">
+             <label class="form-label" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">작성자</label>
+             <input type="text" class="form-control" name="registerId" th:value="${info.registerId}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
          </div>
-         
+         <br>
          <div class="float-right">
             <strong>첨부파일 다운로드 : </strong>
             <a th:href="@{'/economy_download/' + ${info.fileId}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
             <span  th:text="${fileName}"></span>
          </div>
-         
-         <div class="float-left" sec:authorize="isAuthenticated()">
+         <br>
+         <div class="float-left"  sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
             <button type="button" class="btn btn-success" onclick="javascript:location.href='/board/economy/economy_list'">이전</button>
             <button type="submit" class="btn btn-primary">수정</button>
             <button type="button" class="btn btn-danger" th:onclick="fnViewDelete()">삭제</button>
@@ -180,6 +221,8 @@ layout:decorate="~{layouts/board}">
 
       </form>
    </div>
+   <br><br>
+   
     <!--부트스트랩 js, jquery 추가-->
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>

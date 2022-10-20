@@ -85,59 +85,59 @@ layout:decorate="~{layouts/board3}">
 <div layout:fragment="side">
 					<div class="inner">
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>경제교육</h2>
-									</header>
-									<ul>
-										<li>
-											<span class="opener">교사용수업자료</span>
-											<ul>
-												<li><a href="#">PBL 경제교육 시리즈</a></li>
-												<li><a href="#">경제교육 표준교재</a></li>
-												<li><a href="#">생애주기별 경제교육</a></li>
-												
-											</ul>
-										</li>
-										<li>
-											<span class="opener">멀티미디어자료</span>
-											<ul>
-												<li><a href="#">경제, 이것이 궁금해요</a></li>
-												<li><a href="#">지식채널 e</a></li>
-												<li><a href="#">경제웹툰</a></li>
-												<li><a href="#">카드뉴스</a></li>
-											</ul>
-										</li>
-										<li>
-											<span class="opener">학습자료</span>
-											<ul>
-												<li><a href="#">경제로 세상 읽기</a></li>
-												<li><a href="#">경제개념</a></li>
-												<li><a href="#">경제 백문백답</a></li>
-												
-											</ul>
-										</li>
-										<li>
-											<span><a href="#">교육프로그램</a></span>
-											
-										</li>
-										<li>
-											<span><a href="#">click 경제교육</a></span>
-										
-										</li>
-										<li>
-											<span><a href="#">시사용어사전</a></span>
-											
-										</li>
-										<li>
-											<span><a href="#">경제교과서검정</a></span>
-											
-										</li>
-										
-										
-									</ul>
-								</nav>
+							 <!-- Menu -->
+                        <nav id="menu">
+                           <header class="major">
+                              <h2>경제교육</h2>
+                           </header>
+                           <ul>
+                              <li>
+                                 <span class="opener" >교사용수업자료</span>
+                                 <ul>
+                                    <li><a href="http://localhost:8090/board/economy/economy_list">PBL 경제교육 시리즈</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/ecoEduList.do">경제교육 표준교재</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/lifeList.do">생애주기별 경제교육</a></li>
+                                    
+                                 </ul>
+                              </li>
+                              <li>
+                                 <span class="opener">멀티미디어자료</span>
+                                 <ul>
+                                    <li><a href="https://eiec.kdi.re.kr/material/qnaList.do">경제, 이것이 궁금해요</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/echannList.do">지식채널 e</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/webtoonList.do">경제웹툰</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/cardNewsList.do">카드뉴스</a></li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <span class="opener">학습자료</span>
+                                 <ul>
+                                    <li><a href="https://eiec.kdi.re.kr/material/pageoneList.do">경제로 세상 읽기</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/conceptList.do">경제개념</a></li>
+                                    <li><a href="https://eiec.kdi.re.kr/material/ecoQueList.do">경제 백문백답</a></li>
+                                    
+                                 </ul>
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/material/ecoProgram.do">교육프로그램</a></span>
+                                 
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/material/clickList.do">click 경제교육</a></span>
+                              
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/material/wordDic.do">시사용어사전</a></span>
+                                 
+                              </li>
+                              <li>
+                                 <span><a href="https://eiec.kdi.re.kr/material/textbookList.do">경제교과서검정</a></span>
+                                 
+                              </li>
+                              
+                              
+                           </ul>
+                        </nav>
                         </div>
                         
                         <!-- Scripts -->
@@ -150,22 +150,23 @@ layout:decorate="~{layouts/board3}">
 <div layout:fragment="content">
 
 	 <div class="containers">
-      <h1>게시판 등록</h1>
+      <h3>게시판 등록</h3>
       <form action="/board/economy/economy_write/action" method="post" enctype="multipart/form-data">
          <div class="mb-3">
             <label class="form-label">제목</label>
             <input type="text" class="form-control" name="title">
          </div>
-
-         <div class="mb-3">
-            <label class="form-label">내용</label>
-            <textarea class="form-control" rows="5" name="content">
-            </textarea>
-         </div>
-         <div class="mb-3">
+          <div class="mb-3">
             <label class="form-label">작성자</label>
             <input type="text" class="form-control" name="registerId">
          </div>
+
+         <div class="mb-3"  >
+            <label class="form-label">내용</label>
+            <textarea class="form-control" name="content">
+            </textarea>
+         </div>
+        
          
          <div class="form-group row">
           <label for="inputFile" class="col-sm-2 col-form-label"><strong>첨부 파일</strong></label>
@@ -178,8 +179,8 @@ layout:decorate="~{layouts/board3}">
            
           <label for="inputFile" class="col-sm-2 col-form-label"><strong>첨부 이미지 파일</strong></label> 
           <div class="col-sm-10">
-          <div name="form" method="post" enctype="multipart/form-data">
-               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+          <div>
+             
                <input type="file" name="economyimage" class="custom-file-input" multiple="multiple"/>
                <label class="custom-file-label" for="customFile">파일을 선택해 주세요.</label>
           </div> 
@@ -192,16 +193,19 @@ layout:decorate="~{layouts/board3}">
         </div>    
       </form>
    </div>
+   <br><br>
    <script src="/js/lib/jquery.min.js"></script>
    <script src="/js/lib/bootstrap.min.js"></script>
-   
+
+  
    <script>
       $('.custom-file-input').on('change', function () {
         var fileName = $(this).val().split('\\').pop();
         $(this).siblings('.custom-file-label').addClass('selected').html(fileName);
       });
     </script>
-    
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+  
 </div>
 </body>
 </html>

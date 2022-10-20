@@ -46,10 +46,6 @@ public class Economy_BoardController {
 	private final FileService fileService;
 	private final ImageService imageService;
 	
-	
-	
-
-	
 
 	
 	@GetMapping("/board/economy/economy_list")

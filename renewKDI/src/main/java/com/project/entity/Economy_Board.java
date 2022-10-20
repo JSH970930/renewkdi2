@@ -35,7 +35,7 @@ public class Economy_Board extends BaseTimeEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,
 					generator = "ECONOMY_BOARD_SEQ_GENERATOR")
-	@Column(name="economy_id")
+	
 	private Long id;
 	
 	private String title;

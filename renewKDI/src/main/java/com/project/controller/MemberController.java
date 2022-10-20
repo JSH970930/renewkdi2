@@ -93,7 +93,6 @@ public class MemberController {
 	@GetMapping("/updateMember")
 	public String updateMemberForm(Model model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
 		String username = ((UserDetails) principal).getUsername();
 		MemberDto memberDto = memberService.MemberRecord(username);
 		model.addAttribute("memberDto",memberDto);

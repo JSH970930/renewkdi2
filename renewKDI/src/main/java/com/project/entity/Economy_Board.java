@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -67,6 +68,5 @@ public class Economy_Board extends BaseTimeEntity {
 		this.registerId = registerId;
 		this.fileName = fileName;
 		this.image = image;
-		
 	}
 }

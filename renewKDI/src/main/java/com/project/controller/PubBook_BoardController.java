@@ -13,6 +13,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,10 +26,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.project.dto.FileDto;
 import com.project.dto.ImageDto;
+import com.project.dto.MemberDto;
 import com.project.dto.PubBook_BoardRequestDto;
 import com.project.entity.Image;
 import com.project.service.FileService;
 import com.project.service.ImageService;
+import com.project.service.MemberService;
 import com.project.service.PubBook_BoardService;
 import com.project.util.MD5Generator;
 
@@ -43,7 +47,7 @@ public class PubBook_BoardController {
 	private final PubBook_BoardService boardService;
 	private final FileService fileService;
 	private final ImageService imageService;
-	
+	private final MemberService memberService;
 	
 
 	
@@ -166,6 +170,13 @@ public class PubBook_BoardController {
 	            Image image = imageDto.toEntity();
 	            Long id = imageService.saveFile(image);
 	            LOGGER.info("이미지 저장 완료");
+	            
+	            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	    		String username = ((UserDetails) principal).getUsername();
+	    		MemberDto memberDto = memberService.MemberRecord(username);
+	    		String name = memberDto.getName();
+	    		boardRequestDto.setRegisterId(name);
+	    		
 	            boardService.save(boardRequestDto, id);
 	            LOGGER.info("게시글 저장 완료");
 	            

@@ -3,13 +3,17 @@ package com.project.controller;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.dto.MemberDto;
 import com.project.dto.Notice_BoardRequestDto;
+import com.project.service.MemberService;
 import com.project.service.Notice_BoardService;
 
 import lombok.RequiredArgsConstructor;
@@ -20,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class Notice_BoardController {
 	
 	private final Notice_BoardService boardService;
+	private final MemberService memberService;
 	
     @GetMapping("/board/notice/list")
     public String getBoardListPage(Model model,@RequestParam(value="searchKeyword", required = false) String searchKeyword
@@ -78,6 +83,12 @@ public class Notice_BoardController {
 	public String boardWriteAction(Model model, Notice_BoardRequestDto boardRequestDto) throws Exception {
 		
 		try {
+			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    		String username = ((UserDetails) principal).getUsername();
+    		MemberDto memberDto = memberService.MemberRecord(username);
+    		String name = memberDto.getName();
+    		boardRequestDto.setRegisterId(name);
+			
 			Long result = boardService.save(boardRequestDto);
 			
 			if (result < 0) {

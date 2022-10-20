@@ -88,9 +88,19 @@ layout:decorate="~{layouts/board}">
         }
         .lnb{
       list-style:none;
+    
         
         }
+        .lnb li{
+       
+        disply:inline-block;
+          float:left;
+        }
         
+        .lnb li:before{
+        content:'';
+        }
+       
        
         
     </style>
@@ -145,24 +155,33 @@ layout:decorate="~{layouts/board}">
 <div layout:fragment="content">
   <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
 	<div class="containers">
-	<form action="publish/publishmain" id="frm" method="get"></form>
+	
 <div class="state_lnb">
 					<ul class="lnb">
-						<li><a href="">특집</a></li>
-						<li><a href="">이슈</a></li>
-						<li><a href="">인터뷰</a></li>
-						<li><a href="">Now</a></li>
-						<li><a href="">연중기획</a></li>
-						<li><a href="">경제정책해설</a></li>
-						<li><a href="">세계는 지금</a></li>
-						<li><a href="">칼럼</a></li>
-						<li><a href="">영상자료</a></li>
+						<li>특집&nbsp;l </li>
+						<li>&nbsp;이슈&nbsp;l</li>
+						<li>&nbsp;인터뷰&nbsp;l</li>
+						<li>&nbsp;Now&nbsp;l</li>
+						<li>&nbsp;연중기획&nbsp;l</li>
+						<li>&nbsp;경제정책해설&nbsp;l</li>
+						<li>&nbsp;세계는 지금&nbsp;l</li>
+						<li>&nbsp;칼럼&nbsp;l</li>
+						<li>&nbsp;영상자료&nbsp;l</li>
 					</ul>
-				</div>
-	<button type="button" class="btn btn-danger" onclick="javascript:location.href='/publish/publishsub'">
+					
+					<button type="button" class="btn btn-danger" onclick="javascript:location.href='/publish/publishsub'">
 	구독하기
 	</button>
-
+				</div>
+		<div class=publish1>
+		<img src="https://eiec.kdi.re.kr/userdata/nara/202210/202210.jpg">
+		
+		</div>
+		
+		<div class=publish2>
+		
+		</div>
+	
 	
 	   
            

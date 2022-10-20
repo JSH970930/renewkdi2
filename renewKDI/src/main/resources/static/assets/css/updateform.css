@@ -4,3 +4,32 @@
 	width : 35%;
 }
 
+.address{
+	display : grid;
+	grid-template-columns: 24% 24% 48%;
+	grid-template-rows : 15% 25% 25% 25%;
+	grid-column-gap: 1%;
+	grid-row-gap: 0.5%;
+}
+
+#address1{
+	grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+#address4{
+	grid-column-start: 1;
+    grid-column-end: 4;
+}
+#address5{
+	grid-column-start: 1;
+    grid-column-end: 3;
+}
+#address6{
+	grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.addressform{
+z-index : 1;
+}

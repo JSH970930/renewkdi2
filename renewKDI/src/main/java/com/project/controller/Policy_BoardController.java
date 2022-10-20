@@ -15,6 +15,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +28,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.project.dto.Policy_BoardRequestDto;
 
 import com.project.dto.FileDto;
+import com.project.dto.MemberDto;
 import com.project.entity.Policy_Board;
 
 import com.project.service.FileService;
+import com.project.service.MemberService;
 import com.project.service.Policy_BoardService;
 import com.project.util.MD5Generator;
 import java.io.*;
@@ -45,6 +49,7 @@ public class Policy_BoardController {
 	
 	private final Policy_BoardService boardService;
 	private final FileService fileService;
+	private final MemberService memberService;
 	
 
 	
@@ -145,6 +150,12 @@ public class Policy_BoardController {
 	            Long fileId = fileService.saveFile(fileDto);
 	            boardRequestDto.setFileId(fileId);
 	            
+	            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	    		String username = ((UserDetails) principal).getUsername();
+	    		MemberDto memberDto = memberService.MemberRecord(username);
+	    		String name = memberDto.getName();
+	    		boardRequestDto.setRegisterId(name);
+	    		
 	            boardService.save(boardRequestDto);
 	        } catch(Exception e) {
 	            e.printStackTrace();

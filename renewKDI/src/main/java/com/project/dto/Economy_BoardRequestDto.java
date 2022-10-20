@@ -6,6 +6,7 @@ package com.project.dto;
 
 import com.project.entity.Economy_Board;
 import com.project.entity.Image;
+import com.project.entity.Member;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -34,7 +35,6 @@ public class Economy_BoardRequestDto {
 			.registerId(registerId)
 			.fileName(fileName)
 			.image(image)
-		
 			.build();
 	}
 	

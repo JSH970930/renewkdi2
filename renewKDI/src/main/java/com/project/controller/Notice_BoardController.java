@@ -23,7 +23,7 @@ public class Notice_BoardController {
 	
     @GetMapping("/board/notice/list")
     public String getBoardListPage(Model model,@RequestParam(value="searchKeyword", required = false) String searchKeyword
-        , Pageable pageable  
+    	  , Pageable pageable  
           , @RequestParam(value="type", required=false) String type
           , @RequestParam(required = false, defaultValue = "0") Integer page
           , @RequestParam(required = false, defaultValue = "10") Integer size) throws Exception {
@@ -37,10 +37,10 @@ public class Notice_BoardController {
     	    throw new Exception(e.getMessage()); 
     	 }
 
-    	 }else if(type.equals("title")) {
-    	    model.addAttribute("resultMap", boardService.findByTitleContaining(page, size, searchKeyword ));
+    	 }else if("title".equals(type)) {
+    	    model.addAttribute("resultMap", boardService.findByTitleContaining(page, size, searchKeyword));
     	       
-    	 }else if(type.equals("content")) {
+    	 }else if("content".equals(type)) {
     	    model.addAttribute("resultMap" , boardService.findByContentContaining(page, size, searchKeyword));
     	    
     	 } else {

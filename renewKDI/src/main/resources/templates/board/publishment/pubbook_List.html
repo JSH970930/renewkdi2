@@ -68,7 +68,11 @@ layout:decorate="~{layouts/board}">
         .tab-content input {
             margin: 10px;
         }  
+        .notice{
+        font-size:30px;
+        font-weight: 500;
         
+        }
    
       
 
@@ -92,7 +96,7 @@ layout:decorate="~{layouts/board}">
                                  <span><a href="https://eiec.kdi.re.kr/publish/naraMain.do">나라경제</a></span>
                               </li>
                               <li>
-                                 <span><a href="https://eiec.kdi.re.kr/publish/reviewMain.do">e 경제정보리뷰</a></span>
+                                 <span><a href="http://localhost:8090/board/publishment/Expert_list">e 경제정보리뷰</a></span>
                               </li>
                               <li>
                                  <span><a href="https://eiec.kdi.re.kr/publish/ebMain.do">Economic</a></span>
@@ -123,15 +127,12 @@ layout:decorate="~{layouts/board}">
 <div layout:fragment="content">
 
 	<div class="containers">
+			 		<h4 class="notice">단행본</h4>
+			
 	    <form action="/board/publishment/pubbook_List" id="frm" method="get">
-			<div class="col-md-12 mt-4">
+			<div class="col-md-12">
 		
-			 	<div class="main-notice" >
-			 		<h2 class="notice">단행본</h2>
-			 		
-			 			<button type="button" class="btn btn-danger" onclick="fnDelete()" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">삭제</button>
-			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/publishment/pubbook_Write'" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">등록</button>
-					</div>
+			 
 			        <table class="table">
 			            <thead class="thead-strong">
 			                <tr class="thead1">
@@ -151,7 +152,7 @@ layout:decorate="~{layouts/board}">
 									<span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
 								</td> -->
 								  <td class="thumbnail">
-                      		<img th:src="'/images/'+ ${list.image.imageName}" class="thumbnail" th:alt="${list.image.imageName}" >
+                      		<img th:src="'/images/'+ ${list.image.imageName}" class="thumbnail" th:alt="${list.image.imageName}">
                         </td>
 								<td >
 								
@@ -175,35 +176,38 @@ layout:decorate="~{layouts/board}">
 							<tr>
 			            </tbody>
 			        </table>
+			        <button type="button" class="btn btn-danger" onclick="fnDelete()" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">삭제</button>
+			        	<button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/publishment/pubbook_Write'" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">등록</button>
 			        <div class="row">
 						<div class="col">
-							<ul class="pagination">
-								<li class="page-item" th:with="paging=${resultMap.paging}">
-     								<a class="page-link" th:href="@{./pubbook_List(page=0)}" aria-label="first">
-        								<span aria-hidden="true">&laquo;</span>
-        							</a>
-       					 		</li>
-								<li class="page-item" th:with="paging=${resultMap.paging}">
-     								<a class="page-link" th:href="@{./pubbook_List(page=${paging.pageNumber - 10})} ? 'disabled'" aria-label="Previous">
-        								<span aria-hidden="true">&lsaquo;</span>
-        							</a>
-       					 		</li>
-								<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-									<a class="page-link" th:classappend="${paging.pageNumber == (index-1)}" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
-									 th:href="@{./pubbook_List(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
-										<span class="t-white" th:text="${index}"></span>
-									</a>
-								</li>
-    							<li class="page-item" th:with="paging=${resultMap.paging}">
-      								<a class="page-link" th:href="@{./pubbook_List(page=${paging.pageNumber + 10})}" aria-label="Next">
-       									<span aria-hidden="true">&rsaquo;</span>
-       								</a>
-       							</li>
-       							<li class="page-item" th:with="paging=${resultMap.paging}">
-      								<a class="page-link" th:href="@{./pubbook_List(page=${resultMap.totalPage - 1})}" aria-label="end">
-       								 	<span aria-hidden="true">&raquo;</span>
-       								</a>
-       							</li>
+						<ul class="pagination">
+                        <li class="page-item" th:with="paging=${resultMap.paging}">
+                             <a class="page-link" th:href="@{./pubbook_List(page=0)}" aria-label="first">
+                                <span aria-hidden="true">&laquo;</span>
+                             </a>
+                             </li>
+                        <li class="page-item" th:with="paging=${resultMap.paging}">
+                             <a class="page-link" th:href="@{./pubbook_List(page=${paging.pageNumber - 10})}" aria-label="Previous">
+                                <span aria-hidden="true">&lsaquo;</span>
+                             </a>
+                             </li>
+                        <li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
+                           <a class="page-link" th:classappend="${paging.pageNumber == (index-1)} ? bg-primary : bg-secondary" 
+                            th:href="@{./pubbook_List(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
+                           
+                              <span class="text-white" th:text="${index}"></span>
+                           </a>
+                        </li>
+                         <li class="page-item" th:with="paging=${resultMap.paging}">
+                              <a class="page-link" th:href="@{./pubbook_List(page=${paging.pageNumber + 10})}" aria-label="Next">
+                                  <span aria-hidden="true">&rsaquo;</span>
+                               </a>
+                            </li>
+                            <li class="page-item" th:with="paging=${resultMap.paging}">
+                              <a class="page-link" th:href="@{./pubbook_List(page=${resultMap.totalPage - 1})}" aria-label="end">
+                                   <span aria-hidden="true">&raquo;</span>
+                               </a>
+                            </li>
 							</ul>
 						</div>
 					</div>

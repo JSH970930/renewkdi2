@@ -164,7 +164,7 @@ layout:decorate="~{layouts/board}">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#economy" data-toggle="tab">경제</a></li>
                         <li><a href="#industry" data-toggle="tab">&nbsp;산업</a></li>
-                        <li><a href="#waste" data-toggle="tab">&nbsp;소비</a></li>
+                        <li><a href="#work" data-toggle="tab">&nbsp;노동</a></li>
                         <li><a href="#trade" data-toggle="tab">&nbsp;무역</a></li>     
                          <li><a href="#price" data-toggle="tab">&nbsp;물가</a></li>
                          <li><a href="#realest" data-toggle="tab">&nbsp;부동산</a></li>
@@ -213,41 +213,70 @@ layout:decorate="~{layouts/board}">
                           <br><br><br><br>
                         </div>
                         
-                        <div class="tab-pane fade" id="waste">
-                        <div>
-                          <img th:src="@{/images/소비.png}" width="850px" height="500px">
-                          </div>
-                           <div>
-                          <img th:src="@{/images/소비.png}" width="850px" height="500px">
-                          </div>
-                           <div>
-                          <img th:src="@{/images/소비.png}" width="850px" height="500px">
-                          </div>
+                        
+                         <div class="tab-pane fade in active" id="work">
+                           <ul class="nav nav-tabs">
+                              <li class="active"><a href="#wmonth" data-toggle="tab">월별 트랜드 분석</a></li>
+                                 <li><a href="#wyear" data-toggle="tab">연간 트랜드 분석</a></li>
+                                 </ul>
+                         <div class="pcontent">
+                       <div class="tab-pane fade in active" id="wmonth">
+                        <img class="image" th:src="@{/images/bigdata/노동빈도수그래프.png}" width="800px" height="500px">
+                            <img class="image" th:src="@{/images/bigdata/노동월간트랜드.png}" width="800px" height="250px">
+                            <img class="image" th:src="@{/images/bigdata/노동연관어분석.png}" width="800px" height="500px">
+                     </div>
+                     
+                            <div class="tab-pane fade" id="wyear">
+                        <img class="image2" th:src="@{/images/bigdata/노동이슈타임라인.png}" width="850px" height="500px">
+                         <img class="image2" th:src="@{/images/bigdata/노동연간트랜드.png}" width="850px" height="350px">
+                         </div>
+                        </div>
                         </div>
                                        
                         
-                        <div class="tab-pane fade" id="trade">
-                        <div>
-                         <img th:src="@{/images/무역.png}" width="850px" height="500px">
-						</div>
-						 <div>
-                         <img th:src="@{/images/무역.png}" width="850px" height="500px">
-						</div>
-						 <div>
-                         <img th:src="@{/images/무역.png}" width="850px" height="500px">
-						</div>
+                            <div class="tab-pane fade in active" id="trade">
+                           <ul class="nav nav-tabs">
+                              <li class="active"><a href="#tmonth" data-toggle="tab">월별 트랜드 분석</a></li>
+                                 <li><a href="#tyear" data-toggle="tab">연간 트랜드 분석</a></li>
+                                 </ul>
+                         <div class="tcontent">
+                       <div class="tab-pane fade in active" id="tmonth">
+                        <img class="image" th:src="@{/images/bigdata/무역빈도수그래프.png}" width="800px" height="500px">
+                            <img class="image" th:src="@{/images/bigdata/무역월간트랜드.png}" width="800px" height="250px">
+                            <img class="image" th:src="@{/images/bigdata/무역연관어분석.png}" width="800px" height="500px">
+                         
+                             
+                     
+                     </div>
+                    
+                     
+                           
+                            <div class="tab-pane fade" id="tyear">
+                        <img class="image2" th:src="@{/images/bigdata/무역이슈타임라인.png}" width="850px" height="500px">
+                         <img class="image2" th:src="@{/images/bigdata/무역연간트랜드.png}" width="850px" height="350px">
+                         </div>
                         </div>
                         
-                        <div class="tab-pane fade" id="price">
-                        <div>
-                         <img th:src="@{/images/물가.png}" width="850px" height="500px">
+                        </div>
+                        
+                      <div class="tab-pane fade in active" id="price">
+                           <ul class="nav nav-tabs">
+                              <li class="active"><a href="#pmonth" data-toggle="tab">월별 트랜드 분석</a></li>
+                                 <li><a href="#pyear" data-toggle="tab">연간 트랜드 분석</a></li>
+                                 </ul>
+                         <div class="pcontent">
+                       <div class="tab-pane fade in active" id="pmonth">
+                        <img class="image" th:src="@{/images/bigdata/물가빈도수그래프.png}" width="800px" height="500px">
+                            <img class="image" th:src="@{/images/bigdata/물가월간트랜드.png}" width="800px" height="250px">
+                            <img class="image" th:src="@{/images/bigdata/물가연관어분석.png}" width="800px" height="500px">
+                     </div>
+                     
+                            <div class="tab-pane fade" id="pyear">
+                        <img class="image2" th:src="@{/images/bigdata/물가이슈타임라인.png}" width="850px" height="500px">
+                         <img class="image2" th:src="@{/images/bigdata/물가연간트랜드.png}" width="850px" height="350px">
                          </div>
-                          <div>
-                         <img th:src="@{/images/물가.png}" width="850px" height="500px">
-                         </div>
-                          <div>
-                         <img th:src="@{/images/물가.png}" width="850px" height="500px">
-                         </div>
+                        </div>
+                        </div>
 
                         </div>
                          <div class="tab-pane fade" id="realest">

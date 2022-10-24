@@ -212,7 +212,7 @@ layout:decorate="~{layouts/board3}">
             <a th:href="@{'/economy_download/' + ${info.fileId}}"><img src="https://eiec.kdi.re.kr/res/img/ico_file.png"> </a> 
             <span  th:text="${fileName}"></span>
          </div>
-         <br>
+         <br><br>
          <div class="float-left"  sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
             <button type="button" class="btn btn-success" onclick="javascript:location.href='/board/economy/economy_list'">이전</button>
             <button type="submit" class="btn btn-primary">수정</button>

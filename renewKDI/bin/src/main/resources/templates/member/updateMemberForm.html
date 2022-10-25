@@ -130,13 +130,29 @@ layout:decorate="~{layouts/board2}">
             <label th:for="fax">FAX</label>
             <input type="text" class="form-control" th:field="*{fax}">
         </div>
-        <div class="form-group">
-            <label th:for="address"></label>
-            <input class="form-control" placeholder="우편번호" th:field="*{postcode}" type="text"readonly/>
+        <div class="form-group address">
+        	<div id="address1">
+            <label th:for="address"><span id="star">*&nbsp</span>주소</label>
+            </div>
+            <div id="address2">
+            <input class="form-control" type="text" placeholder="우편번호" th:field="*{postcode}" readonly/>
+            </div>
+            <div id="address3">
+     		<input class="form-control" type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
+     		</div>
+     		<div id="address4">
             <input class="form-control" placeholder="주소" th:field="*{address}" type="text" readonly/><br>
-            <input class="form-control" placeholder="상세주소" th:field="*{detailAddress}" type="text" readonly>
+            </div>
+            <div id="address5">
+            <input class="form-control" placeholder="상세주소" th:field="*{detailAddress}" type="text">
+            </div>
+            <div id="address6">
             <input class="form-control" placeholder="" th:field="*{extraAddress}" type="text" readonly>
+            </div>
         </div>
+        <div id="wrap" class="addressform" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+			<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+		</div>
         <div class="form-group">
             <label th:for="department">직장/학교</label>
             <input type="text" class="form-control" th:field="*{department}">
@@ -147,7 +163,8 @@ layout:decorate="~{layouts/board2}">
         <button type="button"onclick = "location.href='/main'" class="btn btn-primary">뒤로가기</button>
     </form>
     <br/>
-    
+     <script type="text/javascript" th:src="@{/assets/js/postcode.js}"></script>	
+	<script type="text/javascript" th:src="@{//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js}"></script>   
 </div>
 </body>
 

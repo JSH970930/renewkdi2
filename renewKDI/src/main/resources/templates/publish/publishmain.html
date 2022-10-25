@@ -1,208 +1,567 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
-xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-layout:decorate="~{layouts/board}">
+	xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layouts/board3}">
 
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Impact Bootstrap Template - Index</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+<title>Impact Bootstrap Template - Index</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<!-- Favicons -->
+<link href="assets/img/favicon.png" rel="icon">
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+	rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Vendor CSS Files -->
+<link href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+	rel="stylesheet">
+<link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="/assets/vendor/glightbox/css/glightbox.min.css"
+	rel="stylesheet">
+<link href="/assets/vendor/swiper/swiper-bundle.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Template Main CSS File -->
-    <link href="/assets/css/header.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/side.css" />
-    <link rel="stylesheet" href="/assets/css/economy_list.css" />
+<!-- Template Main CSS File -->
+<link href="/assets/css/header.css" rel="stylesheet">
 
-    <!--    Jquery-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
- 
+<!--    Jquery-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
-    <!-- =======================================================
+
+
+<!-- =======================================================
   * Template Name: Impact - v1.0.0
   * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="/assets/js/side.js"></script>
-    <style>
-        .tab-content label {
-            margin: 30px;
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="/assets/js/side.js"></script>
+<style>
+.col-xl-2 {
+	flex: 0 0 auto;
+	width: 0%;
+}
 
-        }
+.tab-content label {
+	margin: 30px;
+}
 
-        .tab-content input {
-            margin: 10px;
-        }
-        
-        .col {
-            text-align: center;
-        }
-        .jisu{
-        position : relative;}
-        
-        .tab-pane{
-        position : absolute;}
-        
-        .fill1{
-        margin-bottom : 50px;}
-        
-        .fill2{
-        
-        position : relative;
-        margin-top : 500px;
-        
-        }
-        .lnb{
-      list-style:none;
+.tab-content input {
+	margin: 10px;
+}
+
+.col {
+	text-align: center;
+}
+
+.jisu {
+	position: relative;
+}
+
+.tab-pane {
+	position: absolute;
+}
+
+.fill1 {
+	margin-bottom: 50px;
+}
+
+.fill2 {
+	position: relative;
+	margin-top: 500px;
+}
+
+.publish1 {
+	padding-top: 37px;
+}
+
+.btn-danger {
+	float: right;
+}
+
+.lnb {
+	list-style: none;
+}
+
+.state_lnb .lnb {
+	position: relative;
+    left: 70px;
     
-        
-        }
-        .lnb li{
-       
-        disply:inline-block;
-          float:left;
-        }
-        
-        .lnb li:before{
-        content:'';
-        }
-       
-       
-        
-    </style>
+}
+#state_lnk .box li a {
+    display: block;
+    line-height: 48px;
+    font-size: 17px;
+    color: #a3a3a3;
+    text-align: center;
+}
+
+.state_lnb .lnb li a:before {
+	position: absolute;
+    left: 0;
+    content: '';
+    display: block;
+    width: 1px;
+    height: 22px;
+    background-color: #d0d0d2;
+}
+.state_lnb .lnb li a {
+    position: relative;
+    display: block;
+    padding: 0 30px;
+    font-size: 16px;
+    color: #3a3941;
+    transition-timing-function: cubic-bezier(0.75,0.1,0.25,1);
+    transition-duration: 0.2s;
+}
+
+.lnb li {
+	overflow: hidden;
+	display: inline-block;
+}
+
+
+.state_lnb {
+	width: 100%;
+}
+
+#state_lnk {
+	position: relative;
+	margin-top: 22px;
+	padding: 12px 20px;
+	white-space: nowrap;
+	background-color: #eaedf2;
+}
+.lb_select {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 178px;
+    height: 48px;
+    font-size: 14px;
+    color: #373737;
+    background-color: #fff;
+    border: 1px solid #b5b4ba;
+}
+
+.lb_select:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: transparent url(../img/ico_selt.png) center center no-repeat;
+}
+
+
+#state_lnk .eco_sel .lb_select {
+	margin: 4px 10px 4px 0;
+	width: 160px;
+	height: 40px;
+	border: 0;
+}
+
+#state_lnk .eco_sel {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#state_lnk .box.eco_read li a {
+    position: relative;
+    padding: 0 25px;
+}
+
+#state_lnk .box.eco_read li a:before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -14px;
+    content: '';
+    display: block;
+    width: 1px;
+    height: 28px;
+    background-color: #c0c4ca;
+}
+
+
+.searchForm {
+	width: 200px;
+}
+.lb_select select {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 14px;
+}
+
+#state_lnk .box {
+	display: inline-block;
+	vertical-align: top;
+}
+#state_lnk .eco_read {
+	position: relative;
+	left: 220px;
+}
+
+#state_lnk .box li {
+	display: inline-block;
+	margin-left: 5px;
+	vertical-align: top;
+}
+
+#state_lnk .box.eco_plus {
+	position: absolute;
+	right: 20px;
+	top: 12px;
+}
+#state_lnk .box.eco_plus li.qna {
+    width: 142px;
+}
+#state_lnk .box.eco_plus li a:after {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    content: '';
+    display: block;
+    width: 24px;
+    height: 100%;
+    background: url(../img/ico_plus_wh.png) center center no-repeat;
+}
+
+#state_lnk .box.eco_plus li a {
+    position: relative;
+    font-size: 16px;
+    text-indent: -30px;
+    background-color: #fff;
+}
+#state_lnk .eco_sel .btn {
+    display: inline-block;
+    width: 76px;
+    margin-top: 4px;
+    line-height: 27px;
+    color: #fff;
+    font-size: 16px;
+    vertical-align: top;
+    background-color: #8ab6cf;
+}
+
+#state_lnk .box.eco_plus li.add {
+	width: 142px;
+}
+
+#state_lnk .box.eco_plus li.add a {
+	color: #fff;
+	background-color: #f58220;
+}
+
+.containers {
+	width: 110%;
+}
+
+.publish1 {
+	width: 65%;
+
+}
+
+.publish2 {
+	position: relative;
+	bottom: 823px;
+	padding-top: 37px;
+	float: right;
+}
+
+.publish2 .image2 {
+	position: relative;
+	left: 20px;
+}
+dl, ul, ol, li {
+	list-style: none;
+}
+.image .publish2 li a {
+    display: block;
+    font-size: 18px;
+    line-height: 70px;
+    color: #3a3941;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.image .publish2 .st_list li {
+	border: 1px solid #e0e0e0;
+	border-width: 0 0 1px;
+	background: url(../img/ico_page-next.gif) 96% center no-repeat;
+	transition: color 0.2s cubic-bezier(0.75, 0.1, 0.25, 1);
+	position: relative;
+}
+
+.image .publish2 .more_btn a {
+    position: relative;
+    display: inline-block;
+    width: 140px;
+    height: 50px;
+    line-height: 50px;
+    text-indent: -30px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #ababa7;
+}
+
+.image .publish2 .more_btn {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.image .publish2 .more_btn a:after {
+    content: '>>>';
+    display: block;
+    width: 26px;
+    height: 100%;
+    background: url(../img/ico_movearrow.gif) 0 center no-repeat;
+    position: absolute;
+    top: 0;
+    right: 22px;
+    transition-timing-function: cubic-bezier(0.75,0.1,0.25,1);
+    transition-duration: 0.2s;
+    transition-property: right;
+}
+</style>
 </head>
 
 <body>
-<div layout:fragment="subtop">
-  <div class="top_img sub03"></div>
-</div>
-<div layout:fragment="side">
-					<div class="inner">
+	<div layout:fragment="content">
+		<!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
+		<div class="containers">
+			<div class="state_lnb">
+				<ul class="lnb">
+					<li><a href="#">특집</a></li>
+					<li><a href="#">이슈</a></li>
+					<li><a href="#">인터뷰</a></li>
+					<li><a href="#">Now</a></li>
+					<li><a href="#">연중기획</a></li>
+					<li><a href="#">경제정책해설</a></li>
+					<li><a href="#">세계는 지금</a></li>
+					<li><a href="#">칼럼</a></li>
+					<li><a href="#">영상자료</a></li>
+				</ul>
 
-							
+			</div>
+			<div id="state_lnk">
+				<div class="eco_sel">
+					<form class="searchForm">
+						<span class="lb_select selck"> <select id="sel_year"
+							name="sel_year" title="sel_year">
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>발행물</h2>
-									</header>
-									<ul>
-										<li>
-											<span><a href="http://localhost:8090/publish/publishmain">나라경제</a></span>
-									
-										</li>
-										<li>
-										<span><a href="https://eiec.kdi.re.kr/publish/reviewMain.do">e 경제정보리뷰</a></span>
-									
-										</li>
-										<li>
-								   <span><a href="https://eiec.kdi.re.kr/publish/ebMain.do">Economic</a></span>
-									
-										</li>
-										<li>
-											  <span><a href="http://localhost:8090/board/publishment/pubbook_List">단행본</a></span>
-											
-										</li>
-					
-									
-										
-										
-									</ul>
-								</nav>
-                        </div>
-                        
-                        <!-- Scripts -->
-			<script src="/assets/js/jquery.min.js"></script>
-			<script src="/assets/js/browser.min.js"></script>
-			<script src="/assets/js/breakpoints.min.js"></script>
-			<script src="/assets/js/main.js"></script>
-			<script src="/assets/js/side.js"></script>
-</div>
-<div layout:fragment="content">
-  <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
-	<div class="containers">
-	
-<div class="state_lnb">
-					<ul class="lnb">
-						<li>특집&nbsp;l </li>
-						<li>&nbsp;이슈&nbsp;l</li>
-						<li>&nbsp;인터뷰&nbsp;l</li>
-						<li>&nbsp;Now&nbsp;l</li>
-						<li>&nbsp;연중기획&nbsp;l</li>
-						<li>&nbsp;경제정책해설&nbsp;l</li>
-						<li>&nbsp;세계는 지금&nbsp;l</li>
-						<li>&nbsp;칼럼&nbsp;l</li>
-						<li>&nbsp;영상자료&nbsp;l</li>
-					</ul>
-					
-					<button type="button" class="btn btn-danger" onclick="javascript:location.href='/publish/publishsub'">
-	구독하기
-	</button>
+								<option value="2022" selected="">2022년</option>
+
+								<option value="2021">2021년</option>
+
+								<option value="2020">2020년</option>
+
+								<option value="2019">2019년</option>
+
+								<option value="2018">2018년</option>
+
+								<option value="2017">2017년</option>
+
+								<option value="2016">2016년</option>
+
+								<option value="2015">2015년</option>
+
+								<option value="2014">2014년</option>
+
+								<option value="2013">2013년</option>
+
+								<option value="2012">2012년</option>
+
+								<option value="2011">2011년</option>
+
+								<option value="2010">2010년</option>
+
+								<option value="2009">2009년</option>
+
+								<option value="2008">2008년</option>
+
+								<option value="2007">2007년</option>
+
+								<option value="2006">2006년</option>
+
+								<option value="2005">2005년</option>
+
+								<option value="2004">2004년</option>
+
+								<option value="2003">2003년</option>
+
+								<option value="2002">2002년</option>
+
+								<option value="2001">2001년</option>
+
+								<option value="2000">2000년</option>
+
+								<option value="1999">1999년</option>
+
+								<option value="1998">1998년</option>
+
+								<option value="1997">1997년</option>
+
+								<option value="1996">1996년</option>
+
+								<option value="1995">1995년</option>
+
+								<option value="1994">1994년</option>
+
+								<option value="1993">1993년</option>
+
+								<option value="1992">1992년</option>
+
+								<option value="1991">1991년</option>
+
+								<option value="1990">1990년</option>
+
+						</select>
+						</span> 
+						<span class="lb_select selck"> <select id="sel_month"
+							name="sel_month" title="sel_month">
+
+
+								<option value="01">01월</option>
+
+
+
+								<option value="02">02월</option>
+
+
+
+								<option value="03">03월</option>
+
+
+
+								<option value="04">04월</option>
+
+
+
+								<option value="05">05월</option>
+
+
+
+								<option value="06">06월</option>
+
+
+
+								<option value="07">07월</option>
+
+
+
+								<option value="08">08월</option>
+
+
+
+								<option value="09">09월</option>
+
+
+
+								<option value="10" selected="">10월</option>
+
+
+
+								<option value="11">11월</option>
+
+
+
+								<option value="12">12월</option>
+
+
+						</select>
+						</span>
+						<button type="button" class="btn"
+							onclick="$('#searchForm').submit();">보기</button>
+					</form>
 				</div>
-		<div class=publish1>
-		<img src="https://eiec.kdi.re.kr/userdata/nara/202210/202210.jpg">
-		
+				<!-- <button type="button" class="btn btn-danger" onclick="javascript:location.href='/publish/publishsub'">독자문의</button>
+				<button type="button" class="btn btn-danger" onclick="javascript:location.href='/publish/publishsub'">구독하기</button> -->
+				<ul class="box eco_read">
+					<li>
+						<a href="/publish/naraPreList.do?sel_year=2022&amp;sel_month=10">&nbsp;&nbsp;&nbsp;과월호 보기</a></li>
+					<li>
+						<a href="/userdata/nara/202210/202210.pdf" target="_blank">PDF 전체보기</a></li>
+					<li>
+						<a href="http://ks-ebook.net/nara/ebook/202210/EBook.htm" target="_blank">eBook 보기</a></li>
+				</ul>
+				<ul class="box eco_plus">
+					<li class="add"><a
+						href="/publish/naraSubscribe.do?sel_year=2022&amp;sel_month=10">구독
+							신청</a></li>
+					<li class="qna"><a
+						href="/publish/naraQnaList.do?sel_year=2022&amp;sel_month=10">독자문의</a></li>
+				</ul>
+			</div>
+			<div class="image">
+				<div class=publish1>
+				<img src="https://eiec.kdi.re.kr/userdata/nara/202210/202210.jpg">
+				</div>
+				<div class=publish2>
+				<img src="https://eiec.kdi.re.kr/userdata/nara/202210/aaaQyR4INKwlofLDQnZly20220928142255rtsje.jpg" class="image2">
+					<ul class="st_list mv_list">
+					<li><a
+						href="./naraView.do?fcode=00002000040000100001&amp;cidx=14007&amp;sel_year=2022&amp;sel_month=10">건전재정
+							기조 아래 639조 원 편성…사회적 약자 보호와 미래 대비에 집중</a></li>
+					<li><a
+						href="./naraView.do?fcode=00002000040000100001&amp;cidx=14008&amp;sel_year=2022&amp;sel_month=10">초격차
+							전략기술 확보, 국가 디지털 혁신에 우선순위</a></li>
+					<li><a
+						href="./naraView.do?fcode=00002000040000100001&amp;cidx=14009&amp;sel_year=2022&amp;sel_month=10">식량주권
+							확보와 청년농 육성에 역점</a></li>
+					<li><a
+						href="./naraView.do?fcode=00002000040000100001&amp;cidx=14010&amp;sel_year=2022&amp;sel_month=10">반도체,
+							원전 등 미래 전략산업 지원 강화한다</a></li>
+					</ul>
+					<div class="more_btn">
+						<a href="./naraList.do?fcode=00002000040000100001&amp;sel_year=2022&amp;sel_month=10">더보기</a></div>
+				</div>
+			</div>
 		</div>
-		
-		<div class=publish2>
-		
-		</div>
-	
-	
-	   
-           
-                
-        
-                
-                
-                
-                
-	
-  
-
-</div>
-        <!-- 사회지수 -->
-                
-               
-
-
-</div>
-
- 
-
+	</div>
 </body>
 </html>

@@ -79,6 +79,28 @@
 .tab-content input {
 	margin: 10px;
 }
+
+.search-btn button {
+    right: 25px;
+    border: none;
+    background: white;
+    position: relative;
+    float: right;
+    bottom: 32px;
+}
+.form-control {
+	height: 50px;
+	border-radius: 40px;
+	border-style:solid;
+    border-top-width: thin;
+    border-bottom-width: thick;
+    border-right-width: medium;
+	
+}
+.form1 {
+	width: 82%;
+}
+
 </style>
 </head>
 
@@ -97,26 +119,24 @@
 					<h2>통합 검색</h2>
 				</header>
 				<ul>
-					<li th:if="${resultMap1.totalCnt != 0}">정책 정보<a th:text="${resultMap1.totalCnt}" th:href="@{./list(searchKeyword=${searchKeyword})}"></a></li>
-					<li th:if="${BresultMap.totalCnt != 0}">정책 정보<a th:text="${BresultMap.totalCnt}" th:href="@{./list(searchKeyword=${searchKeyword})}"></a></li>
-					<li th:if="${resultMap2.totalCnt != 0}">공지 사항<a th:text="${resultMap2.totalCnt}" th:href="@{./notice/list(searchKeyword=${searchKeyword})}"></a></li>
-					
-
-
+					<li th:if="${resultMap1.totalCnt != 0}">정책 정보<a th:text="${resultMap1.totalCnt}"></a></li>
+					<li th:if="${BresultMap.totalCnt != 0}">단행본<a th:text="${BresultMap.totalCnt}"></a></li>
+					<li th:if="${resultMap2.totalCnt != 0}">공지 사항<a th:text="${resultMap2.totalCnt}"></a></li>
 				</ul>
 			</nav>
 		</div>
 
 	</div>
 	<div layout:fragment="content">
-		
-
 			<!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
 			<div class="container">
-				<form action="/board/totalsearch" method="get" role="search">
+				<form action="/board/totalsearch" method="get" role="search" class="form1">
 					<input type="text" name="searchKeyword" class="form-control"
-						id="search" placeholder="검색">
-					<button class="btn btn-success bi bi-search"></button>
+						id="search" placeholder="검색할 내용을 입력해 주세요">
+						<a class="search-btn">
+            <button class="fas fa-search"></button>
+        </a>
+					<!-- <button class="btn btn-success bi bi-search"></button> -->
 				</form>
 				<h1>통합검색</h1>
 				<form action="/board/totalsearch" id="frm" method="get">
@@ -147,14 +167,13 @@
 							<div class="col">
 								<ul class="pagination">
 									<li class="page-item"><a class="page-link"
-										th:href="@{./list(searchKeyword=${searchKeyword})}"> 자세히 </a>
+										th:href="@{./policy/list(searchKeyword=${searchKeyword})}"> 자세히 </a>
 									</li>
 								</ul>
 
 							</div>
 						</div>
 					</div>
-					
 					<div class="col-md-10 mt-4" th:if="${BresultMap.totalCnt != 0}">
 						<h3>단행본</h3>
 						<table
@@ -182,14 +201,13 @@
 							<div class="col">
 								<ul class="pagination">
 									<li class="page-item"><a class="page-link"
-										th:href="@{./list(searchKeyword=${searchKeyword})}"> 자세히 </a>
+										th:href="@{./publishment/pubbook_List(searchKeyword=${searchKeyword})}"> 자세히 </a>
 									</li>
 								</ul>
 
 							</div>
 						</div>
 					</div>
-					
 					<div class="col-md-10 mt-4" th:if="${resultMap2.totalCnt != 0}">
 						<h3>공지사항</h3>
 						<table
@@ -205,7 +223,6 @@
 							<tbody id="tbody">
 								<tr th:each="list,index : ${resultMap2.list}"
 									th:with="paging=${resultMap2.paging}">
-
 									<td><a th:href="@{./notice/view(id=${list.id})}"> <span
 											th:text="${list.title}"></span></a>
 										<div class=time th:text="${list.registerTime}"></div></td>

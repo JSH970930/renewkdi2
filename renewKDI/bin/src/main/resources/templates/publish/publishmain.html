@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+layout:decorate="~{layouts/board}">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Impact Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/header.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/side.css" />
+    <link rel="stylesheet" href="/assets/css/economy_list.css" />
+
+    <!--    Jquery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+ 
+
+
+    <!-- =======================================================
+  * Template Name: Impact - v1.0.0
+  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="/assets/js/side.js"></script>
+    <style>
+        .tab-content label {
+            margin: 30px;
+
+        }
+
+        .tab-content input {
+            margin: 10px;
+        }
+        
+        .col {
+            text-align: center;
+        }
+        .jisu{
+        position : relative;}
+        
+        .tab-pane{
+        position : absolute;}
+        
+        .fill1{
+        margin-bottom : 50px;}
+        
+        .fill2{
+        
+        position : relative;
+        margin-top : 500px;
+        
+        }
+        .lnb{
+      list-style:none;
+    
+        
+        }
+        .lnb li{
+       
+        disply:inline-block;
+          float:left;
+        }
+        
+        .lnb li:before{
+        content:'';
+        }
+       
+       
+        
+    </style>
+</head>
+
+<body>
+<div layout:fragment="subtop">
+  <div class="top_img sub03"></div>
+</div>
+<div layout:fragment="side">
+					<div class="inner">
+
+							
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>발행물</h2>
+									</header>
+									<ul>
+										<li>
+											<span><a href="http://localhost:8090/publish/publishmain">나라경제</a></span>
+									
+										</li>
+										<li>
+										<span><a href="https://eiec.kdi.re.kr/publish/reviewMain.do">e 경제정보리뷰</a></span>
+									
+										</li>
+										<li>
+								   <span><a href="https://eiec.kdi.re.kr/publish/ebMain.do">Economic</a></span>
+									
+										</li>
+										<li>
+											  <span><a href="http://localhost:8090/board/publishment/pubbook_List">단행본</a></span>
+											
+										</li>
+					
+									
+										
+										
+									</ul>
+								</nav>
+                        </div>
+                        
+                        <!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/main.js"></script>
+			<script src="/assets/js/side.js"></script>
+</div>
+<div layout:fragment="content">
+  <!--content 화면 전체를 쓸 경우에는 묶어주는 class를 container로, css를 board로 끌어오고 quick, side가 있는 경우에는 class명을 다르게 주기  -->
+	<div class="containers">
+	
+<div class="state_lnb">
+					<ul class="lnb">
+						<li>특집&nbsp;l </li>
+						<li>&nbsp;이슈&nbsp;l</li>
+						<li>&nbsp;인터뷰&nbsp;l</li>
+						<li>&nbsp;Now&nbsp;l</li>
+						<li>&nbsp;연중기획&nbsp;l</li>
+						<li>&nbsp;경제정책해설&nbsp;l</li>
+						<li>&nbsp;세계는 지금&nbsp;l</li>
+						<li>&nbsp;칼럼&nbsp;l</li>
+						<li>&nbsp;영상자료&nbsp;l</li>
+					</ul>
+					
+					<button type="button" class="btn btn-danger" onclick="javascript:location.href='/publish/publishsub'">
+	구독하기
+	</button>
+				</div>
+		<div class=publish1>
+		<img src="https://eiec.kdi.re.kr/userdata/nara/202210/202210.jpg">
+		
+		</div>
+		
+		<div class=publish2>
+		
+		</div>
+	
+	
+	   
+           
+                
+        
+                
+                
+                
+                
+	
+  
+
+</div>
+        <!-- 사회지수 -->
+                
+               
+
+
+</div>
+
+ 
+
+</body>
+</html>

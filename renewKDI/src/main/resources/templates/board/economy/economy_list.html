@@ -204,34 +204,33 @@ layout:decorate="~{layouts/board}">
                  <div class="row">
                   <div class="col">
                      <ul class="pagination">
-                        <li class="page-item" th:with="paging=${resultMap.paging}">
-                             <a class="page-link" th:href="@{./economy_list(page=0)}" aria-label="first">
-                                <span aria-hidden="true">&laquo;</span>
-                             </a>
-                             </li>
-                        <li class="page-item" th:with="paging=${resultMap.paging}">
-                             <a class="page-link" th:href="@{./economy_list(page=${paging.pageNumber - 10})}" aria-label="Previous">
-                                <span aria-hidden="true">&lsaquo;</span>
-                             </a>
-                             </li>
-                        <li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-                           <a class="page-link" th:classappend="${paging.pageNumber == (index-1)} ? bg-primary : bg-secondary" 
-                            th:href="@{./economy_list(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
-                           
-                              <span class="text-white" th:text="${index}"></span>
-                           </a>
-                        </li>
-                         <li class="page-item" th:with="paging=${resultMap.paging}">
-                              <a class="page-link" th:href="@{./economy_list(page=${paging.pageNumber + 10})}" aria-label="Next">
-                                  <span aria-hidden="true">&rsaquo;</span>
-                               </a>
-                            </li>
-                            <li class="page-item" th:with="paging=${resultMap.paging}">
-                              <a class="page-link" th:href="@{./economy_list(page=${resultMap.totalPage - 1})}" aria-label="end">
-                                   <span aria-hidden="true">&raquo;</span>
-                               </a>
-                            </li>
-                     </ul>
+								<li class="page-item" th:with="paging=${resultMap.paging}">
+     								<a class="page-link" th:href="@{./economy_list(page=0)}" th:if="${paging.pageNumber != 0}" aria-label="first">
+        								<span aria-hidden="true">&laquo;</span>
+        							</a>
+       					 		</li>
+								<li class="page-item" th:with="paging=${resultMap.paging}">
+     								<a class="page-link" th:href="@{./economy_list(page=${paging.pageNumber - 1})}" th:if="${paging.pageNumber != 0}" aria-label="Previous">
+        								<span aria-hidden="true">&lsaquo;</span>
+        							</a>
+       					 		</li>
+								<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
+									<a class="page-link" th:classappend="${paging.pageNumber == (index-1)} ? bg-secondary" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
+									 th:href="@{./economy_list(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
+										<span class="t-white" th:text="${index}"></span>
+									</a>
+								</li>
+    							<li class="page-item" th:with="paging=${resultMap.paging}">
+      								<a class="page-link" th:href="@{./economy_list(page=${paging.pageNumber + 1})}" th:if="${paging.pageNumber != resultMap.totalPage-1}" aria-label="Next">
+       									<span aria-hidden="true">&rsaquo;</span>
+       								</a>
+       							</li>
+       							<li class="page-item" th:with="paging=${resultMap.paging}">
+      								<a class="page-link" th:href="@{./economy_list(page=${resultMap.totalPage - 1})}" th:if="${paging.pageNumber != resultMap.totalPage-1}" aria-label="end">
+       								 	<span aria-hidden="true">&raquo;</span>
+       								</a>
+       							</li>
+							</ul>
                   
                   </div>
                </div>

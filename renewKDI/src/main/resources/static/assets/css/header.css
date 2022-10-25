@@ -322,6 +322,11 @@ section {
     white-space: nowrap;
     padding: 10px 0 10px 28px;
   }
+  
+  .navbar>ul>li>div>p {
+  	position: relative;
+  	top: 5px;
+  }
 
   .navbar a,
   .navbar a:focus {

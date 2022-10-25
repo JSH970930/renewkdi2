@@ -74,7 +74,15 @@
 <style>
 .col-xl-2 {
 	flex: 0 0 auto;
-	width: 0%;
+    width: 16.66666667%;
+}
+
+.col-xl-10 {
+    flex: 0 0 auto;
+    width: 90%;
+}
+.content{
+    margin-top: 5px;
 }
 
 .tab-content label {
@@ -117,16 +125,21 @@
 .lnb {
 	list-style: none;
 }
+.state_lnb {
+    position: relative;
+    overflow: hidden;
+}
 
 .state_lnb .lnb {
-	position: relative;
-    left: 70px;
-    
+    float: right;
+    padding: 22px 0 0 0;
+    font-size: 0;
+    white-space: nowrap;
 }
 #state_lnk .box li a {
     display: block;
     line-height: 48px;
-    font-size: 17px;
+    font-size: 16px;
     color: #a3a3a3;
     text-align: center;
 }
@@ -146,18 +159,14 @@
     padding: 0 30px;
     font-size: 16px;
     color: #3a3941;
-    transition-timing-function: cubic-bezier(0.75,0.1,0.25,1);
-    transition-duration: 0.2s;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .lnb li {
 	overflow: hidden;
 	display: inline-block;
-}
-
-
-.state_lnb {
-	width: 100%;
+	
 }
 
 #state_lnk {
@@ -179,22 +188,9 @@
     border: 1px solid #b5b4ba;
 }
 
-.lb_select:after {
-    content: "";
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 40px;
-    height: 100%;
-    background: transparent url(../img/ico_selt.png) center center no-repeat;
-}
-
-
 #state_lnk .eco_sel .lb_select {
 	margin: 4px 10px 4px 0;
 	width: 160px;
-	height: 40px;
 	border: 0;
 }
 
@@ -206,6 +202,7 @@
 #state_lnk .box.eco_read li a {
     position: relative;
     padding: 0 25px;
+    font-weight: bold;
 }
 
 #state_lnk .box.eco_read li a:before {
@@ -218,6 +215,10 @@
     width: 1px;
     height: 28px;
     background-color: #c0c4ca;
+}
+
+.state_lnb .lnb li a:hover {
+	color: #f5821f;
 }
 
 
@@ -233,16 +234,25 @@
     height: 100%;
     cursor: pointer;
     z-index: 1;
-    font-size: 14px;
+    font-size: 16px;
+    border: 0 none;
+    color: #a3a3a3;
+    font-weight: bold;
+}
+.state_lnb .lnb li a.mov {
+    padding-left: 50px;
+    background: url(https://eiec.kdi.re.kr/res/img/ico_play.png) no-repeat 30px 4px;
 }
 
 #state_lnk .box {
 	display: inline-block;
 	vertical-align: top;
 }
+
 #state_lnk .eco_read {
 	position: relative;
-	left: 220px;
+	margin: 5px;
+	left: 189px;
 }
 
 #state_lnk .box li {
@@ -253,13 +263,20 @@
 
 #state_lnk .box.eco_plus {
 	position: absolute;
+	margin: 5px;
 	right: 20px;
 	top: 12px;
+	
 }
 #state_lnk .box.eco_plus li.qna {
     width: 142px;
 }
-#state_lnk .box.eco_plus li a:after {
+
+#state_lnk .box.eco_plus li.add {
+	width: 142px;
+}
+
+#state_lnk .box.eco_plus li.add a:after {
     position: absolute;
     right: 20px;
     top: 0;
@@ -267,7 +284,17 @@
     display: block;
     width: 24px;
     height: 100%;
-    background: url(../img/ico_plus_wh.png) center center no-repeat;
+    background: url(https://eiec.kdi.re.kr/res/img/ico_plus_wh.png) center center no-repeat;
+}
+#state_lnk .box.eco_plus li.qna a:after {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    content: '';
+    display: block;
+    width: 24px;
+    height: 100%;
+    background: url(https://eiec.kdi.re.kr/res/img/ico_question.png) center center no-repeat;
 }
 
 #state_lnk .box.eco_plus li a {
@@ -275,29 +302,24 @@
     font-size: 16px;
     text-indent: -30px;
     background-color: #fff;
+    text-decoration: none;
 }
 #state_lnk .eco_sel .btn {
     display: inline-block;
     width: 76px;
     margin-top: 4px;
-    line-height: 27px;
+    line-height: 34px;
     color: #fff;
     font-size: 16px;
     vertical-align: top;
     background-color: #8ab6cf;
+    z-index: 1;
 }
 
-#state_lnk .box.eco_plus li.add {
-	width: 142px;
-}
 
 #state_lnk .box.eco_plus li.add a {
 	color: #fff;
 	background-color: #f58220;
-}
-
-.containers {
-	width: 110%;
 }
 
 .publish1 {
@@ -314,11 +336,11 @@
 
 .publish2 .image2 {
 	position: relative;
-	left: 20px;
 }
 dl, ul, ol, li {
 	list-style: none;
 }
+
 .image .publish2 li a {
     display: block;
     font-size: 18px;
@@ -327,14 +349,19 @@ dl, ul, ol, li {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-decoration: none;
+}
+.image .publish2 li a:hover {
+	color: #f5821f;
 }
 
 .image .publish2 .st_list li {
 	border: 1px solid #e0e0e0;
 	border-width: 0 0 1px;
-	background: url(../img/ico_page-next.gif) 96% center no-repeat;
+	background: url(https://eiec.kdi.re.kr/res/img/ico_page-next.gif) 96% center no-repeat;
 	transition: color 0.2s cubic-bezier(0.75, 0.1, 0.25, 1);
 	position: relative;
+	
 }
 
 .image .publish2 .more_btn a {
@@ -347,6 +374,11 @@ dl, ul, ol, li {
     font-size: 14px;
     text-align: center;
     border: 1px solid #ababa7;
+    color: black;
+    text-decoration: none;
+}
+.image .publish2 .more_btn a:hover {
+	color: #f5821f;
 }
 
 .image .publish2 .more_btn {
@@ -355,17 +387,17 @@ dl, ul, ol, li {
 }
 
 .image .publish2 .more_btn a:after {
-    content: '>>>';
+    content: '';
     display: block;
     width: 26px;
     height: 100%;
-    background: url(../img/ico_movearrow.gif) 0 center no-repeat;
+    background: url(https://eiec.kdi.re.kr/res/img/ico_movearrow.gif) 0 center no-repeat;
     position: absolute;
     top: 0;
     right: 22px;
     transition-timing-function: cubic-bezier(0.75,0.1,0.25,1);
     transition-duration: 0.2s;
-    transition-property: right;
+    transition-property: right; 
 }
 </style>
 </head>
@@ -379,17 +411,16 @@ dl, ul, ol, li {
 		<div class="containers">
 			<div class="state_lnb">
 				<ul class="lnb">
-					<li><a href="#">특집</a></li>
-					<li><a href="#">이슈</a></li>
-					<li><a href="#">인터뷰</a></li>
-					<li><a href="#">Now</a></li>
-					<li><a href="#">연중기획</a></li>
-					<li><a href="#">경제정책해설</a></li>
-					<li><a href="#">세계는 지금</a></li>
-					<li><a href="#">칼럼</a></li>
-					<li><a href="#">영상자료</a></li>
+					<li><a href="https://eiec.kdi.re.kr/publish/naraList.do?fcode=00002000040000100001&sel_year=2022&sel_month=10">특집</a></li>
+					<li><a href="https://eiec.kdi.re.kr/publish/naraList.do?fcode=00002000040000100009&sel_year=2022&sel_month=10">이슈</a></li>
+					<li><a href="https://eiec.kdi.re.kr/publish/naraList.do?fcode=00002000040000100002&sel_year=2022&sel_month=10">인터뷰</a></li>
+					<li><a href="https://eiec.kdi.re.kr/publish/naraList.do?fcode=00002000040000100021&sel_year=2022&sel_month=10">Now</a></li>
+					<li><a href="https://eiec.kdi.re.kr/publish/naraList.do?fcode=00002000040000100008&sel_year=2022&sel_month=10">연중기획</a></li>
+					<li><a href="https://eiec.kdi.re.kr/publish/naraList.do?fcode=00002000040000100005&sel_year=2022&sel_month=10">경제정책해설</a></li>
+					<li><a href="https://eiec.kdi.re.kr/publish/naraList.do?fcode=00002000040000100010&sel_year=2022&sel_month=10">세계는 지금</a></li>
+					<li><a href="https://eiec.kdi.re.kr/publish/columnList.do?sel_year=2022&sel_month=10">칼럼</a></li>
+					<li><a href="https://eiec.kdi.re.kr/publish/naraVideoList.do?sel_year=2022&sel_month=10" class="mov">영상자료</a></li>
 				</ul>
-
 			</div>
 			<div id="state_lnk">
 				<div class="eco_sel">
@@ -526,18 +557,18 @@ dl, ul, ol, li {
 				<button type="button" class="btn btn-danger" onclick="javascript:location.href='/publish/publishsub'">구독하기</button> -->
 				<ul class="box eco_read">
 					<li>
-						<a href="/publish/naraPreList.do?sel_year=2022&amp;sel_month=10">&nbsp;&nbsp;&nbsp;과월호 보기</a></li>
+						<a href="https://eiec.kdi.re.kr/publish/naraPreList.do?sel_year=2022&sel_month=10">과월호 보기</a></li>
 					<li>
-						<a href="/userdata/nara/202210/202210.pdf" target="_blank">PDF 전체보기</a></li>
+						<a href="https://eiec.kdi.re.kr/userdata/nara/202210/202210.pdf" target="_blank">PDF 전체보기</a></li>
 					<li>
 						<a href="http://ks-ebook.net/nara/ebook/202210/EBook.htm" target="_blank">eBook 보기</a></li>
 				</ul>
 				<ul class="box eco_plus">
 					<li class="add"><a
-						href="/publish/naraSubscribe.do?sel_year=2022&amp;sel_month=10">구독
+						href="http://localhost:8090/member/login?">구독
 							신청</a></li>
 					<li class="qna"><a
-						href="/publish/naraQnaList.do?sel_year=2022&amp;sel_month=10">독자문의</a></li>
+						href="https://eiec.kdi.re.kr/publish/naraQnaList.do?sel_year=2022&sel_month=10">독자문의</a></li>
 				</ul>
 			</div>
 			<div class="image">
@@ -548,20 +579,20 @@ dl, ul, ol, li {
 				<img src="https://eiec.kdi.re.kr/userdata/nara/202210/aaaQyR4INKwlofLDQnZly20220928142255rtsje.jpg" class="image2">
 					<ul class="st_list mv_list">
 					<li><a
-						href="./naraView.do?fcode=00002000040000100001&amp;cidx=14007&amp;sel_year=2022&amp;sel_month=10">건전재정
-							기조 아래 639조 원 편성…사회적 약자 보호와 미래 대비에 집중</a></li>
+						href="https://eiec.kdi.re.kr/publish/naraView.do?fcode=00002000040000100001&cidx=14007&sel_year=2022&sel_month=10">건전재정
+							기조 아래 639조 원 편성…사회적 약자 보호와 미래 대비</a></li>
 					<li><a
-						href="./naraView.do?fcode=00002000040000100001&amp;cidx=14008&amp;sel_year=2022&amp;sel_month=10">초격차
+						href="https://eiec.kdi.re.kr/publish/naraView.do?fcode=00002000040000100001&cidx=14008&sel_year=2022&sel_month=10">초격차
 							전략기술 확보, 국가 디지털 혁신에 우선순위</a></li>
 					<li><a
-						href="./naraView.do?fcode=00002000040000100001&amp;cidx=14009&amp;sel_year=2022&amp;sel_month=10">식량주권
+						href="https://eiec.kdi.re.kr/publish/naraView.do?fcode=00002000040000100001&cidx=14009&sel_year=2022&sel_month=10">식량주권
 							확보와 청년농 육성에 역점</a></li>
 					<li><a
-						href="./naraView.do?fcode=00002000040000100001&amp;cidx=14010&amp;sel_year=2022&amp;sel_month=10">반도체,
+						href="https://eiec.kdi.re.kr/publish/naraView.do?fcode=00002000040000100001&cidx=14010&sel_year=2022&sel_month=10">반도체,
 							원전 등 미래 전략산업 지원 강화한다</a></li>
 					</ul>
 					<div class="more_btn">
-						<a href="./naraList.do?fcode=00002000040000100001&amp;sel_year=2022&amp;sel_month=10">더보기</a></div>
+						<a href="https://eiec.kdi.re.kr/publish/naraList.do?fcode=00002000040000100001&sel_year=2022&sel_month=10">더보기</a></div>
 				</div>
 			</div>
 		</div>

@@ -84,6 +84,7 @@
         	text-align: center;
         }
         
+         
         .pagination .page-item {
 		    vertical-align: top;
 		    width: 37px;
@@ -91,7 +92,7 @@
 		    line-height: 40px;
 		    box-sizing: border-box;
 		    font-size: 0.8em;
-		    
+		     
         }
         
         .pagination .page-link {
@@ -103,10 +104,7 @@
 		    box-sizing: border-box;
 		    color: black;
 		    
-		    
-		    
         }
-        
         .pagination .page-link:hover {
         	border-color: #a1a4b0;
         	color: #f5821f;

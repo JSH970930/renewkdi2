@@ -67,6 +67,10 @@ layout:decorate="~{layouts/board}">
         .tab-content input {
             margin: 10px;
         }
+        
+        #menu ul a {
+        	text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -74,15 +78,39 @@ layout:decorate="~{layouts/board}">
   <div class="top_img sub01"></div>
 </div>
 	<div layout:fragment="side">
+		<div class="inner">
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>센터소개</h2>
+									</header>
+									<ul>
+										<li>
+											<span><a href="https://eiec.kdi.re.kr/center/introduce.do">소장인사말</a></span>
+										</li>
+										<li>
+											<span><a href="https://eiec.kdi.re.kr/center/organization.do">조직도</a></span>
+										</li>
+										<li>
+											<span><a href="http://localhost:8090/board/notice/list">공지사항</a></span>
+										</li>
+										<li>
+											<span><a href="https://eiec.kdi.re.kr/center/manager.do">업무담당자</a></span>
+										</li>
+										<li>
+											<span><a href="https://eiec.kdi.re.kr/center/map.do">오시는길</a></span>
+										</li>
+									</ul>
+								</nav>
+                        </div>
+                        <!-- Scripts -->
 			<script src="/assets/js/jquery.min.js"></script>
 			<script src="/assets/js/browser.min.js"></script>
 			<script src="/assets/js/breakpoints.min.js"></script>
 			<script src="/assets/js/main.js"></script>
 			<script src="/assets/js/side.js"></script>
                         </div>
-
 <div layout:fragment="content">
-
   <!--content ȭ�� ��ü�� �� ��쿡�� �����ִ� class�� container��, css�� board�� ������� quick, side�� �ִ� ��쿡�� class���� �ٸ��� �ֱ�  -->
 	<div class="containers">
 	    <form action="/board/notice/list" id="frm" method="get">
@@ -142,7 +170,7 @@ layout:decorate="~{layouts/board}">
         							</a>
        					 		</li>
 								<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-									<a class="page-link" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
+									<a class="page-link" th:classappend="${paging.pageNumber == (index-1)} ? bg-secondary" th:if="${index >= paging.pageNumber-5 and index <= paging.pageNumber+5}"
 									 th:href="@{./list(page=${index - 1}, searchKeyword = ${param.searchKeyword},page=${paging.pageSize})}">
 										<span class="t-white" th:text="${index}"></span>
 									</a>

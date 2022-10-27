@@ -129,6 +129,7 @@ section {
     margin-top: 80px;
     padding: 10PX;
     width: 1000px;
+    
 }
 
 .search-txt {
@@ -138,12 +139,14 @@ section {
     border-radius: 40px;
     text-indent: 20px;
     position:relative;
+   
 }
 
 .search-btn {
     position: relative;
     width: 30px;
     height: 20px;
+    
    
 }
 .search-btn button{
@@ -151,6 +154,7 @@ section {
 	 border:none;
 	 background:white;
 	 position:relative;
+	 
 	 
 	
 }
@@ -167,10 +171,12 @@ section {
     background: #0c3254;
     color: #fff;
     font-weight: 600;
+ 
 }
 
 .offcanvas-top{
     height: 600px;
+    
 }
 .offcanvas-top.show {
     height: 600px;
@@ -515,7 +521,7 @@ ul {
     width: 100%;
     position: relative;
     background: white;
-    margin: auto;
+    margin: auto;   
 }
 
 @media (min-width: 1365px) {

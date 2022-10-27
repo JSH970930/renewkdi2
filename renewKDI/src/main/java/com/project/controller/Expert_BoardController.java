@@ -120,7 +120,7 @@ public class Expert_BoardController {
 	        }
 		  
 		  try {
-			  String origImageName = images.getOriginalFilename();
+	            String origImageName = images.getOriginalFilename();
 	            int dot = origImageName.indexOf(".");
 	            String ext = origImageName.substring(dot);
 	            String imageName = new MD5Generator(origImageName).toString() + ext;
@@ -146,6 +146,7 @@ public class Expert_BoardController {
 	            Image image = imageDto.toEntity();
 	            Long id = imageService.saveFile(image);
 	            LOGGER.info("이미지 저장 완료");
+	            
 	            
 	            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	    		String username = ((UserDetails) principal).getUsername();
